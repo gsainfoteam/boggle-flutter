@@ -10,10 +10,10 @@ environment:
 
 dependencies:
   flutter:
-    sdk: flutter # flutter SDK 의존성만 포함
+    sdk: flutter
   english_words: ^4.0.0
   provider: ^6.0.0
-  flutter_svg: ^2.0.9 # flutter_svg 패키지
+  flutter_svg: ^2.0.9
   dio: ^5.8.0+1
   retrofit: ^4.4.2
   json_annotation: ^4.9.0
@@ -49,16 +49,5 @@ flutter:
   uses-material-design: true
   assets:
     - assets/icons/
+    - assets/fonts/
     - assets/images/
-  fonts:
-    - family: Pretendard
-      fonts:
-        - asset: assets/fonts/Pretendard-Bold.ttf
-        - asset: assets/fonts/Pretendard-ExtraBold.ttf
-        - asset: assets/fonts/Pretendard-ExtraLight.ttf
-        - asset: assets/fonts/Pretendard-Light.ttf
-        - asset: assets/fonts/Pretendard-Medium.ttf
-        - asset: assets/fonts/Pretendard-Regular.ttf
-        - asset: assets/fonts/Pretendard-SemiBold.ttf
-        - asset: assets/fonts/Pretendard-Thin.ttf
-        - asset: assets/fonts/Pretendard-Black.ttf
