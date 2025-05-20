@@ -1,4 +1,4 @@
-import 'package:auto_route/auto_route.dart';
+/*import 'package:auto_route/auto_route.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 
@@ -6,7 +6,7 @@ import 'package:flutter/material.dart';
 class MainPage extends StatefulWidget {
   const MainPage({
     super.key,
-    required this.
+    // required this.~~Model,
   });
 
   @override
@@ -62,7 +62,12 @@ class _MainPageState extends State<MainPage> {
         : response == null
         ? */ 
         ListView.builder(
-      itemCount: 10 // : ,
+      itemCount: 10 // : ~~Model.index,
+      itemBuilder: (context, index) {
+        return /*Post(...).images != null ? 
+        Post(...) */
+
+      }
         )
   }
-}
+}*/

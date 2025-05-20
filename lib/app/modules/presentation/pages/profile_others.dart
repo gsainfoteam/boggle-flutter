@@ -1,8 +1,8 @@
-/*import 'package:boggle_flutter/gen/assets.gen.dart';
+import 'package:boggle_flutter/gen/assets.gen.dart';
 import 'package:flutter/material.dart';
 import 'package:boggle_flutter/app/modules/presentation/widgets/boggle_app_bar.dart';
-import 'package:boggle_flutter/app/modules/presentation/widgets/navbar.dart';
-import 'package:boggle_flutter/app/modules/presentation/widgets/post.dart';
+import 'package:boggle_flutter/app/modules/presentation/widgets/boggle_nav.dart';
+import 'package:boggle_flutter/app/modules/presentation/widgets/notice_thumbnail.dart';
 import 'package:auto_route/annotations.dart';
 import 'package:auto_route/auto_route.dart';
 
@@ -18,7 +18,7 @@ class Profile_others_Page extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: const Color.fromARGB(255, 255, 255, 255),
-      appBar: const Header(),
+      appBar: const BoggleAppBar(),
       body: Column(
         children: [
           Container(
@@ -112,8 +112,7 @@ class Profile_others_Page extends StatelessWidget {
           ),
         ],
       ),
-      bottomNavigationBar: const Navbar(),
+      bottomNavigationBar: const BoggleAppBar(),
     );
   }
 }
-*/

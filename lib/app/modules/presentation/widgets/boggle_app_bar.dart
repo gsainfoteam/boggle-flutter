@@ -47,16 +47,16 @@ class BoggleAppBar extends StatelessWidget implements PreferredSizeWidget {
       color: backgroundColor,
       child: SafeArea(
           child: SizedBox(
-        height: 53,
+        height: 50,
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             const SizedBox(
-              width: 16,
+              width: 17,
             ),
             Assets.images.logo.svg(
               width: 121,
-              height: 40,
+              height: 50,
             ),
             const Spacer(),
             ...actions,

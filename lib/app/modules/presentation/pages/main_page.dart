@@ -23,8 +23,8 @@ class _MainPageState extends State<MainPage> {
     return AutoTabsRouter(
       routes: const [
         MainRoute(),
-        CategoryRoute(),
-        ChatRoute(),
+        //CategoryRoute(),
+        //ChatRoute(),
         Profile_others_Route(),
       ],
       builder: (context, child) {
