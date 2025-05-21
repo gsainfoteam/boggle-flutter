@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 
 /// @nodoc
 mixin _$PostListModel {
-  int get count;
+  int get total;
   List<PostModel> get list;
 
   /// Create a copy of PostListModel
@@ -34,18 +34,18 @@ mixin _$PostListModel {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is PostListModel &&
-            (identical(other.count, count) || other.count == count) &&
+            (identical(other.total, total) || other.total == total) &&
             const DeepCollectionEquality().equals(other.list, list));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
-      runtimeType, count, const DeepCollectionEquality().hash(list));
+      runtimeType, total, const DeepCollectionEquality().hash(list));
 
   @override
   String toString() {
-    return 'PostListModel(count: $count, list: $list)';
+    return 'PostListModel(total: $total, list: $list)';
   }
 }
 
@@ -55,7 +55,7 @@ abstract mixin class $PostListModelCopyWith<$Res> {
           PostListModel value, $Res Function(PostListModel) _then) =
       _$PostListModelCopyWithImpl;
   @useResult
-  $Res call({int count, List<PostModel> list});
+  $Res call({int total, List<PostModel> list});
 }
 
 /// @nodoc
@@ -71,13 +71,13 @@ class _$PostListModelCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? count = null,
+    Object? total = null,
     Object? list = null,
   }) {
     return _then(_self.copyWith(
-      count: null == count
-          ? _self.count
-          : count // ignore: cast_nullable_to_non_nullable
+      total: null == total
+          ? _self.total
+          : total // ignore: cast_nullable_to_non_nullable
               as int,
       list: null == list
           ? _self.list
@@ -91,13 +91,13 @@ class _$PostListModelCopyWithImpl<$Res>
 @JsonSerializable()
 class _PostListModel implements PostListModel {
   const _PostListModel(
-      {required this.count, required final List<PostModel> list})
+      {required this.total, required final List<PostModel> list})
       : _list = list;
   factory _PostListModel.fromJson(Map<String, dynamic> json) =>
       _$PostListModelFromJson(json);
 
   @override
-  final int count;
+  final int total;
   final List<PostModel> _list;
   @override
   List<PostModel> get list {
@@ -126,18 +126,18 @@ class _PostListModel implements PostListModel {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _PostListModel &&
-            (identical(other.count, count) || other.count == count) &&
+            (identical(other.total, total) || other.total == total) &&
             const DeepCollectionEquality().equals(other._list, _list));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
-      runtimeType, count, const DeepCollectionEquality().hash(_list));
+      runtimeType, total, const DeepCollectionEquality().hash(_list));
 
   @override
   String toString() {
-    return 'PostListModel(count: $count, list: $list)';
+    return 'PostListModel(total: $total, list: $list)';
   }
 }
 
@@ -149,7 +149,7 @@ abstract mixin class _$PostListModelCopyWith<$Res>
       __$PostListModelCopyWithImpl;
   @override
   @useResult
-  $Res call({int count, List<PostModel> list});
+  $Res call({int total, List<PostModel> list});
 }
 
 /// @nodoc
@@ -165,13 +165,13 @@ class __$PostListModelCopyWithImpl<$Res>
   @override
   @pragma('vm:prefer-inline')
   $Res call({
-    Object? count = null,
+    Object? total = null,
     Object? list = null,
   }) {
     return _then(_PostListModel(
-      count: null == count
-          ? _self.count
-          : count // ignore: cast_nullable_to_non_nullable
+      total: null == total
+          ? _self.total
+          : total // ignore: cast_nullable_to_non_nullable
               as int,
       list: null == list
           ? _self._list

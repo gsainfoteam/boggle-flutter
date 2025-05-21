@@ -7,7 +7,7 @@ part 'post_list_model.g.dart';
 @freezed
 abstract class PostListModel with _$PostListModel {
   const factory PostListModel({
-    required int count,
+    required int total,
     required List<PostModel> list,
   }) = _PostListModel;
 

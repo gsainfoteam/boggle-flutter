@@ -9,8 +9,8 @@ import 'dart:typed_data';
 
 //import 'package:infoteam_app/routes/app_router.gr.dart';
 
-class Post extends StatelessWidget {
-  const Post({
+class NoticeThumbnail extends StatelessWidget {
+  const NoticeThumbnail({
     super.key,
     required this.index,
     //required this.imageIndex,
@@ -31,53 +31,39 @@ class Post extends StatelessWidget {
     }*/
     return GestureDetector(
       onTap: () {
-        router.push(PostRoute(
+        /*router.push(PostRoute(
             postModel: postModel,
             index: index,
-            //imageIndex: postModel[index].images!.length - 1));
+            //imageIndex: postModel[index].images!.length - 1
+            ));*/ 
       },
-      child: Container(
-        height: 154.36,
-        width: 352.01,
-        decoration: BoxDecoration(
-          color: const Color.fromARGB(255, 222, 242, 255),
-          borderRadius: BorderRadius.circular(9.41),
-        ),
-        child: Padding(
-            padding: const EdgeInsets.only(
-              left: 9.41,
-              right: 9.41,
-              top: 13.65,
-              bottom: 13.65,
-            ),
-            child: Row(
-              children: [
-                Container(
-                    child: const Column(
-                  children: [
-                    Text("제목",
-                        style: TextStyle(
-                          fontSize: 18.82,
-                          fontFamily: 'Pretendard',
-                          fontWeight: FontWeight.w400,
-                        )),
-                  ],
-                )),
-                const SizedBox(width: 10),
-                Container(
-                  width: 99.86,
-                  height: 127.06,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(9.41),
-                    /*image: DecorationImage(
-                      image: Assets.images.dummy.image.image
-                      fit: BoxFit.cover,
-                    ),*/
-                    color: const Color.fromARGB(255, 23, 67, 144),
+      child: Padding(
+        padding: const EdgeInsets.only(left: 30,right: 30),
+        child: Container(
+          height: 95,
+          color:const Color.fromARGB(255, 255, 255, 255),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Expanded(
+                flex: 13,
+                child: Container(
+                  child: const Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+
                   ),
                 ),
-              ],
-            )),
+              ),
+              const Expanded(
+                flex: 2,
+                child: SizedBox()
+              ),
+              Expanded(
+                flex: 5,
+                child:
+              ),
+            ],)
+        ),
       ),
     );
   }
