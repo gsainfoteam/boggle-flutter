@@ -14,8 +14,9 @@ _PostModel _$PostModelFromJson(Map<String, dynamic> json) => _PostModel(
       tags: (json['tags'] as List<dynamic>).map((e) => e as String).toList(),
       author: json['author'] as String,
       authorId: json['authorId'] as String,
-      participants:
-          UserModel.fromJson(json['participants'] as Map<String, dynamic>),
+      participants: (json['participants'] as List<dynamic>)
+          .map((e) => UserModel.fromJson(e as Map<String, dynamic>))
+          .toList(),
       maxPaticipants: (json['maxPaticipants'] as num).toInt(),
       createdAt: DateTime.parse(json['createdAt'] as String),
       deadline: DateTime.parse(json['deadline'] as String),

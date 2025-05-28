@@ -22,7 +22,7 @@ mixin _$PostModel {
   List<String> get tags;
   String get author;
   String get authorId;
-  UserModel get participants;
+  List<UserModel> get participants;
   int get maxPaticipants;
   DateTime get createdAt;
   DateTime get deadline;
@@ -50,8 +50,8 @@ mixin _$PostModel {
             (identical(other.author, author) || other.author == author) &&
             (identical(other.authorId, authorId) ||
                 other.authorId == authorId) &&
-            (identical(other.participants, participants) ||
-                other.participants == participants) &&
+            const DeepCollectionEquality()
+                .equals(other.participants, participants) &&
             (identical(other.maxPaticipants, maxPaticipants) ||
                 other.maxPaticipants == maxPaticipants) &&
             (identical(other.createdAt, createdAt) ||
@@ -71,7 +71,7 @@ mixin _$PostModel {
       const DeepCollectionEquality().hash(tags),
       author,
       authorId,
-      participants,
+      const DeepCollectionEquality().hash(participants),
       maxPaticipants,
       createdAt,
       deadline);
@@ -95,12 +95,10 @@ abstract mixin class $PostModelCopyWith<$Res> {
       List<String> tags,
       String author,
       String authorId,
-      UserModel participants,
+      List<UserModel> participants,
       int maxPaticipants,
       DateTime createdAt,
       DateTime deadline});
-
-  $UserModelCopyWith<$Res> get participants;
 }
 
 /// @nodoc
@@ -159,7 +157,7 @@ class _$PostModelCopyWithImpl<$Res> implements $PostModelCopyWith<$Res> {
       participants: null == participants
           ? _self.participants
           : participants // ignore: cast_nullable_to_non_nullable
-              as UserModel,
+              as List<UserModel>,
       maxPaticipants: null == maxPaticipants
           ? _self.maxPaticipants
           : maxPaticipants // ignore: cast_nullable_to_non_nullable
@@ -174,16 +172,6 @@ class _$PostModelCopyWithImpl<$Res> implements $PostModelCopyWith<$Res> {
               as DateTime,
     ));
   }
-
-  /// Create a copy of PostModel
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $UserModelCopyWith<$Res> get participants {
-    return $UserModelCopyWith<$Res>(_self.participants, (value) {
-      return _then(_self.copyWith(participants: value));
-    });
-  }
 }
 
 /// @nodoc
@@ -197,11 +185,12 @@ class _PostModel implements PostModel {
       required final List<String> tags,
       required this.author,
       required this.authorId,
-      required this.participants,
+      required final List<UserModel> participants,
       required this.maxPaticipants,
       required this.createdAt,
       required this.deadline})
-      : _tags = tags;
+      : _tags = tags,
+        _participants = participants;
   factory _PostModel.fromJson(Map<String, dynamic> json) =>
       _$PostModelFromJson(json);
 
@@ -225,8 +214,14 @@ class _PostModel implements PostModel {
   final String author;
   @override
   final String authorId;
+  final List<UserModel> _participants;
   @override
-  final UserModel participants;
+  List<UserModel> get participants {
+    if (_participants is EqualUnmodifiableListView) return _participants;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_participants);
+  }
+
   @override
   final int maxPaticipants;
   @override
@@ -262,8 +257,8 @@ class _PostModel implements PostModel {
             (identical(other.author, author) || other.author == author) &&
             (identical(other.authorId, authorId) ||
                 other.authorId == authorId) &&
-            (identical(other.participants, participants) ||
-                other.participants == participants) &&
+            const DeepCollectionEquality()
+                .equals(other._participants, _participants) &&
             (identical(other.maxPaticipants, maxPaticipants) ||
                 other.maxPaticipants == maxPaticipants) &&
             (identical(other.createdAt, createdAt) ||
@@ -283,7 +278,7 @@ class _PostModel implements PostModel {
       const DeepCollectionEquality().hash(_tags),
       author,
       authorId,
-      participants,
+      const DeepCollectionEquality().hash(_participants),
       maxPaticipants,
       createdAt,
       deadline);
@@ -310,13 +305,10 @@ abstract mixin class _$PostModelCopyWith<$Res>
       List<String> tags,
       String author,
       String authorId,
-      UserModel participants,
+      List<UserModel> participants,
       int maxPaticipants,
       DateTime createdAt,
       DateTime deadline});
-
-  @override
-  $UserModelCopyWith<$Res> get participants;
 }
 
 /// @nodoc
@@ -373,9 +365,9 @@ class __$PostModelCopyWithImpl<$Res> implements _$PostModelCopyWith<$Res> {
           : authorId // ignore: cast_nullable_to_non_nullable
               as String,
       participants: null == participants
-          ? _self.participants
+          ? _self._participants
           : participants // ignore: cast_nullable_to_non_nullable
-              as UserModel,
+              as List<UserModel>,
       maxPaticipants: null == maxPaticipants
           ? _self.maxPaticipants
           : maxPaticipants // ignore: cast_nullable_to_non_nullable
@@ -389,16 +381,6 @@ class __$PostModelCopyWithImpl<$Res> implements _$PostModelCopyWith<$Res> {
           : deadline // ignore: cast_nullable_to_non_nullable
               as DateTime,
     ));
-  }
-
-  /// Create a copy of PostModel
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $UserModelCopyWith<$Res> get participants {
-    return $UserModelCopyWith<$Res>(_self.participants, (value) {
-      return _then(_self.copyWith(participants: value));
-    });
   }
 }
 

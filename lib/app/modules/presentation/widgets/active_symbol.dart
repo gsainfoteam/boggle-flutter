@@ -7,7 +7,6 @@ class ActiveSymbol extends StatelessWidget {
   ActiveSymbol({super.key, required this.index, required this.postModel});
 
   final int index;
-  //final int imageIndex;
   final List<PostModel> postModel;
   DateTime today = DateTime.now();
   @override

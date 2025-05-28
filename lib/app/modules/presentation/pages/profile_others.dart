@@ -1,3 +1,5 @@
+import 'package:boggle_flutter/app/modules/data/model/post_model.dart';
+import 'package:boggle_flutter/app/modules/data/model/user_model.dart';
 import 'package:boggle_flutter/gen/assets.gen.dart';
 import 'package:flutter/material.dart';
 import 'package:boggle_flutter/app/modules/presentation/widgets/boggle_app_bar.dart';
@@ -10,10 +12,14 @@ import 'package:auto_route/auto_route.dart';
 class Profile_others_Page extends StatelessWidget {
   const Profile_others_Page({
     super.key,
-    // required this.index,
+    required this.index,
+    required this.postModel,
+    required this.userModel,
   });
 
-  // final int index;
+  final int index;
+  final List<PostModel> postModel;
+  final UserModel userModel;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -102,7 +108,6 @@ class Profile_others_Page extends StatelessWidget {
             itemBuilder: (context, index) {
               return const Column(
                 children: [
-                  Post(),
                   SizedBox(
                     height: 10,
                   ),

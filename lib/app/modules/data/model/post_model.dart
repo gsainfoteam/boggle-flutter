@@ -15,7 +15,7 @@ abstract class PostModel with _$PostModel {
     required List<String> tags,
     required String author,
     required String authorId,
-    required UserModel participants,
+    required List<UserModel> participants,
     required int maxPaticipants,
     required DateTime createdAt,
     required DateTime deadline,

@@ -5,18 +5,18 @@ import 'package:dio/dio.dart';
 part 'user_api.g.dart';
 
 @RestApi(baseUrl: 'user')
-abstract class PostApi {
-  factory PostApi(Dio dio, {String? baseUrl}) = _UserApi;
+abstract class UserApi {
+  factory UserApi(Dio dio, {String? baseUrl}) = _UserApi;
 
   @GET('')
-  Future<UserModel> getPosts();
+  Future<UserModel> getUsers();
 
   @POST('')
-  Future<UserModel> postPosts();
+  Future<UserModel> postUsers();
 
   @PUT('')
-  Future<UserModel> putPosts();
+  Future<UserModel> putUsers();
 
   @DELETE('')
-  Future<UserModel> deletePosts();
+  Future<UserModel> deleteUsers();
 }

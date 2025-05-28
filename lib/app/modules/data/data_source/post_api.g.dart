@@ -10,7 +10,7 @@ part of 'post_api.dart';
 
 class _PostApi implements PostApi {
   _PostApi(this._dio, {this.baseUrl, this.errorLogger}) {
-    baseUrl ??= 'post';
+    baseUrl ??= 'post?type=ALL&skip=1&take=10';
   }
 
   final Dio _dio;

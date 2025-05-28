@@ -228,6 +228,9 @@ class $AssetsIconsGen {
   /// File path: assets/icons/user_circle_on.svg
   SvgGenImage get userCircleOn => const SvgGenImage('assets/icons/user_circle_on.svg');
 
+  /// File path: assets/icons/user_line.svg
+  SvgGenImage get userLine => const SvgGenImage('assets/icons/user_line.svg');
+
   /// File path: assets/icons/view_grid_off.svg
   SvgGenImage get viewGridOff => const SvgGenImage('assets/icons/view_grid_off.svg');
 
@@ -309,6 +312,7 @@ class $AssetsIconsGen {
     underline,
     userCircleOff,
     userCircleOn,
+    userLine,
     viewGridOff,
     viewGridOn,
     warningTriangleOff,
