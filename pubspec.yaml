@@ -18,12 +18,14 @@ dependencies:
   retrofit: ^4.4.2
   json_annotation: ^4.9.0
   http: ^1.3.0
-  freezed_annotation: ^3.0.0
+  freezed_annotation: ^2.4.4
   flutter_bloc: ^9.1.0
-  auto_route: ^10.0.1
+  auto_route: ^9.2.2
   intl: ^0.20.2
   bloc: ^9.0.0
   lottie: ^3.3.1
+  hive_flutter: ^1.1.0
+  hive: ^2.2.3
 
 dev_dependencies:
   flutter_test:
@@ -32,9 +34,10 @@ dev_dependencies:
   flutter_gen_runner: ^5.10.0
   flutter_lints: ^2.0.0
   retrofit_generator: ^9.1.9
-  json_serializable: ^6.9.4
-  freezed: ^3.0.4
-  auto_route_generator: ^10.0.1
+  json_serializable: ^6.8.0
+  freezed: ^2.5.7
+  auto_route_generator: ^9.0.0
+  hive_generator: ^2.0.1
 
 flutter_gen:
   output: lib/gen/

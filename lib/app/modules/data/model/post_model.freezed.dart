@@ -1,4 +1,3 @@
-// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -10,82 +9,43 @@ part of 'post_model.dart';
 // FreezedGenerator
 // **************************************************************************
 
-// dart format off
 T _$identity<T>(T value) => value;
+
+final _privateConstructorUsedError = UnsupportedError(
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
+
+PostModel _$PostModelFromJson(Map<String, dynamic> json) {
+  return _PostModel.fromJson(json);
+}
 
 /// @nodoc
 mixin _$PostModel {
-  String get uuid;
-  String get title;
-  String get content;
-  String get type;
-  List<String> get tags;
-  String get author;
-  String get authorId;
-  List<UserModel> get participants;
-  int get maxPaticipants;
-  DateTime get createdAt;
-  DateTime get deadline;
+  String get uuid => throw _privateConstructorUsedError;
+  String get title => throw _privateConstructorUsedError;
+  String get content => throw _privateConstructorUsedError;
+  String get type => throw _privateConstructorUsedError;
+  List<String> get tags => throw _privateConstructorUsedError;
+  String get author => throw _privateConstructorUsedError;
+  String get authorId => throw _privateConstructorUsedError;
+  List<UserModel> get participants => throw _privateConstructorUsedError;
+  int get maxPaticipants => throw _privateConstructorUsedError;
+  DateTime get createdAt => throw _privateConstructorUsedError;
+  DateTime get deadline => throw _privateConstructorUsedError;
+
+  /// Serializes this PostModel to a JSON map.
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
 
   /// Create a copy of PostModel
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  @pragma('vm:prefer-inline')
   $PostModelCopyWith<PostModel> get copyWith =>
-      _$PostModelCopyWithImpl<PostModel>(this as PostModel, _$identity);
-
-  /// Serializes this PostModel to a JSON map.
-  Map<String, dynamic> toJson();
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is PostModel &&
-            (identical(other.uuid, uuid) || other.uuid == uuid) &&
-            (identical(other.title, title) || other.title == title) &&
-            (identical(other.content, content) || other.content == content) &&
-            (identical(other.type, type) || other.type == type) &&
-            const DeepCollectionEquality().equals(other.tags, tags) &&
-            (identical(other.author, author) || other.author == author) &&
-            (identical(other.authorId, authorId) ||
-                other.authorId == authorId) &&
-            const DeepCollectionEquality()
-                .equals(other.participants, participants) &&
-            (identical(other.maxPaticipants, maxPaticipants) ||
-                other.maxPaticipants == maxPaticipants) &&
-            (identical(other.createdAt, createdAt) ||
-                other.createdAt == createdAt) &&
-            (identical(other.deadline, deadline) ||
-                other.deadline == deadline));
-  }
-
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      uuid,
-      title,
-      content,
-      type,
-      const DeepCollectionEquality().hash(tags),
-      author,
-      authorId,
-      const DeepCollectionEquality().hash(participants),
-      maxPaticipants,
-      createdAt,
-      deadline);
-
-  @override
-  String toString() {
-    return 'PostModel(uuid: $uuid, title: $title, content: $content, type: $type, tags: $tags, author: $author, authorId: $authorId, participants: $participants, maxPaticipants: $maxPaticipants, createdAt: $createdAt, deadline: $deadline)';
-  }
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract mixin class $PostModelCopyWith<$Res> {
-  factory $PostModelCopyWith(PostModel value, $Res Function(PostModel) _then) =
-      _$PostModelCopyWithImpl;
+abstract class $PostModelCopyWith<$Res> {
+  factory $PostModelCopyWith(PostModel value, $Res Function(PostModel) then) =
+      _$PostModelCopyWithImpl<$Res, PostModel>;
   @useResult
   $Res call(
       {String uuid,
@@ -102,11 +62,14 @@ abstract mixin class $PostModelCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$PostModelCopyWithImpl<$Res> implements $PostModelCopyWith<$Res> {
-  _$PostModelCopyWithImpl(this._self, this._then);
+class _$PostModelCopyWithImpl<$Res, $Val extends PostModel>
+    implements $PostModelCopyWith<$Res> {
+  _$PostModelCopyWithImpl(this._value, this._then);
 
-  final PostModel _self;
-  final $Res Function(PostModel) _then;
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
   /// Create a copy of PostModel
   /// with the given fields replaced by the non-null parameter values.
@@ -125,49 +88,145 @@ class _$PostModelCopyWithImpl<$Res> implements $PostModelCopyWith<$Res> {
     Object? createdAt = null,
     Object? deadline = null,
   }) {
-    return _then(_self.copyWith(
+    return _then(_value.copyWith(
       uuid: null == uuid
-          ? _self.uuid
+          ? _value.uuid
           : uuid // ignore: cast_nullable_to_non_nullable
               as String,
       title: null == title
-          ? _self.title
+          ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
               as String,
       content: null == content
-          ? _self.content
+          ? _value.content
           : content // ignore: cast_nullable_to_non_nullable
               as String,
       type: null == type
-          ? _self.type
+          ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
               as String,
       tags: null == tags
-          ? _self.tags
+          ? _value.tags
           : tags // ignore: cast_nullable_to_non_nullable
               as List<String>,
       author: null == author
-          ? _self.author
+          ? _value.author
           : author // ignore: cast_nullable_to_non_nullable
               as String,
       authorId: null == authorId
-          ? _self.authorId
+          ? _value.authorId
           : authorId // ignore: cast_nullable_to_non_nullable
               as String,
       participants: null == participants
-          ? _self.participants
+          ? _value.participants
           : participants // ignore: cast_nullable_to_non_nullable
               as List<UserModel>,
       maxPaticipants: null == maxPaticipants
-          ? _self.maxPaticipants
+          ? _value.maxPaticipants
           : maxPaticipants // ignore: cast_nullable_to_non_nullable
               as int,
       createdAt: null == createdAt
-          ? _self.createdAt
+          ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
               as DateTime,
       deadline: null == deadline
-          ? _self.deadline
+          ? _value.deadline
+          : deadline // ignore: cast_nullable_to_non_nullable
+              as DateTime,
+    ) as $Val);
+  }
+}
+
+/// @nodoc
+abstract class _$$PostModelImplCopyWith<$Res>
+    implements $PostModelCopyWith<$Res> {
+  factory _$$PostModelImplCopyWith(
+          _$PostModelImpl value, $Res Function(_$PostModelImpl) then) =
+      __$$PostModelImplCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call(
+      {String uuid,
+      String title,
+      String content,
+      String type,
+      List<String> tags,
+      String author,
+      String authorId,
+      List<UserModel> participants,
+      int maxPaticipants,
+      DateTime createdAt,
+      DateTime deadline});
+}
+
+/// @nodoc
+class __$$PostModelImplCopyWithImpl<$Res>
+    extends _$PostModelCopyWithImpl<$Res, _$PostModelImpl>
+    implements _$$PostModelImplCopyWith<$Res> {
+  __$$PostModelImplCopyWithImpl(
+      _$PostModelImpl _value, $Res Function(_$PostModelImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of PostModel
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? uuid = null,
+    Object? title = null,
+    Object? content = null,
+    Object? type = null,
+    Object? tags = null,
+    Object? author = null,
+    Object? authorId = null,
+    Object? participants = null,
+    Object? maxPaticipants = null,
+    Object? createdAt = null,
+    Object? deadline = null,
+  }) {
+    return _then(_$PostModelImpl(
+      uuid: null == uuid
+          ? _value.uuid
+          : uuid // ignore: cast_nullable_to_non_nullable
+              as String,
+      title: null == title
+          ? _value.title
+          : title // ignore: cast_nullable_to_non_nullable
+              as String,
+      content: null == content
+          ? _value.content
+          : content // ignore: cast_nullable_to_non_nullable
+              as String,
+      type: null == type
+          ? _value.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as String,
+      tags: null == tags
+          ? _value._tags
+          : tags // ignore: cast_nullable_to_non_nullable
+              as List<String>,
+      author: null == author
+          ? _value.author
+          : author // ignore: cast_nullable_to_non_nullable
+              as String,
+      authorId: null == authorId
+          ? _value.authorId
+          : authorId // ignore: cast_nullable_to_non_nullable
+              as String,
+      participants: null == participants
+          ? _value._participants
+          : participants // ignore: cast_nullable_to_non_nullable
+              as List<UserModel>,
+      maxPaticipants: null == maxPaticipants
+          ? _value.maxPaticipants
+          : maxPaticipants // ignore: cast_nullable_to_non_nullable
+              as int,
+      createdAt: null == createdAt
+          ? _value.createdAt
+          : createdAt // ignore: cast_nullable_to_non_nullable
+              as DateTime,
+      deadline: null == deadline
+          ? _value.deadline
           : deadline // ignore: cast_nullable_to_non_nullable
               as DateTime,
     ));
@@ -176,8 +235,8 @@ class _$PostModelCopyWithImpl<$Res> implements $PostModelCopyWith<$Res> {
 
 /// @nodoc
 @JsonSerializable()
-class _PostModel implements PostModel {
-  const _PostModel(
+class _$PostModelImpl implements _PostModel {
+  const _$PostModelImpl(
       {required this.uuid,
       required this.title,
       required this.content,
@@ -191,8 +250,9 @@ class _PostModel implements PostModel {
       required this.deadline})
       : _tags = tags,
         _participants = participants;
-  factory _PostModel.fromJson(Map<String, dynamic> json) =>
-      _$PostModelFromJson(json);
+
+  factory _$PostModelImpl.fromJson(Map<String, dynamic> json) =>
+      _$$PostModelImplFromJson(json);
 
   @override
   final String uuid;
@@ -229,26 +289,16 @@ class _PostModel implements PostModel {
   @override
   final DateTime deadline;
 
-  /// Create a copy of PostModel
-  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @pragma('vm:prefer-inline')
-  _$PostModelCopyWith<_PostModel> get copyWith =>
-      __$PostModelCopyWithImpl<_PostModel>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$PostModelToJson(
-      this,
-    );
+  String toString() {
+    return 'PostModel(uuid: $uuid, title: $title, content: $content, type: $type, tags: $tags, author: $author, authorId: $authorId, participants: $participants, maxPaticipants: $maxPaticipants, createdAt: $createdAt, deadline: $deadline)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _PostModel &&
+            other is _$PostModelImpl &&
             (identical(other.uuid, uuid) || other.uuid == uuid) &&
             (identical(other.title, title) || other.title == title) &&
             (identical(other.content, content) || other.content == content) &&
@@ -283,105 +333,66 @@ class _PostModel implements PostModel {
       createdAt,
       deadline);
 
+  /// Create a copy of PostModel
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  String toString() {
-    return 'PostModel(uuid: $uuid, title: $title, content: $content, type: $type, tags: $tags, author: $author, authorId: $authorId, participants: $participants, maxPaticipants: $maxPaticipants, createdAt: $createdAt, deadline: $deadline)';
+  @pragma('vm:prefer-inline')
+  _$$PostModelImplCopyWith<_$PostModelImpl> get copyWith =>
+      __$$PostModelImplCopyWithImpl<_$PostModelImpl>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$PostModelImplToJson(
+      this,
+    );
   }
 }
 
-/// @nodoc
-abstract mixin class _$PostModelCopyWith<$Res>
-    implements $PostModelCopyWith<$Res> {
-  factory _$PostModelCopyWith(
-          _PostModel value, $Res Function(_PostModel) _then) =
-      __$PostModelCopyWithImpl;
+abstract class _PostModel implements PostModel {
+  const factory _PostModel(
+      {required final String uuid,
+      required final String title,
+      required final String content,
+      required final String type,
+      required final List<String> tags,
+      required final String author,
+      required final String authorId,
+      required final List<UserModel> participants,
+      required final int maxPaticipants,
+      required final DateTime createdAt,
+      required final DateTime deadline}) = _$PostModelImpl;
+
+  factory _PostModel.fromJson(Map<String, dynamic> json) =
+      _$PostModelImpl.fromJson;
+
   @override
-  @useResult
-  $Res call(
-      {String uuid,
-      String title,
-      String content,
-      String type,
-      List<String> tags,
-      String author,
-      String authorId,
-      List<UserModel> participants,
-      int maxPaticipants,
-      DateTime createdAt,
-      DateTime deadline});
-}
-
-/// @nodoc
-class __$PostModelCopyWithImpl<$Res> implements _$PostModelCopyWith<$Res> {
-  __$PostModelCopyWithImpl(this._self, this._then);
-
-  final _PostModel _self;
-  final $Res Function(_PostModel) _then;
+  String get uuid;
+  @override
+  String get title;
+  @override
+  String get content;
+  @override
+  String get type;
+  @override
+  List<String> get tags;
+  @override
+  String get author;
+  @override
+  String get authorId;
+  @override
+  List<UserModel> get participants;
+  @override
+  int get maxPaticipants;
+  @override
+  DateTime get createdAt;
+  @override
+  DateTime get deadline;
 
   /// Create a copy of PostModel
   /// with the given fields replaced by the non-null parameter values.
   @override
-  @pragma('vm:prefer-inline')
-  $Res call({
-    Object? uuid = null,
-    Object? title = null,
-    Object? content = null,
-    Object? type = null,
-    Object? tags = null,
-    Object? author = null,
-    Object? authorId = null,
-    Object? participants = null,
-    Object? maxPaticipants = null,
-    Object? createdAt = null,
-    Object? deadline = null,
-  }) {
-    return _then(_PostModel(
-      uuid: null == uuid
-          ? _self.uuid
-          : uuid // ignore: cast_nullable_to_non_nullable
-              as String,
-      title: null == title
-          ? _self.title
-          : title // ignore: cast_nullable_to_non_nullable
-              as String,
-      content: null == content
-          ? _self.content
-          : content // ignore: cast_nullable_to_non_nullable
-              as String,
-      type: null == type
-          ? _self.type
-          : type // ignore: cast_nullable_to_non_nullable
-              as String,
-      tags: null == tags
-          ? _self._tags
-          : tags // ignore: cast_nullable_to_non_nullable
-              as List<String>,
-      author: null == author
-          ? _self.author
-          : author // ignore: cast_nullable_to_non_nullable
-              as String,
-      authorId: null == authorId
-          ? _self.authorId
-          : authorId // ignore: cast_nullable_to_non_nullable
-              as String,
-      participants: null == participants
-          ? _self._participants
-          : participants // ignore: cast_nullable_to_non_nullable
-              as List<UserModel>,
-      maxPaticipants: null == maxPaticipants
-          ? _self.maxPaticipants
-          : maxPaticipants // ignore: cast_nullable_to_non_nullable
-              as int,
-      createdAt: null == createdAt
-          ? _self.createdAt
-          : createdAt // ignore: cast_nullable_to_non_nullable
-              as DateTime,
-      deadline: null == deadline
-          ? _self.deadline
-          : deadline // ignore: cast_nullable_to_non_nullable
-              as DateTime,
-    ));
-  }
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$PostModelImplCopyWith<_$PostModelImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }
-
-// dart format on

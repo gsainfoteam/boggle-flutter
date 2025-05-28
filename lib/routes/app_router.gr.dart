@@ -1,4 +1,3 @@
-// dart format width=80
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
 // **************************************************************************
@@ -31,10 +30,14 @@ class HomeRoute extends _i5.PageRouteInfo<HomeRouteArgs> {
     required int index,
     List<_i5.PageRouteInfo>? children,
   }) : super(
-         HomeRoute.name,
-         args: HomeRouteArgs(key: key, postModel: postModel, index: index),
-         initialChildren: children,
-       );
+          HomeRoute.name,
+          args: HomeRouteArgs(
+            key: key,
+            postModel: postModel,
+            index: index,
+          ),
+          initialChildren: children,
+        );
 
   static const String name = 'HomeRoute';
 
@@ -52,7 +55,11 @@ class HomeRoute extends _i5.PageRouteInfo<HomeRouteArgs> {
 }
 
 class HomeRouteArgs {
-  const HomeRouteArgs({this.key, required this.postModel, required this.index});
+  const HomeRouteArgs({
+    this.key,
+    required this.postModel,
+    required this.index,
+  });
 
   final _i6.Key? key;
 
@@ -70,7 +77,10 @@ class HomeRouteArgs {
 /// [_i2.MainPage]
 class MainRoute extends _i5.PageRouteInfo<void> {
   const MainRoute({List<_i5.PageRouteInfo>? children})
-    : super(MainRoute.name, initialChildren: children);
+      : super(
+          MainRoute.name,
+          initialChildren: children,
+        );
 
   static const String name = 'MainRoute';
 
@@ -91,10 +101,14 @@ class PostRoute extends _i5.PageRouteInfo<PostRouteArgs> {
     required int index,
     List<_i5.PageRouteInfo>? children,
   }) : super(
-         PostRoute.name,
-         args: PostRouteArgs(key: key, postModel: postModel, index: index),
-         initialChildren: children,
-       );
+          PostRoute.name,
+          args: PostRouteArgs(
+            key: key,
+            postModel: postModel,
+            index: index,
+          ),
+          initialChildren: children,
+        );
 
   static const String name = 'PostRoute';
 
@@ -112,7 +126,11 @@ class PostRoute extends _i5.PageRouteInfo<PostRouteArgs> {
 }
 
 class PostRouteArgs {
-  const PostRouteArgs({this.key, required this.postModel, required this.index});
+  const PostRouteArgs({
+    this.key,
+    required this.postModel,
+    required this.index,
+  });
 
   final _i6.Key? key;
 
@@ -136,15 +154,15 @@ class Profile_others_Route extends _i5.PageRouteInfo<Profile_others_RouteArgs> {
     required _i8.UserModel userModel,
     List<_i5.PageRouteInfo>? children,
   }) : super(
-         Profile_others_Route.name,
-         args: Profile_others_RouteArgs(
-           key: key,
-           index: index,
-           postModel: postModel,
-           userModel: userModel,
-         ),
-         initialChildren: children,
-       );
+          Profile_others_Route.name,
+          args: Profile_others_RouteArgs(
+            key: key,
+            index: index,
+            postModel: postModel,
+            userModel: userModel,
+          ),
+          initialChildren: children,
+        );
 
   static const String name = 'Profile_others_Route';
 
