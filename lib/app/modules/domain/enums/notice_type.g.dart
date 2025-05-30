@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'enums/notice_type.dart';
+part of 'notice_type.dart';
 
 // **************************************************************************
 // TypeAdapterGenerator

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:json_annotation/json_annotation.dart';
-import 'package:boggle_flutter/app/modules/domain/notice_type.dart';
+import 'package:boggle_flutter/app/modules/domain/enums/notice_type.dart';
 
 @JsonEnum(fieldRename: FieldRename.screamingSnake)
 enum NoticeCategory {

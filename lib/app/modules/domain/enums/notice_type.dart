@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:boggle_flutter/gen/assets.gen.dart';
 
-part 'notice_type.g.dart';
+part '../notice_type.g.dart';
 
 @HiveType(typeId: 1)
 enum NoticeType {
