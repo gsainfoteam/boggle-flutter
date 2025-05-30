@@ -1,4 +1,3 @@
-
 import 'package:boggle_flutter/app/modules/data/model/create_post_model.dart';
 import 'package:boggle_flutter/app/modules/data/model/get_posts_query_model.dart';
 import 'package:boggle_flutter/app/modules/data/model/post_list_model.dart';
@@ -25,15 +24,6 @@ abstract class PostApi {
     @Path('uuid') String uuid,
   );
 
-  @PATCH('{id}')
-  Future<PostModel> modifyPost(
-    @Path('uuid') String uuid,
-    @Body() ModifyPostModel model,
-  )
-
-  @PUT('')
-  Future<PostListModel> putPosts();
-
-  @DELETE('')
-  Future<PostListModel> deletePosts();
+  @DELETE('{id}')
+  Future<PostListModel> deletePosts(@Path('uuid') String uuid);
 }
