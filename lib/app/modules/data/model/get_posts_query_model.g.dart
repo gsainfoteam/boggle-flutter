@@ -1,14 +1,14 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'get_notices_query_model.dart';
+part of 'get_posts_query_model.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$GetNoticesQueryModelImpl _$$GetNoticesQueryModelImplFromJson(
+_$GetPostsQueryModelImpl _$$GetPostsQueryModelImplFromJson(
         Map<String, dynamic> json) =>
-    _$GetNoticesQueryModelImpl(
+    _$GetPostsQueryModelImpl(
       offset: (json['offset'] as num?)?.toInt(),
       limit: (json['limit'] as num?)?.toInt(),
       search: json['search'] as String?,
@@ -18,8 +18,8 @@ _$GetNoticesQueryModelImpl _$$GetNoticesQueryModelImplFromJson(
       groupId: json['group-id'] as String?,
     );
 
-Map<String, dynamic> _$$GetNoticesQueryModelImplToJson(
-        _$GetNoticesQueryModelImpl instance) =>
+Map<String, dynamic> _$$GetPostsQueryModelImplToJson(
+        _$GetPostsQueryModelImpl instance) =>
     <String, dynamic>{
       if (instance.offset case final value?) 'offset': value,
       if (instance.limit case final value?) 'limit': value,

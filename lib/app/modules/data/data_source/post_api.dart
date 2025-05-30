@@ -1,4 +1,8 @@
+
+import 'package:boggle_flutter/app/modules/data/model/create_post_model.dart';
+import 'package:boggle_flutter/app/modules/data/model/get_posts_query_model.dart';
 import 'package:boggle_flutter/app/modules/data/model/post_list_model.dart';
+import 'package:boggle_flutter/app/modules/data/model/post_model.dart';
 import 'package:retrofit/retrofit.dart';
 import 'package:dio/dio.dart';
 
@@ -9,10 +13,23 @@ abstract class PostApi {
   factory PostApi(Dio dio, {String? baseUrl}) = _PostApi;
 
   @GET('')
-  Future<PostListModel> getPosts();
+  Future<PostListModel> getPosts(@Queries() GetPostsQueryModel query);
 
   @POST('')
-  Future<PostListModel> postPosts();
+  Future<PostModel> postPosts(
+    @Body() CreatePostModel model,
+  );
+
+  @GET('{id}')
+  Future<PostModel> getPost(
+    @Path('uuid') String uuid,
+  );
+
+  @PATCH('{id}')
+  Future<PostModel> modifyPost(
+    @Path('uuid') String uuid,
+    @Body() ModifyPostModel model,
+  )
 
   @PUT('')
   Future<PostListModel> putPosts();

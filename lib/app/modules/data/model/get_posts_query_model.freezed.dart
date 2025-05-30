@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
-part of 'get_notices_query_model.dart';
+part of 'get_posts_query_model.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -15,7 +15,7 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
-mixin _$GetNoticesQueryModel {
+mixin _$GetPostsQueryModel {
   int? get offset =>
       throw _privateConstructorUsedError; // offset : 몇 번째 공지부터 가져올지 지정하는 인덱스 ex. 0은 첫 공지, 10은 11번째 공지부터 조회
   int? get limit =>
@@ -30,21 +30,21 @@ mixin _$GetNoticesQueryModel {
   @JsonKey(name: 'group-id')
   String? get groupId => throw _privateConstructorUsedError;
 
-  /// Serializes this GetNoticesQueryModel to a JSON map.
+  /// Serializes this GetPostsQueryModel to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
 
-  /// Create a copy of GetNoticesQueryModel
+  /// Create a copy of GetPostsQueryModel
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  $GetNoticesQueryModelCopyWith<GetNoticesQueryModel> get copyWith =>
+  $GetPostsQueryModelCopyWith<GetPostsQueryModel> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $GetNoticesQueryModelCopyWith<$Res> {
-  factory $GetNoticesQueryModelCopyWith(GetNoticesQueryModel value,
-          $Res Function(GetNoticesQueryModel) then) =
-      _$GetNoticesQueryModelCopyWithImpl<$Res, GetNoticesQueryModel>;
+abstract class $GetPostsQueryModelCopyWith<$Res> {
+  factory $GetPostsQueryModelCopyWith(
+          GetPostsQueryModel value, $Res Function(GetPostsQueryModel) then) =
+      _$GetPostsQueryModelCopyWithImpl<$Res, GetPostsQueryModel>;
   @useResult
   $Res call(
       {int? offset,
@@ -57,17 +57,16 @@ abstract class $GetNoticesQueryModelCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$GetNoticesQueryModelCopyWithImpl<$Res,
-        $Val extends GetNoticesQueryModel>
-    implements $GetNoticesQueryModelCopyWith<$Res> {
-  _$GetNoticesQueryModelCopyWithImpl(this._value, this._then);
+class _$GetPostsQueryModelCopyWithImpl<$Res, $Val extends GetPostsQueryModel>
+    implements $GetPostsQueryModelCopyWith<$Res> {
+  _$GetPostsQueryModelCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
 
-  /// Create a copy of GetNoticesQueryModel
+  /// Create a copy of GetPostsQueryModel
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
@@ -114,11 +113,11 @@ class _$GetNoticesQueryModelCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$GetNoticesQueryModelImplCopyWith<$Res>
-    implements $GetNoticesQueryModelCopyWith<$Res> {
-  factory _$$GetNoticesQueryModelImplCopyWith(_$GetNoticesQueryModelImpl value,
-          $Res Function(_$GetNoticesQueryModelImpl) then) =
-      __$$GetNoticesQueryModelImplCopyWithImpl<$Res>;
+abstract class _$$GetPostsQueryModelImplCopyWith<$Res>
+    implements $GetPostsQueryModelCopyWith<$Res> {
+  factory _$$GetPostsQueryModelImplCopyWith(_$GetPostsQueryModelImpl value,
+          $Res Function(_$GetPostsQueryModelImpl) then) =
+      __$$GetPostsQueryModelImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -132,14 +131,14 @@ abstract class _$$GetNoticesQueryModelImplCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$GetNoticesQueryModelImplCopyWithImpl<$Res>
-    extends _$GetNoticesQueryModelCopyWithImpl<$Res, _$GetNoticesQueryModelImpl>
-    implements _$$GetNoticesQueryModelImplCopyWith<$Res> {
-  __$$GetNoticesQueryModelImplCopyWithImpl(_$GetNoticesQueryModelImpl _value,
-      $Res Function(_$GetNoticesQueryModelImpl) _then)
+class __$$GetPostsQueryModelImplCopyWithImpl<$Res>
+    extends _$GetPostsQueryModelCopyWithImpl<$Res, _$GetPostsQueryModelImpl>
+    implements _$$GetPostsQueryModelImplCopyWith<$Res> {
+  __$$GetPostsQueryModelImplCopyWithImpl(_$GetPostsQueryModelImpl _value,
+      $Res Function(_$GetPostsQueryModelImpl) _then)
       : super(_value, _then);
 
-  /// Create a copy of GetNoticesQueryModel
+  /// Create a copy of GetPostsQueryModel
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
@@ -152,7 +151,7 @@ class __$$GetNoticesQueryModelImplCopyWithImpl<$Res>
     Object? category = freezed,
     Object? groupId = freezed,
   }) {
-    return _then(_$GetNoticesQueryModelImpl(
+    return _then(_$GetPostsQueryModelImpl(
       offset: freezed == offset
           ? _value.offset
           : offset // ignore: cast_nullable_to_non_nullable
@@ -188,8 +187,8 @@ class __$$GetNoticesQueryModelImplCopyWithImpl<$Res>
 /// @nodoc
 
 @JsonSerializable(includeIfNull: false)
-class _$GetNoticesQueryModelImpl implements _GetNoticesQueryModel {
-  const _$GetNoticesQueryModelImpl(
+class _$GetPostsQueryModelImpl implements _GetPostsQueryModel {
+  const _$GetPostsQueryModelImpl(
       {this.offset,
       this.limit,
       this.search,
@@ -231,14 +230,14 @@ class _$GetNoticesQueryModelImpl implements _GetNoticesQueryModel {
 
   @override
   String toString() {
-    return 'GetNoticesQueryModel(offset: $offset, limit: $limit, search: $search, tags: $tags, my: $my, category: $category, groupId: $groupId)';
+    return 'GetPostsQueryModel(offset: $offset, limit: $limit, search: $search, tags: $tags, my: $my, category: $category, groupId: $groupId)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$GetNoticesQueryModelImpl &&
+            other is _$GetPostsQueryModelImpl &&
             (identical(other.offset, offset) || other.offset == offset) &&
             (identical(other.limit, limit) || other.limit == limit) &&
             (identical(other.search, search) || other.search == search) &&
@@ -254,26 +253,25 @@ class _$GetNoticesQueryModelImpl implements _GetNoticesQueryModel {
   int get hashCode => Object.hash(runtimeType, offset, limit, search,
       const DeepCollectionEquality().hash(_tags), my, category, groupId);
 
-  /// Create a copy of GetNoticesQueryModel
+  /// Create a copy of GetPostsQueryModel
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$GetNoticesQueryModelImplCopyWith<_$GetNoticesQueryModelImpl>
-      get copyWith =>
-          __$$GetNoticesQueryModelImplCopyWithImpl<_$GetNoticesQueryModelImpl>(
-              this, _$identity);
+  _$$GetPostsQueryModelImplCopyWith<_$GetPostsQueryModelImpl> get copyWith =>
+      __$$GetPostsQueryModelImplCopyWithImpl<_$GetPostsQueryModelImpl>(
+          this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$GetNoticesQueryModelImplToJson(
+    return _$$GetPostsQueryModelImplToJson(
       this,
     );
   }
 }
 
-abstract class _GetNoticesQueryModel implements GetNoticesQueryModel {
-  const factory _GetNoticesQueryModel(
+abstract class _GetPostsQueryModel implements GetPostsQueryModel {
+  const factory _GetPostsQueryModel(
           {final int? offset,
           final int? limit,
           final String? search,
@@ -281,7 +279,7 @@ abstract class _GetNoticesQueryModel implements GetNoticesQueryModel {
           final NoticeMy? my,
           final NoticeCategory? category,
           @JsonKey(name: 'group-id') final String? groupId}) =
-      _$GetNoticesQueryModelImpl;
+      _$GetPostsQueryModelImpl;
 
   @override
   int?
@@ -300,10 +298,10 @@ abstract class _GetNoticesQueryModel implements GetNoticesQueryModel {
   @JsonKey(name: 'group-id')
   String? get groupId;
 
-  /// Create a copy of GetNoticesQueryModel
+  /// Create a copy of GetPostsQueryModel
   /// with the given fields replaced by the non-null parameter values.
   @override
   @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$GetNoticesQueryModelImplCopyWith<_$GetNoticesQueryModelImpl>
-      get copyWith => throw _privateConstructorUsedError;
+  _$$GetPostsQueryModelImplCopyWith<_$GetPostsQueryModelImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }

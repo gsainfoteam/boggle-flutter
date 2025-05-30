@@ -2,13 +2,13 @@ import 'package:boggle_flutter/app/modules/domain/notice_category.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:boggle_flutter/app/modules/data/enums/notice_my.dart';
 
-part 'get_notices_query_model.freezed.dart';
-part 'get_notices_query_model.g.dart';
+part 'get_posts_query_model.freezed.dart';
+part 'get_posts_query_model.g.dart';
 
 @Freezed(toJson: true)
-class GetNoticesQueryModel with _$GetNoticesQueryModel {
+class GetPostsQueryModel with _$GetPostsQueryModel {
   @JsonSerializable(includeIfNull: false)
-  const factory GetNoticesQueryModel({
+  const factory GetPostsQueryModel({
     int? offset,
     // offset : 몇 번째 공지부터 가져올지 지정하는 인덱스 ex. 0은 첫 공지, 10은 11번째 공지부터 조회
     int? limit,
@@ -21,5 +21,5 @@ class GetNoticesQueryModel with _$GetNoticesQueryModel {
     // my : 내가 작성한 공지, 내가 참여한 공지 등 개인화 필터링용
     NoticeCategory? category,
     @JsonKey(name: 'group-id') String? groupId,
-  }) = _GetNoticesQueryModel;
+  }) = _GetPostsQueryModel;
 }
