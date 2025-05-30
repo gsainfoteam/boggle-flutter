@@ -8,6 +8,10 @@
 // coverage:ignore-file
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
+import 'package:boggle_flutter/app/modules/data/data_source/post_api.dart'
+    as _i1057;
+import 'package:boggle_flutter/app/modules/data/repositories/rest_post_repository.dart'
+    as _i918;
 import 'package:boggle_flutter/app/modules/domain/repositories/analytics_repository.dart'
     as _i33;
 import 'package:boggle_flutter/app/modules/domain/repositories/post_repository.dart'
@@ -28,6 +32,8 @@ extension GetItInjectableX on _i174.GetIt {
       environment,
       environmentFilter,
     );
+    gh.factory<_i423.PostRepository>(
+        () => _i918.RestPostRepository(gh<_i1057.PostApi>()));
     gh.factory<_i251.PostBloc>(() => _i251.PostBloc(
           gh<_i423.PostRepository>(),
           gh<_i33.AnalyticsRepository>(),
