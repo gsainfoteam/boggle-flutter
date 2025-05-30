@@ -14,7 +14,7 @@ class _PostApi implements PostApi {
     this.baseUrl,
     this.errorLogger,
   }) {
-    baseUrl ??= 'post?type=ALL&skip=1&take=10';
+    baseUrl ??= 'post/';
   }
 
   final Dio _dio;
@@ -124,7 +124,7 @@ class _PostApi implements PostApi {
   }
 
   @override
-  Future<PostListModel> deletePosts(String uuid) async {
+  Future<PostListModel> deletePost(String uuid) async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};

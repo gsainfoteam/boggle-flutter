@@ -1,65 +1,75 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'enums/notice_type.dart';
+part of 'post_type.dart';
 
 // **************************************************************************
 // TypeAdapterGenerator
 // **************************************************************************
 
-class NoticeTypeAdapter extends TypeAdapter<NoticeType> {
+class PostTypeAdapter extends TypeAdapter<PostType> {
   @override
   final int typeId = 1;
 
   @override
-  NoticeType read(BinaryReader reader) {
+  PostType read(BinaryReader reader) {
     switch (reader.readByte()) {
       case 0:
-        return NoticeType.general;
+        return PostType.general;
       case 1:
-        return NoticeType.written;
+        return PostType.written;
       case 2:
-        return NoticeType.deadline;
+        return PostType.deadline;
       case 3:
-        return NoticeType.study;
+        return PostType.study;
       case 4:
-        return NoticeType.hobby;
+        return PostType.hobby;
       case 5:
-        return NoticeType.project;
+        return PostType.project;
       case 6:
-        return NoticeType.delivery;
+        return PostType.delivery;
       case 7:
-        return NoticeType.roommate;
+        return PostType.roommate;
+      case 8:
+        return PostType.group;
+      case 9:
+        return PostType.dummy;
       default:
-        return NoticeType.general;
+        return PostType.general;
     }
   }
 
   @override
-  void write(BinaryWriter writer, NoticeType obj) {
+  void write(BinaryWriter writer, PostType obj) {
     switch (obj) {
-      case NoticeType.general:
+      case PostType.general:
         writer.writeByte(0);
         break;
-      case NoticeType.written:
+      case PostType.written:
         writer.writeByte(1);
         break;
-      case NoticeType.deadline:
+      case PostType.deadline:
         writer.writeByte(2);
         break;
-      case NoticeType.study:
+      case PostType.study:
         writer.writeByte(3);
         break;
-      case NoticeType.hobby:
+      case PostType.hobby:
         writer.writeByte(4);
         break;
-      case NoticeType.project:
+      case PostType.project:
         writer.writeByte(5);
         break;
-      case NoticeType.delivery:
+      case PostType.delivery:
         writer.writeByte(6);
         break;
-      case NoticeType.roommate:
+      case PostType.roommate:
         writer.writeByte(7);
+        break;
+      case PostType.group:
+        writer.writeByte(8);
+        break;
+      case PostType.dummy:
+        writer.writeByte(9);
         break;
     }
   }
@@ -70,7 +80,7 @@ class NoticeTypeAdapter extends TypeAdapter<NoticeType> {
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is NoticeTypeAdapter &&
+      other is PostTypeAdapter &&
           runtimeType == other.runtimeType &&
           typeId == other.typeId;
 }

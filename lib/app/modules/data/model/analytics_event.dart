@@ -1,6 +1,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:boggle_flutter/app/modules/domain/enums/page_source.dart';
-import 'package:boggle_flutter/app/modules/domain/enums/notice_type.dart';
+import 'package:boggle_flutter/app/modules/domain/enums/post_type.dart';
 
 part 'analytics_event.freezed.dart';
 part 'analytics_event.g.dart';
@@ -15,23 +15,21 @@ class AnalyticsEvent with _$AnalyticsEvent {
   // 메인화면 이벤트
   const factory AnalyticsEvent.feed() = _Feed;
   const factory AnalyticsEvent.category() = _Category;
-  const factory AnalyticsEvent.categoryType(NoticeType noticeType) =
-      _CategoryType;
-  const factory AnalyticsEvent.list(NoticeType noticeType) = _List;
+  const factory AnalyticsEvent.categoryType(PostType postType) = _CategoryType;
+  const factory AnalyticsEvent.list(PostType postType) = _List;
   const factory AnalyticsEvent.profile() = _Profile;
   const factory AnalyticsEvent.search([PageSource? from]) = _Search;
   const factory AnalyticsEvent.write([PageSource? from]) = _Write;
   const factory AnalyticsEvent.back(PageSource from) = _Back;
 
   // 공지 관련 이벤트
-  const factory AnalyticsEvent.notice(int id, [PageSource? from]) = _Notice;
-  const factory AnalyticsEvent.noticeShare(int id, PageSource from) =
-      _NoticeShare;
-  const factory AnalyticsEvent.noticeCopy(int id) = _NoticeCopy;
-  const factory AnalyticsEvent.noticeEdit(int id) = _NoticeEdit;
-  const factory AnalyticsEvent.noticeDelete(int id) = _NoticeDelete;
-  const factory AnalyticsEvent.noticeSendNotification(int id) =
-      _NoticeSendNotification;
+  const factory AnalyticsEvent.post(int id, [PageSource? from]) = _Post;
+  const factory AnalyticsEvent.postShare(int id, PageSource from) = _PostShare;
+  const factory AnalyticsEvent.postCopy(int id) = _PostCopy;
+  const factory AnalyticsEvent.postEdit(int id) = _PostEdit;
+  const factory AnalyticsEvent.postDelete(int id) = _PostDelete;
+  const factory AnalyticsEvent.postSendNotification(int id) =
+      _PostSendNotification;
 
   // 공지 작성 이벤트
   const factory AnalyticsEvent.writeSaveDraft() = _WriteSaveDraft;
@@ -58,7 +56,7 @@ class AnalyticsEvent with _$AnalyticsEvent {
       _WriteConfigChangeDeadline;
   const factory AnalyticsEvent.writeConfigDeleteDeadline() =
       _WriteConfigDeleteDeadline;
-  const factory AnalyticsEvent.writeConfigCategory(NoticeType noticeType) =
+  const factory AnalyticsEvent.writeConfigCategory(PostType postType) =
       _WriteConfigCategory;
   const factory AnalyticsEvent.writeConfigAddHashtag() = _WriteConfigAddHashtag;
   const factory AnalyticsEvent.writeConfigDoneHashtag() =
@@ -77,29 +75,28 @@ class AnalyticsEvent with _$AnalyticsEvent {
       _WriteConfigPublishUpload;
 
 // 공지 수정 이벤트
-  const factory AnalyticsEvent.noticeEditPublish(int id) = _NoticeEditPublish;
-  const factory AnalyticsEvent.noticeEditBody(int id) = _NoticeEditBody;
-  const factory AnalyticsEvent.noticeEditBodyUseAiTranslation() =
-      _NoticeEditBodyUseAiTranslation;
-  const factory AnalyticsEvent.noticeEditBodyAbortUseAiTranslation() =
-      _NoticeEditBodyAbortUseAiTranslation;
-  const factory AnalyticsEvent.noticeEditBodyUndoUseAiTranslation() =
-      _NoticeEditBodyUndoUseAiTranslation;
-  const factory AnalyticsEvent.noticeEditEnglish(int id) = _NoticeEditEnglish;
-  const factory AnalyticsEvent.noticeEditAdditional(int id) =
-      _NoticeEditAdditional;
-  const factory AnalyticsEvent.noticeEditAdditionalDone() =
-      _NoticeEditAdditionalDone;
-  const factory AnalyticsEvent.noticeEditChangeDeadline([int? id]) =
-      _NoticeEditChangeDeadline;
-  const factory AnalyticsEvent.noticeEditSetDeadline() = _NoticeEditSetDeadline;
-  const factory AnalyticsEvent.noticeEditSetDeadlineCancel() =
-      _NoticeEditSetDeadlineCancel;
-  const factory AnalyticsEvent.noticeEditPreview(int id) = _NoticeEditPreview;
+  const factory AnalyticsEvent.postEditPublish(int id) = _PostEditPublish;
+  const factory AnalyticsEvent.postEditBody(int id) = _PostEditBody;
+  const factory AnalyticsEvent.postEditBodyUseAiTranslation() =
+      _PostEditBodyUseAiTranslation;
+  const factory AnalyticsEvent.postEditBodyAbortUseAiTranslation() =
+      _PostEditBodyAbortUseAiTranslation;
+  const factory AnalyticsEvent.postEditBodyUndoUseAiTranslation() =
+      _PostEditBodyUndoUseAiTranslation;
+  const factory AnalyticsEvent.postEditEnglish(int id) = _PostEditEnglish;
+  const factory AnalyticsEvent.postEditAdditional(int id) = _PostEditAdditional;
+  const factory AnalyticsEvent.postEditAdditionalDone() =
+      _PostEditAdditionalDone;
+  const factory AnalyticsEvent.postEditChangeDeadline([int? id]) =
+      _PostEditChangeDeadline;
+  const factory AnalyticsEvent.postEditSetDeadline() = _PostEditSetDeadline;
+  const factory AnalyticsEvent.postEditSetDeadlineCancel() =
+      _PostEditSetDeadlineCancel;
+  const factory AnalyticsEvent.postEditPreview(int id) = _PostEditPreview;
 
 // 프로필 페이지 이벤트
   const factory AnalyticsEvent.profileSetting() = _ProfileSetting;
-  const factory AnalyticsEvent.profileMyNotices() = _ProfileMyNotices;
+  const factory AnalyticsEvent.profileMyPosts() = _ProfileMyPosts;
   const factory AnalyticsEvent.profileFeedback() = _ProfileFeedback;
   const factory AnalyticsEvent.profileLogout(PageSource from) = _ProfileLogout;
   const factory AnalyticsEvent.profileWithdraw() = _ProfileWithdraw;

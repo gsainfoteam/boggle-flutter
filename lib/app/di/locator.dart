@@ -7,7 +7,7 @@ import 'locator.config.dart';
 final sl = GetIt.instance;
 @injectableInit
 Future<void> configureDependencies() async {
-  await sl.init(
+  sl.init(
     environmentFilter: const NoEnvOrContainsAny(
       kReleaseMode ? {Environment.prod} : {Environment.dev},
     ),

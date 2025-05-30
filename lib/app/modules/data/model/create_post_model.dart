@@ -1,5 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:boggle_flutter/app/modules/domain/notice_category.dart';
+import 'package:boggle_flutter/app/modules/domain/enums/post_category.dart';
 
 part 'create_post_model.freezed.dart';
 part 'create_post_model.g.dart';

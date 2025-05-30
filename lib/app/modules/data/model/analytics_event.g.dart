@@ -27,35 +27,37 @@ Map<String, dynamic> _$$CategoryImplToJson(_$CategoryImpl instance) =>
 
 _$CategoryTypeImpl _$$CategoryTypeImplFromJson(Map<String, dynamic> json) =>
     _$CategoryTypeImpl(
-      $enumDecode(_$NoticeTypeEnumMap, json['noticeType']),
+      $enumDecode(_$PostTypeEnumMap, json['postType']),
       $type: json['runtimeType'] as String?,
     );
 
 Map<String, dynamic> _$$CategoryTypeImplToJson(_$CategoryTypeImpl instance) =>
     <String, dynamic>{
-      'noticeType': _$NoticeTypeEnumMap[instance.noticeType]!,
+      'postType': _$PostTypeEnumMap[instance.postType]!,
       'runtimeType': instance.$type,
     };
 
-const _$NoticeTypeEnumMap = {
-  NoticeType.general: 'general',
-  NoticeType.written: 'written',
-  NoticeType.deadline: 'deadline',
-  NoticeType.study: 'study',
-  NoticeType.hobby: 'hobby',
-  NoticeType.project: 'project',
-  NoticeType.delivery: 'delivery',
-  NoticeType.roommate: 'roommate',
+const _$PostTypeEnumMap = {
+  PostType.general: 'general',
+  PostType.written: 'written',
+  PostType.deadline: 'deadline',
+  PostType.study: 'study',
+  PostType.hobby: 'hobby',
+  PostType.project: 'project',
+  PostType.delivery: 'delivery',
+  PostType.roommate: 'roommate',
+  PostType.group: 'group',
+  PostType.dummy: 'dummy',
 };
 
 _$ListImpl _$$ListImplFromJson(Map<String, dynamic> json) => _$ListImpl(
-      $enumDecode(_$NoticeTypeEnumMap, json['noticeType']),
+      $enumDecode(_$PostTypeEnumMap, json['postType']),
       $type: json['runtimeType'] as String?,
     );
 
 Map<String, dynamic> _$$ListImplToJson(_$ListImpl instance) =>
     <String, dynamic>{
-      'noticeType': _$NoticeTypeEnumMap[instance.noticeType]!,
+      'postType': _$PostTypeEnumMap[instance.postType]!,
       'runtimeType': instance.$type,
     };
 
@@ -111,78 +113,78 @@ Map<String, dynamic> _$$BackImplToJson(_$BackImpl instance) =>
       'runtimeType': instance.$type,
     };
 
-_$NoticeImpl _$$NoticeImplFromJson(Map<String, dynamic> json) => _$NoticeImpl(
+_$PostImpl _$$PostImplFromJson(Map<String, dynamic> json) => _$PostImpl(
       (json['id'] as num).toInt(),
       $enumDecodeNullable(_$PageSourceEnumMap, json['from']),
       json['runtimeType'] as String?,
     );
 
-Map<String, dynamic> _$$NoticeImplToJson(_$NoticeImpl instance) =>
+Map<String, dynamic> _$$PostImplToJson(_$PostImpl instance) =>
     <String, dynamic>{
       'id': instance.id,
       'from': _$PageSourceEnumMap[instance.from],
       'runtimeType': instance.$type,
     };
 
-_$NoticeShareImpl _$$NoticeShareImplFromJson(Map<String, dynamic> json) =>
-    _$NoticeShareImpl(
+_$PostShareImpl _$$PostShareImplFromJson(Map<String, dynamic> json) =>
+    _$PostShareImpl(
       (json['id'] as num).toInt(),
       $enumDecode(_$PageSourceEnumMap, json['from']),
       $type: json['runtimeType'] as String?,
     );
 
-Map<String, dynamic> _$$NoticeShareImplToJson(_$NoticeShareImpl instance) =>
+Map<String, dynamic> _$$PostShareImplToJson(_$PostShareImpl instance) =>
     <String, dynamic>{
       'id': instance.id,
       'from': _$PageSourceEnumMap[instance.from]!,
       'runtimeType': instance.$type,
     };
 
-_$NoticeCopyImpl _$$NoticeCopyImplFromJson(Map<String, dynamic> json) =>
-    _$NoticeCopyImpl(
+_$PostCopyImpl _$$PostCopyImplFromJson(Map<String, dynamic> json) =>
+    _$PostCopyImpl(
       (json['id'] as num).toInt(),
       $type: json['runtimeType'] as String?,
     );
 
-Map<String, dynamic> _$$NoticeCopyImplToJson(_$NoticeCopyImpl instance) =>
+Map<String, dynamic> _$$PostCopyImplToJson(_$PostCopyImpl instance) =>
     <String, dynamic>{
       'id': instance.id,
       'runtimeType': instance.$type,
     };
 
-_$NoticeEditImpl _$$NoticeEditImplFromJson(Map<String, dynamic> json) =>
-    _$NoticeEditImpl(
+_$PostEditImpl _$$PostEditImplFromJson(Map<String, dynamic> json) =>
+    _$PostEditImpl(
       (json['id'] as num).toInt(),
       $type: json['runtimeType'] as String?,
     );
 
-Map<String, dynamic> _$$NoticeEditImplToJson(_$NoticeEditImpl instance) =>
+Map<String, dynamic> _$$PostEditImplToJson(_$PostEditImpl instance) =>
     <String, dynamic>{
       'id': instance.id,
       'runtimeType': instance.$type,
     };
 
-_$NoticeDeleteImpl _$$NoticeDeleteImplFromJson(Map<String, dynamic> json) =>
-    _$NoticeDeleteImpl(
+_$PostDeleteImpl _$$PostDeleteImplFromJson(Map<String, dynamic> json) =>
+    _$PostDeleteImpl(
       (json['id'] as num).toInt(),
       $type: json['runtimeType'] as String?,
     );
 
-Map<String, dynamic> _$$NoticeDeleteImplToJson(_$NoticeDeleteImpl instance) =>
+Map<String, dynamic> _$$PostDeleteImplToJson(_$PostDeleteImpl instance) =>
     <String, dynamic>{
       'id': instance.id,
       'runtimeType': instance.$type,
     };
 
-_$NoticeSendNotificationImpl _$$NoticeSendNotificationImplFromJson(
+_$PostSendNotificationImpl _$$PostSendNotificationImplFromJson(
         Map<String, dynamic> json) =>
-    _$NoticeSendNotificationImpl(
+    _$PostSendNotificationImpl(
       (json['id'] as num).toInt(),
       $type: json['runtimeType'] as String?,
     );
 
-Map<String, dynamic> _$$NoticeSendNotificationImplToJson(
-        _$NoticeSendNotificationImpl instance) =>
+Map<String, dynamic> _$$PostSendNotificationImplToJson(
+        _$PostSendNotificationImpl instance) =>
     <String, dynamic>{
       'id': instance.id,
       'runtimeType': instance.$type,
@@ -368,14 +370,14 @@ Map<String, dynamic> _$$WriteConfigDeleteDeadlineImplToJson(
 _$WriteConfigCategoryImpl _$$WriteConfigCategoryImplFromJson(
         Map<String, dynamic> json) =>
     _$WriteConfigCategoryImpl(
-      $enumDecode(_$NoticeTypeEnumMap, json['noticeType']),
+      $enumDecode(_$PostTypeEnumMap, json['postType']),
       $type: json['runtimeType'] as String?,
     );
 
 Map<String, dynamic> _$$WriteConfigCategoryImplToJson(
         _$WriteConfigCategoryImpl instance) =>
     <String, dynamic>{
-      'noticeType': _$NoticeTypeEnumMap[instance.noticeType]!,
+      'postType': _$PostTypeEnumMap[instance.postType]!,
       'runtimeType': instance.$type,
     };
 
@@ -492,158 +494,157 @@ Map<String, dynamic> _$$WriteConfigPublishUploadImplToJson(
       'runtimeType': instance.$type,
     };
 
-_$NoticeEditPublishImpl _$$NoticeEditPublishImplFromJson(
+_$PostEditPublishImpl _$$PostEditPublishImplFromJson(
         Map<String, dynamic> json) =>
-    _$NoticeEditPublishImpl(
+    _$PostEditPublishImpl(
       (json['id'] as num).toInt(),
       $type: json['runtimeType'] as String?,
     );
 
-Map<String, dynamic> _$$NoticeEditPublishImplToJson(
-        _$NoticeEditPublishImpl instance) =>
+Map<String, dynamic> _$$PostEditPublishImplToJson(
+        _$PostEditPublishImpl instance) =>
     <String, dynamic>{
       'id': instance.id,
       'runtimeType': instance.$type,
     };
 
-_$NoticeEditBodyImpl _$$NoticeEditBodyImplFromJson(Map<String, dynamic> json) =>
-    _$NoticeEditBodyImpl(
+_$PostEditBodyImpl _$$PostEditBodyImplFromJson(Map<String, dynamic> json) =>
+    _$PostEditBodyImpl(
       (json['id'] as num).toInt(),
       $type: json['runtimeType'] as String?,
     );
 
-Map<String, dynamic> _$$NoticeEditBodyImplToJson(
-        _$NoticeEditBodyImpl instance) =>
+Map<String, dynamic> _$$PostEditBodyImplToJson(_$PostEditBodyImpl instance) =>
     <String, dynamic>{
       'id': instance.id,
       'runtimeType': instance.$type,
     };
 
-_$NoticeEditBodyUseAiTranslationImpl
-    _$$NoticeEditBodyUseAiTranslationImplFromJson(Map<String, dynamic> json) =>
-        _$NoticeEditBodyUseAiTranslationImpl(
-          $type: json['runtimeType'] as String?,
-        );
+_$PostEditBodyUseAiTranslationImpl _$$PostEditBodyUseAiTranslationImplFromJson(
+        Map<String, dynamic> json) =>
+    _$PostEditBodyUseAiTranslationImpl(
+      $type: json['runtimeType'] as String?,
+    );
 
-Map<String, dynamic> _$$NoticeEditBodyUseAiTranslationImplToJson(
-        _$NoticeEditBodyUseAiTranslationImpl instance) =>
+Map<String, dynamic> _$$PostEditBodyUseAiTranslationImplToJson(
+        _$PostEditBodyUseAiTranslationImpl instance) =>
     <String, dynamic>{
       'runtimeType': instance.$type,
     };
 
-_$NoticeEditBodyAbortUseAiTranslationImpl
-    _$$NoticeEditBodyAbortUseAiTranslationImplFromJson(
+_$PostEditBodyAbortUseAiTranslationImpl
+    _$$PostEditBodyAbortUseAiTranslationImplFromJson(
             Map<String, dynamic> json) =>
-        _$NoticeEditBodyAbortUseAiTranslationImpl(
+        _$PostEditBodyAbortUseAiTranslationImpl(
           $type: json['runtimeType'] as String?,
         );
 
-Map<String, dynamic> _$$NoticeEditBodyAbortUseAiTranslationImplToJson(
-        _$NoticeEditBodyAbortUseAiTranslationImpl instance) =>
+Map<String, dynamic> _$$PostEditBodyAbortUseAiTranslationImplToJson(
+        _$PostEditBodyAbortUseAiTranslationImpl instance) =>
     <String, dynamic>{
       'runtimeType': instance.$type,
     };
 
-_$NoticeEditBodyUndoUseAiTranslationImpl
-    _$$NoticeEditBodyUndoUseAiTranslationImplFromJson(
+_$PostEditBodyUndoUseAiTranslationImpl
+    _$$PostEditBodyUndoUseAiTranslationImplFromJson(
             Map<String, dynamic> json) =>
-        _$NoticeEditBodyUndoUseAiTranslationImpl(
+        _$PostEditBodyUndoUseAiTranslationImpl(
           $type: json['runtimeType'] as String?,
         );
 
-Map<String, dynamic> _$$NoticeEditBodyUndoUseAiTranslationImplToJson(
-        _$NoticeEditBodyUndoUseAiTranslationImpl instance) =>
+Map<String, dynamic> _$$PostEditBodyUndoUseAiTranslationImplToJson(
+        _$PostEditBodyUndoUseAiTranslationImpl instance) =>
     <String, dynamic>{
       'runtimeType': instance.$type,
     };
 
-_$NoticeEditEnglishImpl _$$NoticeEditEnglishImplFromJson(
+_$PostEditEnglishImpl _$$PostEditEnglishImplFromJson(
         Map<String, dynamic> json) =>
-    _$NoticeEditEnglishImpl(
+    _$PostEditEnglishImpl(
       (json['id'] as num).toInt(),
       $type: json['runtimeType'] as String?,
     );
 
-Map<String, dynamic> _$$NoticeEditEnglishImplToJson(
-        _$NoticeEditEnglishImpl instance) =>
+Map<String, dynamic> _$$PostEditEnglishImplToJson(
+        _$PostEditEnglishImpl instance) =>
     <String, dynamic>{
       'id': instance.id,
       'runtimeType': instance.$type,
     };
 
-_$NoticeEditAdditionalImpl _$$NoticeEditAdditionalImplFromJson(
+_$PostEditAdditionalImpl _$$PostEditAdditionalImplFromJson(
         Map<String, dynamic> json) =>
-    _$NoticeEditAdditionalImpl(
+    _$PostEditAdditionalImpl(
       (json['id'] as num).toInt(),
       $type: json['runtimeType'] as String?,
     );
 
-Map<String, dynamic> _$$NoticeEditAdditionalImplToJson(
-        _$NoticeEditAdditionalImpl instance) =>
+Map<String, dynamic> _$$PostEditAdditionalImplToJson(
+        _$PostEditAdditionalImpl instance) =>
     <String, dynamic>{
       'id': instance.id,
       'runtimeType': instance.$type,
     };
 
-_$NoticeEditAdditionalDoneImpl _$$NoticeEditAdditionalDoneImplFromJson(
+_$PostEditAdditionalDoneImpl _$$PostEditAdditionalDoneImplFromJson(
         Map<String, dynamic> json) =>
-    _$NoticeEditAdditionalDoneImpl(
+    _$PostEditAdditionalDoneImpl(
       $type: json['runtimeType'] as String?,
     );
 
-Map<String, dynamic> _$$NoticeEditAdditionalDoneImplToJson(
-        _$NoticeEditAdditionalDoneImpl instance) =>
+Map<String, dynamic> _$$PostEditAdditionalDoneImplToJson(
+        _$PostEditAdditionalDoneImpl instance) =>
     <String, dynamic>{
       'runtimeType': instance.$type,
     };
 
-_$NoticeEditChangeDeadlineImpl _$$NoticeEditChangeDeadlineImplFromJson(
+_$PostEditChangeDeadlineImpl _$$PostEditChangeDeadlineImplFromJson(
         Map<String, dynamic> json) =>
-    _$NoticeEditChangeDeadlineImpl(
+    _$PostEditChangeDeadlineImpl(
       (json['id'] as num?)?.toInt(),
       json['runtimeType'] as String?,
     );
 
-Map<String, dynamic> _$$NoticeEditChangeDeadlineImplToJson(
-        _$NoticeEditChangeDeadlineImpl instance) =>
+Map<String, dynamic> _$$PostEditChangeDeadlineImplToJson(
+        _$PostEditChangeDeadlineImpl instance) =>
     <String, dynamic>{
       'id': instance.id,
       'runtimeType': instance.$type,
     };
 
-_$NoticeEditSetDeadlineImpl _$$NoticeEditSetDeadlineImplFromJson(
+_$PostEditSetDeadlineImpl _$$PostEditSetDeadlineImplFromJson(
         Map<String, dynamic> json) =>
-    _$NoticeEditSetDeadlineImpl(
+    _$PostEditSetDeadlineImpl(
       $type: json['runtimeType'] as String?,
     );
 
-Map<String, dynamic> _$$NoticeEditSetDeadlineImplToJson(
-        _$NoticeEditSetDeadlineImpl instance) =>
+Map<String, dynamic> _$$PostEditSetDeadlineImplToJson(
+        _$PostEditSetDeadlineImpl instance) =>
     <String, dynamic>{
       'runtimeType': instance.$type,
     };
 
-_$NoticeEditSetDeadlineCancelImpl _$$NoticeEditSetDeadlineCancelImplFromJson(
+_$PostEditSetDeadlineCancelImpl _$$PostEditSetDeadlineCancelImplFromJson(
         Map<String, dynamic> json) =>
-    _$NoticeEditSetDeadlineCancelImpl(
+    _$PostEditSetDeadlineCancelImpl(
       $type: json['runtimeType'] as String?,
     );
 
-Map<String, dynamic> _$$NoticeEditSetDeadlineCancelImplToJson(
-        _$NoticeEditSetDeadlineCancelImpl instance) =>
+Map<String, dynamic> _$$PostEditSetDeadlineCancelImplToJson(
+        _$PostEditSetDeadlineCancelImpl instance) =>
     <String, dynamic>{
       'runtimeType': instance.$type,
     };
 
-_$NoticeEditPreviewImpl _$$NoticeEditPreviewImplFromJson(
+_$PostEditPreviewImpl _$$PostEditPreviewImplFromJson(
         Map<String, dynamic> json) =>
-    _$NoticeEditPreviewImpl(
+    _$PostEditPreviewImpl(
       (json['id'] as num).toInt(),
       $type: json['runtimeType'] as String?,
     );
 
-Map<String, dynamic> _$$NoticeEditPreviewImplToJson(
-        _$NoticeEditPreviewImpl instance) =>
+Map<String, dynamic> _$$PostEditPreviewImplToJson(
+        _$PostEditPreviewImpl instance) =>
     <String, dynamic>{
       'id': instance.id,
       'runtimeType': instance.$type,
@@ -660,14 +661,13 @@ Map<String, dynamic> _$$ProfileSettingImplToJson(
       'runtimeType': instance.$type,
     };
 
-_$ProfileMyNoticesImpl _$$ProfileMyNoticesImplFromJson(
-        Map<String, dynamic> json) =>
-    _$ProfileMyNoticesImpl(
+_$ProfileMyPostsImpl _$$ProfileMyPostsImplFromJson(Map<String, dynamic> json) =>
+    _$ProfileMyPostsImpl(
       $type: json['runtimeType'] as String?,
     );
 
-Map<String, dynamic> _$$ProfileMyNoticesImplToJson(
-        _$ProfileMyNoticesImpl instance) =>
+Map<String, dynamic> _$$ProfileMyPostsImplToJson(
+        _$ProfileMyPostsImpl instance) =>
     <String, dynamic>{
       'runtimeType': instance.$type,
     };

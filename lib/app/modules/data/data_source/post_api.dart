@@ -7,7 +7,7 @@ import 'package:dio/dio.dart';
 
 part 'post_api.g.dart';
 
-@RestApi(baseUrl: 'post?type=ALL&skip=1&take=10')
+@RestApi(baseUrl: 'post/')
 abstract class PostApi {
   factory PostApi(Dio dio, {String? baseUrl}) = _PostApi;
 
@@ -25,5 +25,5 @@ abstract class PostApi {
   );
 
   @DELETE('{id}')
-  Future<PostListModel> deletePosts(@Path('uuid') String uuid);
+  Future<PostListModel> deletePost(@Path('uuid') String uuid);
 }
