@@ -1,19 +1,19 @@
 import 'package:boggle_flutter/gen/assets.gen.dart';
 import 'package:flutter/material.dart';
 import 'package:boggle_flutter/gen/assets.gen.dart';
+import 'package:auto_route/auto_route.dart';
+
 
 class BoggleAppBar extends StatelessWidget implements PreferredSizeWidget {
   const BoggleAppBar({
     super.key,
     this.actions = const [],
     this.leading,
-    this.title,
     this.backgroundColor,
   });
 
   final List<Widget> actions;
   final Widget? leading;
-  final Widget? title;
   final Color? backgroundColor;
 
   factory BoggleAppBar.main({

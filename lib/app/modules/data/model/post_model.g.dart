@@ -12,8 +12,7 @@ _PostModel _$PostModelFromJson(Map<String, dynamic> json) => _PostModel(
       content: json['content'] as String,
       type: json['type'] as String,
       tags: (json['tags'] as List<dynamic>).map((e) => e as String).toList(),
-      author: json['author'] as String,
-      authorId: json['authorId'] as String,
+      author: UserModel.fromJson(json['author'] as Map<String, dynamic>),
       participants:
           UserModel.fromJson(json['participants'] as Map<String, dynamic>),
       maxPaticipants: (json['maxPaticipants'] as num).toInt(),
@@ -29,7 +28,6 @@ Map<String, dynamic> _$PostModelToJson(_PostModel instance) =>
       'type': instance.type,
       'tags': instance.tags,
       'author': instance.author,
-      'authorId': instance.authorId,
       'participants': instance.participants,
       'maxPaticipants': instance.maxPaticipants,
       'createdAt': instance.createdAt.toIso8601String(),

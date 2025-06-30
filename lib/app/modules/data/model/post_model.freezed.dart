@@ -20,8 +20,7 @@ mixin _$PostModel {
   String get content;
   String get type;
   List<String> get tags;
-  String get author;
-  String get authorId;
+  UserModel get author;
   UserModel get participants;
   int get maxPaticipants;
   DateTime get createdAt;
@@ -48,8 +47,6 @@ mixin _$PostModel {
             (identical(other.type, type) || other.type == type) &&
             const DeepCollectionEquality().equals(other.tags, tags) &&
             (identical(other.author, author) || other.author == author) &&
-            (identical(other.authorId, authorId) ||
-                other.authorId == authorId) &&
             (identical(other.participants, participants) ||
                 other.participants == participants) &&
             (identical(other.maxPaticipants, maxPaticipants) ||
@@ -70,7 +67,6 @@ mixin _$PostModel {
       type,
       const DeepCollectionEquality().hash(tags),
       author,
-      authorId,
       participants,
       maxPaticipants,
       createdAt,
@@ -78,7 +74,7 @@ mixin _$PostModel {
 
   @override
   String toString() {
-    return 'PostModel(uuid: $uuid, title: $title, content: $content, type: $type, tags: $tags, author: $author, authorId: $authorId, participants: $participants, maxPaticipants: $maxPaticipants, createdAt: $createdAt, deadline: $deadline)';
+    return 'PostModel(uuid: $uuid, title: $title, content: $content, type: $type, tags: $tags, author: $author, participants: $participants, maxPaticipants: $maxPaticipants, createdAt: $createdAt, deadline: $deadline)';
   }
 }
 
@@ -93,13 +89,13 @@ abstract mixin class $PostModelCopyWith<$Res> {
       String content,
       String type,
       List<String> tags,
-      String author,
-      String authorId,
+      UserModel author,
       UserModel participants,
       int maxPaticipants,
       DateTime createdAt,
       DateTime deadline});
 
+  $UserModelCopyWith<$Res> get author;
   $UserModelCopyWith<$Res> get participants;
 }
 
@@ -121,7 +117,6 @@ class _$PostModelCopyWithImpl<$Res> implements $PostModelCopyWith<$Res> {
     Object? type = null,
     Object? tags = null,
     Object? author = null,
-    Object? authorId = null,
     Object? participants = null,
     Object? maxPaticipants = null,
     Object? createdAt = null,
@@ -151,11 +146,7 @@ class _$PostModelCopyWithImpl<$Res> implements $PostModelCopyWith<$Res> {
       author: null == author
           ? _self.author
           : author // ignore: cast_nullable_to_non_nullable
-              as String,
-      authorId: null == authorId
-          ? _self.authorId
-          : authorId // ignore: cast_nullable_to_non_nullable
-              as String,
+              as UserModel,
       participants: null == participants
           ? _self.participants
           : participants // ignore: cast_nullable_to_non_nullable
@@ -179,6 +170,16 @@ class _$PostModelCopyWithImpl<$Res> implements $PostModelCopyWith<$Res> {
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
+  $UserModelCopyWith<$Res> get author {
+    return $UserModelCopyWith<$Res>(_self.author, (value) {
+      return _then(_self.copyWith(author: value));
+    });
+  }
+
+  /// Create a copy of PostModel
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
   $UserModelCopyWith<$Res> get participants {
     return $UserModelCopyWith<$Res>(_self.participants, (value) {
       return _then(_self.copyWith(participants: value));
@@ -196,7 +197,6 @@ class _PostModel implements PostModel {
       required this.type,
       required final List<String> tags,
       required this.author,
-      required this.authorId,
       required this.participants,
       required this.maxPaticipants,
       required this.createdAt,
@@ -222,9 +222,7 @@ class _PostModel implements PostModel {
   }
 
   @override
-  final String author;
-  @override
-  final String authorId;
+  final UserModel author;
   @override
   final UserModel participants;
   @override
@@ -260,8 +258,6 @@ class _PostModel implements PostModel {
             (identical(other.type, type) || other.type == type) &&
             const DeepCollectionEquality().equals(other._tags, _tags) &&
             (identical(other.author, author) || other.author == author) &&
-            (identical(other.authorId, authorId) ||
-                other.authorId == authorId) &&
             (identical(other.participants, participants) ||
                 other.participants == participants) &&
             (identical(other.maxPaticipants, maxPaticipants) ||
@@ -282,7 +278,6 @@ class _PostModel implements PostModel {
       type,
       const DeepCollectionEquality().hash(_tags),
       author,
-      authorId,
       participants,
       maxPaticipants,
       createdAt,
@@ -290,7 +285,7 @@ class _PostModel implements PostModel {
 
   @override
   String toString() {
-    return 'PostModel(uuid: $uuid, title: $title, content: $content, type: $type, tags: $tags, author: $author, authorId: $authorId, participants: $participants, maxPaticipants: $maxPaticipants, createdAt: $createdAt, deadline: $deadline)';
+    return 'PostModel(uuid: $uuid, title: $title, content: $content, type: $type, tags: $tags, author: $author, participants: $participants, maxPaticipants: $maxPaticipants, createdAt: $createdAt, deadline: $deadline)';
   }
 }
 
@@ -308,13 +303,14 @@ abstract mixin class _$PostModelCopyWith<$Res>
       String content,
       String type,
       List<String> tags,
-      String author,
-      String authorId,
+      UserModel author,
       UserModel participants,
       int maxPaticipants,
       DateTime createdAt,
       DateTime deadline});
 
+  @override
+  $UserModelCopyWith<$Res> get author;
   @override
   $UserModelCopyWith<$Res> get participants;
 }
@@ -337,7 +333,6 @@ class __$PostModelCopyWithImpl<$Res> implements _$PostModelCopyWith<$Res> {
     Object? type = null,
     Object? tags = null,
     Object? author = null,
-    Object? authorId = null,
     Object? participants = null,
     Object? maxPaticipants = null,
     Object? createdAt = null,
@@ -367,11 +362,7 @@ class __$PostModelCopyWithImpl<$Res> implements _$PostModelCopyWith<$Res> {
       author: null == author
           ? _self.author
           : author // ignore: cast_nullable_to_non_nullable
-              as String,
-      authorId: null == authorId
-          ? _self.authorId
-          : authorId // ignore: cast_nullable_to_non_nullable
-              as String,
+              as UserModel,
       participants: null == participants
           ? _self.participants
           : participants // ignore: cast_nullable_to_non_nullable
@@ -389,6 +380,16 @@ class __$PostModelCopyWithImpl<$Res> implements _$PostModelCopyWith<$Res> {
           : deadline // ignore: cast_nullable_to_non_nullable
               as DateTime,
     ));
+  }
+
+  /// Create a copy of PostModel
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $UserModelCopyWith<$Res> get author {
+    return $UserModelCopyWith<$Res>(_self.author, (value) {
+      return _then(_self.copyWith(author: value));
+    });
   }
 
   /// Create a copy of PostModel

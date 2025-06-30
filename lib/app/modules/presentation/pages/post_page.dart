@@ -32,7 +32,15 @@ class PostPage extends StatelessWidget {
       image = base64Decode(postModel[index].images![imageIndex].image);
     }*/
 
-    return Center(
+    return Scaffold(
+      appBar: boggleAppBar(),
+    );
+    
+    
+    
+    
+    
+    Center(
       child: Padding(
         padding: const EdgeInsets.only(
           left: 32,
@@ -54,7 +62,7 @@ class PostPage extends StatelessWidget {
           Row(
             children: [
               Text(
-                postModel[index].createdBy.nickname,
+                postModel[index].author.name,
                 style: const TextStyle(
                   color: Color.fromARGB(255, 151, 151, 151),
                   fontSize: 12,
