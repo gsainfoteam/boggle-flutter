@@ -1,4 +1,4 @@
-import 'package:auto_route/auto_route.dart';
+/*import 'package:auto_route/auto_route.dart';
 import 'package:boggle_flutter/gen/assets.gen.dart';
 import 'package:flutter/material.dart';
 //import 'package:boggle_flutter/app/modules/data/model/post_list_image_model.dart';
@@ -68,3 +68,4 @@ class NoticeThumbnail extends StatelessWidget {
     );
   }
 }
+*/

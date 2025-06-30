@@ -47,17 +47,17 @@ class $AssetsFontsGen {
 
   /// List of all assets
   List<String> get values => [
-    pretendard139,
-    pretendardBlack,
-    pretendardBold,
-    pretendardExtraBold,
-    pretendardExtraLight,
-    pretendardLight,
-    pretendardMedium,
-    pretendardRegular,
-    pretendardSemiBold,
-    pretendardThin,
-  ];
+        pretendard139,
+        pretendardBlack,
+        pretendardBold,
+        pretendardExtraBold,
+        pretendardExtraLight,
+        pretendardLight,
+        pretendardMedium,
+        pretendardRegular,
+        pretendardSemiBold,
+        pretendardThin
+      ];
 }
 
 class $AssetsIconsGen {
@@ -254,70 +254,70 @@ class $AssetsIconsGen {
 
   /// List of all assets
   List<SvgGenImage> get values => [
-    arrowRight,
-    badgeCheckOff,
-    badgeCheckOn,
-    bell,
-    boggleIcon,
-    bold,
-    check,
-    clockOff,
-    clockOn,
-    colorFilter,
-    community,
-    discussOff,
-    discussOn,
-    editPencilOff,
-    editPencilOn,
-    fireFlameOff,
-    fireFlameOn,
-    flower,
-    hashtag,
-    headingBig,
-    headingSmall,
-    heart3LineOff,
-    heart3LineOn,
-    homeSimpleOff,
-    homeSimpleOn,
-    iosSettings,
-    italic,
-    language,
-    link,
-    list,
-    lock,
-    mediaImage,
-    message3LineOff,
-    message3LineOn,
-    messageAlertOff,
-    messageAlertOn,
-    navArrowDown,
-    navArrowLeft,
-    navArrowRight,
-    navArrowUp,
-    plusCircleOff,
-    plusCircleOn,
-    search,
-    shareAndroidOff,
-    shareAndroidOn,
-    sparksOff,
-    sparksOn,
-    starOff,
-    starOn,
-    text,
-    trashOff,
-    trashOn,
-    underline,
-    userCircleOff,
-    userCircleOn,
-    viewGridOff,
-    viewGridOn,
-    warningTriangleOff,
-    warningTriangleOn,
-    whiteFlagOff,
-    whiteFlagOn,
-    xmarkCircleOff,
-    xmarkCircleOn,
-  ];
+        arrowRight,
+        badgeCheckOff,
+        badgeCheckOn,
+        bell,
+        boggleIcon,
+        bold,
+        check,
+        clockOff,
+        clockOn,
+        colorFilter,
+        community,
+        discussOff,
+        discussOn,
+        editPencilOff,
+        editPencilOn,
+        fireFlameOff,
+        fireFlameOn,
+        flower,
+        hashtag,
+        headingBig,
+        headingSmall,
+        heart3LineOff,
+        heart3LineOn,
+        homeSimpleOff,
+        homeSimpleOn,
+        iosSettings,
+        italic,
+        language,
+        link,
+        list,
+        lock,
+        mediaImage,
+        message3LineOff,
+        message3LineOn,
+        messageAlertOff,
+        messageAlertOn,
+        navArrowDown,
+        navArrowLeft,
+        navArrowRight,
+        navArrowUp,
+        plusCircleOff,
+        plusCircleOn,
+        search,
+        shareAndroidOff,
+        shareAndroidOn,
+        sparksOff,
+        sparksOn,
+        starOff,
+        starOn,
+        text,
+        trashOff,
+        trashOn,
+        underline,
+        userCircleOff,
+        userCircleOn,
+        viewGridOff,
+        viewGridOn,
+        warningTriangleOff,
+        warningTriangleOn,
+        whiteFlagOff,
+        whiteFlagOn,
+        xmarkCircleOff,
+        xmarkCircleOn
+      ];
 }
 
 class $AssetsImagesGen {
@@ -342,9 +342,17 @@ class Assets {
 }
 
 class SvgGenImage {
-  const SvgGenImage(this._assetName, {this.size, this.flavors = const {}}) : _isVecFormat = false;
+  const SvgGenImage(
+    this._assetName, {
+    this.size,
+    this.flavors = const {},
+  }) : _isVecFormat = false;
 
-  const SvgGenImage.vec(this._assetName, {this.size, this.flavors = const {}}) : _isVecFormat = true;
+  const SvgGenImage.vec(
+    this._assetName, {
+    this.size,
+    this.flavors = const {},
+  }) : _isVecFormat = true;
 
   final String _assetName;
   final Size? size;
@@ -373,9 +381,18 @@ class SvgGenImage {
   }) {
     final _svg.BytesLoader loader;
     if (_isVecFormat) {
-      loader = _vg.AssetBytesLoader(_assetName, assetBundle: bundle, packageName: package);
+      loader = _vg.AssetBytesLoader(
+        _assetName,
+        assetBundle: bundle,
+        packageName: package,
+      );
     } else {
-      loader = _svg.SvgAssetLoader(_assetName, assetBundle: bundle, packageName: package, theme: theme);
+      loader = _svg.SvgAssetLoader(
+        _assetName,
+        assetBundle: bundle,
+        packageName: package,
+        theme: theme,
+      );
     }
     return _svg.SvgPicture(
       loader,

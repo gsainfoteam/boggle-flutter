@@ -1,4 +1,3 @@
-// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -10,61 +9,48 @@ part of 'post_list_model.dart';
 // FreezedGenerator
 // **************************************************************************
 
-// dart format off
 T _$identity<T>(T value) => value;
+
+final _privateConstructorUsedError = UnsupportedError(
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
+
+PostListModel _$PostListModelFromJson(Map<String, dynamic> json) {
+  return _PostListModel.fromJson(json);
+}
 
 /// @nodoc
 mixin _$PostListModel {
-  int get total;
-  List<PostModel> get list;
+  int get total => throw _privateConstructorUsedError;
+  List<PostModel> get list => throw _privateConstructorUsedError;
+
+  /// Serializes this PostListModel to a JSON map.
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
 
   /// Create a copy of PostListModel
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  @pragma('vm:prefer-inline')
   $PostListModelCopyWith<PostListModel> get copyWith =>
-      _$PostListModelCopyWithImpl<PostListModel>(
-          this as PostListModel, _$identity);
-
-  /// Serializes this PostListModel to a JSON map.
-  Map<String, dynamic> toJson();
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is PostListModel &&
-            (identical(other.total, total) || other.total == total) &&
-            const DeepCollectionEquality().equals(other.list, list));
-  }
-
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  int get hashCode => Object.hash(
-      runtimeType, total, const DeepCollectionEquality().hash(list));
-
-  @override
-  String toString() {
-    return 'PostListModel(total: $total, list: $list)';
-  }
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract mixin class $PostListModelCopyWith<$Res> {
+abstract class $PostListModelCopyWith<$Res> {
   factory $PostListModelCopyWith(
-          PostListModel value, $Res Function(PostListModel) _then) =
-      _$PostListModelCopyWithImpl;
+          PostListModel value, $Res Function(PostListModel) then) =
+      _$PostListModelCopyWithImpl<$Res, PostListModel>;
   @useResult
   $Res call({int total, List<PostModel> list});
 }
 
 /// @nodoc
-class _$PostListModelCopyWithImpl<$Res>
+class _$PostListModelCopyWithImpl<$Res, $Val extends PostListModel>
     implements $PostListModelCopyWith<$Res> {
-  _$PostListModelCopyWithImpl(this._self, this._then);
+  _$PostListModelCopyWithImpl(this._value, this._then);
 
-  final PostListModel _self;
-  final $Res Function(PostListModel) _then;
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
   /// Create a copy of PostListModel
   /// with the given fields replaced by the non-null parameter values.
@@ -74,13 +60,53 @@ class _$PostListModelCopyWithImpl<$Res>
     Object? total = null,
     Object? list = null,
   }) {
-    return _then(_self.copyWith(
+    return _then(_value.copyWith(
       total: null == total
-          ? _self.total
+          ? _value.total
           : total // ignore: cast_nullable_to_non_nullable
               as int,
       list: null == list
-          ? _self.list
+          ? _value.list
+          : list // ignore: cast_nullable_to_non_nullable
+              as List<PostModel>,
+    ) as $Val);
+  }
+}
+
+/// @nodoc
+abstract class _$$PostListModelImplCopyWith<$Res>
+    implements $PostListModelCopyWith<$Res> {
+  factory _$$PostListModelImplCopyWith(
+          _$PostListModelImpl value, $Res Function(_$PostListModelImpl) then) =
+      __$$PostListModelImplCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({int total, List<PostModel> list});
+}
+
+/// @nodoc
+class __$$PostListModelImplCopyWithImpl<$Res>
+    extends _$PostListModelCopyWithImpl<$Res, _$PostListModelImpl>
+    implements _$$PostListModelImplCopyWith<$Res> {
+  __$$PostListModelImplCopyWithImpl(
+      _$PostListModelImpl _value, $Res Function(_$PostListModelImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of PostListModel
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? total = null,
+    Object? list = null,
+  }) {
+    return _then(_$PostListModelImpl(
+      total: null == total
+          ? _value.total
+          : total // ignore: cast_nullable_to_non_nullable
+              as int,
+      list: null == list
+          ? _value._list
           : list // ignore: cast_nullable_to_non_nullable
               as List<PostModel>,
     ));
@@ -89,12 +115,13 @@ class _$PostListModelCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _PostListModel implements PostListModel {
-  const _PostListModel(
+class _$PostListModelImpl implements _PostListModel {
+  const _$PostListModelImpl(
       {required this.total, required final List<PostModel> list})
       : _list = list;
-  factory _PostListModel.fromJson(Map<String, dynamic> json) =>
-      _$PostListModelFromJson(json);
+
+  factory _$PostListModelImpl.fromJson(Map<String, dynamic> json) =>
+      _$$PostListModelImplFromJson(json);
 
   @override
   final int total;
@@ -106,26 +133,16 @@ class _PostListModel implements PostListModel {
     return EqualUnmodifiableListView(_list);
   }
 
-  /// Create a copy of PostListModel
-  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @pragma('vm:prefer-inline')
-  _$PostListModelCopyWith<_PostListModel> get copyWith =>
-      __$PostListModelCopyWithImpl<_PostListModel>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$PostListModelToJson(
-      this,
-    );
+  String toString() {
+    return 'PostListModel(total: $total, list: $list)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _PostListModel &&
+            other is _$PostListModelImpl &&
             (identical(other.total, total) || other.total == total) &&
             const DeepCollectionEquality().equals(other._list, _list));
   }
@@ -135,50 +152,39 @@ class _PostListModel implements PostListModel {
   int get hashCode => Object.hash(
       runtimeType, total, const DeepCollectionEquality().hash(_list));
 
+  /// Create a copy of PostListModel
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  String toString() {
-    return 'PostListModel(total: $total, list: $list)';
+  @pragma('vm:prefer-inline')
+  _$$PostListModelImplCopyWith<_$PostListModelImpl> get copyWith =>
+      __$$PostListModelImplCopyWithImpl<_$PostListModelImpl>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$PostListModelImplToJson(
+      this,
+    );
   }
 }
 
-/// @nodoc
-abstract mixin class _$PostListModelCopyWith<$Res>
-    implements $PostListModelCopyWith<$Res> {
-  factory _$PostListModelCopyWith(
-          _PostListModel value, $Res Function(_PostListModel) _then) =
-      __$PostListModelCopyWithImpl;
+abstract class _PostListModel implements PostListModel {
+  const factory _PostListModel(
+      {required final int total,
+      required final List<PostModel> list}) = _$PostListModelImpl;
+
+  factory _PostListModel.fromJson(Map<String, dynamic> json) =
+      _$PostListModelImpl.fromJson;
+
   @override
-  @useResult
-  $Res call({int total, List<PostModel> list});
-}
-
-/// @nodoc
-class __$PostListModelCopyWithImpl<$Res>
-    implements _$PostListModelCopyWith<$Res> {
-  __$PostListModelCopyWithImpl(this._self, this._then);
-
-  final _PostListModel _self;
-  final $Res Function(_PostListModel) _then;
+  int get total;
+  @override
+  List<PostModel> get list;
 
   /// Create a copy of PostListModel
   /// with the given fields replaced by the non-null parameter values.
   @override
-  @pragma('vm:prefer-inline')
-  $Res call({
-    Object? total = null,
-    Object? list = null,
-  }) {
-    return _then(_PostListModel(
-      total: null == total
-          ? _self.total
-          : total // ignore: cast_nullable_to_non_nullable
-              as int,
-      list: null == list
-          ? _self._list
-          : list // ignore: cast_nullable_to_non_nullable
-              as List<PostModel>,
-    ));
-  }
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$PostListModelImplCopyWith<_$PostListModelImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }
-
-// dart format on

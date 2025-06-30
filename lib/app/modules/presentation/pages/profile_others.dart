@@ -1,4 +1,4 @@
-import 'package:boggle_flutter/gen/assets.gen.dart';
+/*import 'package:boggle_flutter/gen/assets.gen.dart';
 import 'package:flutter/material.dart';
 import 'package:boggle_flutter/app/modules/presentation/widgets/boggle_app_bar.dart';
 import 'package:boggle_flutter/app/modules/presentation/widgets/boggle_nav.dart';
@@ -116,3 +116,4 @@ class Profile_others_Page extends StatelessWidget {
     );
   }
 }
+*/

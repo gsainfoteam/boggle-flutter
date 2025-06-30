@@ -6,7 +6,8 @@ part of 'post_model.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_PostModel _$PostModelFromJson(Map<String, dynamic> json) => _PostModel(
+_$PostModelImpl _$$PostModelImplFromJson(Map<String, dynamic> json) =>
+    _$PostModelImpl(
       uuid: json['uuid'] as String,
       title: json['title'] as String,
       content: json['content'] as String,
@@ -20,7 +21,7 @@ _PostModel _$PostModelFromJson(Map<String, dynamic> json) => _PostModel(
       deadline: DateTime.parse(json['deadline'] as String),
     );
 
-Map<String, dynamic> _$PostModelToJson(_PostModel instance) =>
+Map<String, dynamic> _$$PostModelImplToJson(_$PostModelImpl instance) =>
     <String, dynamic>{
       'uuid': instance.uuid,
       'title': instance.title,
