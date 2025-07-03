@@ -7,7 +7,7 @@ import 'package:dio/dio.dart';
 part 'post_page_bloc.freezed.dart';
 
 final Dio _dio = Dio(BaseOptions(
-    baseUrl: 'https://api.newbie.gistory.me/',
+    baseUrl: 'http://13.125.147.62/api/',
     headers: {'Content-Type': 'application/json'}));
 
 @freezed
