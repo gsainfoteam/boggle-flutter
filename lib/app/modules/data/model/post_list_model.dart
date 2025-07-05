@@ -8,7 +8,7 @@ part 'post_list_model.g.dart';
 abstract class PostListModel with _$PostListModel {
   const factory PostListModel({
     required int total,
-    required List<PostModel> list,
+    required List<PostModel> posts,
   }) = _PostListModel;
 
   factory PostListModel.fromJson(Map<String, dynamic> json) =>

@@ -21,7 +21,7 @@ PostListModel _$PostListModelFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$PostListModel {
   int get total => throw _privateConstructorUsedError;
-  List<PostModel> get list => throw _privateConstructorUsedError;
+  List<PostModel> get posts => throw _privateConstructorUsedError;
 
   /// Serializes this PostListModel to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -39,7 +39,7 @@ abstract class $PostListModelCopyWith<$Res> {
           PostListModel value, $Res Function(PostListModel) then) =
       _$PostListModelCopyWithImpl<$Res, PostListModel>;
   @useResult
-  $Res call({int total, List<PostModel> list});
+  $Res call({int total, List<PostModel> posts});
 }
 
 /// @nodoc
@@ -58,16 +58,16 @@ class _$PostListModelCopyWithImpl<$Res, $Val extends PostListModel>
   @override
   $Res call({
     Object? total = null,
-    Object? list = null,
+    Object? posts = null,
   }) {
     return _then(_value.copyWith(
       total: null == total
           ? _value.total
           : total // ignore: cast_nullable_to_non_nullable
               as int,
-      list: null == list
-          ? _value.list
-          : list // ignore: cast_nullable_to_non_nullable
+      posts: null == posts
+          ? _value.posts
+          : posts // ignore: cast_nullable_to_non_nullable
               as List<PostModel>,
     ) as $Val);
   }
@@ -81,7 +81,7 @@ abstract class _$$PostListModelImplCopyWith<$Res>
       __$$PostListModelImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({int total, List<PostModel> list});
+  $Res call({int total, List<PostModel> posts});
 }
 
 /// @nodoc
@@ -98,16 +98,16 @@ class __$$PostListModelImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? total = null,
-    Object? list = null,
+    Object? posts = null,
   }) {
     return _then(_$PostListModelImpl(
       total: null == total
           ? _value.total
           : total // ignore: cast_nullable_to_non_nullable
               as int,
-      list: null == list
-          ? _value._list
-          : list // ignore: cast_nullable_to_non_nullable
+      posts: null == posts
+          ? _value._posts
+          : posts // ignore: cast_nullable_to_non_nullable
               as List<PostModel>,
     ));
   }
@@ -117,25 +117,25 @@ class __$$PostListModelImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$PostListModelImpl implements _PostListModel {
   const _$PostListModelImpl(
-      {required this.total, required final List<PostModel> list})
-      : _list = list;
+      {required this.total, required final List<PostModel> posts})
+      : _posts = posts;
 
   factory _$PostListModelImpl.fromJson(Map<String, dynamic> json) =>
       _$$PostListModelImplFromJson(json);
 
   @override
   final int total;
-  final List<PostModel> _list;
+  final List<PostModel> _posts;
   @override
-  List<PostModel> get list {
-    if (_list is EqualUnmodifiableListView) return _list;
+  List<PostModel> get posts {
+    if (_posts is EqualUnmodifiableListView) return _posts;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_list);
+    return EqualUnmodifiableListView(_posts);
   }
 
   @override
   String toString() {
-    return 'PostListModel(total: $total, list: $list)';
+    return 'PostListModel(total: $total, posts: $posts)';
   }
 
   @override
@@ -144,13 +144,13 @@ class _$PostListModelImpl implements _PostListModel {
         (other.runtimeType == runtimeType &&
             other is _$PostListModelImpl &&
             (identical(other.total, total) || other.total == total) &&
-            const DeepCollectionEquality().equals(other._list, _list));
+            const DeepCollectionEquality().equals(other._posts, _posts));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
-      runtimeType, total, const DeepCollectionEquality().hash(_list));
+      runtimeType, total, const DeepCollectionEquality().hash(_posts));
 
   /// Create a copy of PostListModel
   /// with the given fields replaced by the non-null parameter values.
@@ -171,7 +171,7 @@ class _$PostListModelImpl implements _PostListModel {
 abstract class _PostListModel implements PostListModel {
   const factory _PostListModel(
       {required final int total,
-      required final List<PostModel> list}) = _$PostListModelImpl;
+      required final List<PostModel> posts}) = _$PostListModelImpl;
 
   factory _PostListModel.fromJson(Map<String, dynamic> json) =
       _$PostListModelImpl.fromJson;
@@ -179,7 +179,7 @@ abstract class _PostListModel implements PostListModel {
   @override
   int get total;
   @override
-  List<PostModel> get list;
+  List<PostModel> get posts;
 
   /// Create a copy of PostListModel
   /// with the given fields replaced by the non-null parameter values.

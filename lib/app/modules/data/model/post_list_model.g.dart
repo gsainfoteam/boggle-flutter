@@ -9,7 +9,7 @@ part of 'post_list_model.dart';
 _$PostListModelImpl _$$PostListModelImplFromJson(Map<String, dynamic> json) =>
     _$PostListModelImpl(
       total: (json['total'] as num).toInt(),
-      list: (json['list'] as List<dynamic>)
+      posts: (json['posts'] as List<dynamic>)
           .map((e) => PostModel.fromJson(e as Map<String, dynamic>))
           .toList(),
     );
@@ -17,5 +17,5 @@ _$PostListModelImpl _$$PostListModelImplFromJson(Map<String, dynamic> json) =>
 Map<String, dynamic> _$$PostListModelImplToJson(_$PostListModelImpl instance) =>
     <String, dynamic>{
       'total': instance.total,
-      'list': instance.list,
+      'posts': instance.posts,
     };

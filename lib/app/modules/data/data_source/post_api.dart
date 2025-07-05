@@ -7,9 +7,12 @@ part 'post_api.g.dart';
 @RestApi(baseUrl: 'post')
 abstract class PostApi {
   factory PostApi(Dio dio, {String? baseUrl}) = _PostApi;
-
   @GET('')
-  Future<PostListModel> getPosts();
+  Future<PostListModel> getPosts(
+    @Query('type') String type,
+    @Query('skip') int skip,
+    @Query('take') int take,
+  );
 
   @POST('')
   Future<PostListModel> postPosts();

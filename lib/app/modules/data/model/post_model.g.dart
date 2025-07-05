@@ -12,13 +12,17 @@ _$PostModelImpl _$$PostModelImplFromJson(Map<String, dynamic> json) =>
       title: json['title'] as String,
       content: json['content'] as String,
       type: json['type'] as String,
-      tags: (json['tags'] as List<dynamic>).map((e) => e as String).toList(),
-      author: UserModel.fromJson(json['author'] as Map<String, dynamic>),
-      participants:
-          UserModel.fromJson(json['participants'] as Map<String, dynamic>),
-      maxPaticipants: (json['maxPaticipants'] as num).toInt(),
+      tags: (json['tags'] as List<dynamic>?)?.map((e) => e as String).toList(),
+      author: json['author'] as String,
+      authorId: json['authorId'] as String,
+      participants: (json['participants'] as List<dynamic>?)
+          ?.map((e) => UserModel.fromJson(e as Map<String, dynamic>))
+          .toList(),
+      maxParticipants: (json['maxParticipants'] as num).toInt(),
       createdAt: DateTime.parse(json['createdAt'] as String),
-      deadline: DateTime.parse(json['deadline'] as String),
+      deadline: json['deadline'] == null
+          ? null
+          : DateTime.parse(json['deadline'] as String),
     );
 
 Map<String, dynamic> _$$PostModelImplToJson(_$PostModelImpl instance) =>
@@ -29,8 +33,9 @@ Map<String, dynamic> _$$PostModelImplToJson(_$PostModelImpl instance) =>
       'type': instance.type,
       'tags': instance.tags,
       'author': instance.author,
+      'authorId': instance.authorId,
       'participants': instance.participants,
-      'maxPaticipants': instance.maxPaticipants,
+      'maxParticipants': instance.maxParticipants,
       'createdAt': instance.createdAt.toIso8601String(),
-      'deadline': instance.deadline.toIso8601String(),
+      'deadline': instance.deadline?.toIso8601String(),
     };

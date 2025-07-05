@@ -24,9 +24,17 @@ class _PostApi implements PostApi {
   final ParseErrorLogger? errorLogger;
 
   @override
-  Future<PostListModel> getPosts() async {
+  Future<PostListModel> getPosts(
+    String type,
+    int skip,
+    int take,
+  ) async {
     final _extra = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{
+      r'type': type,
+      r'skip': skip,
+      r'take': take,
+    };
     final _headers = <String, dynamic>{};
     const Map<String, dynamic>? _data = null;
     final _options = _setStreamType<PostListModel>(Options(

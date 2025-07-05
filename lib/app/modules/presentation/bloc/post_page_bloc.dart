@@ -7,7 +7,7 @@ import 'package:dio/dio.dart';
 part 'post_page_bloc.freezed.dart';
 
 final Dio _dio = Dio(BaseOptions(
-    baseUrl: 'http://13.125.147.62/api/',
+    baseUrl: 'http://13.125.147.62/',
     headers: {'Content-Type': 'application/json'}));
 
 @freezed
@@ -32,7 +32,7 @@ class PostPageBloc extends Bloc<PostPageEvent, PostPageState> {
     // 'LoadEvent'가 들어왔을 때 실행할 로직을 등록
     on<LoadEvent>(_onLoad);
   }
-
+  // onLoad 메소드 정의
   Future<void> _onLoad(LoadEvent event, Emitter<PostPageState> emit) async {
     try {
       // 1. 로딩 상태로 변경하여 UI에 로딩 인디케이터를 표시하도록 함
@@ -41,7 +41,7 @@ class PostPageBloc extends Bloc<PostPageEvent, PostPageState> {
       // 2. 데이터 로딩 (실제로는 API 호출
       // 여기서는 2초 지연으로 API 호출을 흉내 냅니다.
       await Future.delayed(const Duration(seconds: 2));
-      final results = await PostApi(_dio).getPosts(); // 실제 API 호출
+      final results = await PostApi(_dio).getPosts("ALL", 0, 1); // 실제 API 호출
 
       // 3. 성공 상태로 변경하고, 로드된 데이터를 함께 전달
       emit(PostPageState.loaded(items: results));
