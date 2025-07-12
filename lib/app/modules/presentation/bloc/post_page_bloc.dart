@@ -41,7 +41,7 @@ class PostPageBloc extends Bloc<PostPageEvent, PostPageState> {
       // 2. 데이터 로딩 (실제로는 API 호출
       // 여기서는 2초 지연으로 API 호출을 흉내 냅니다.
       await Future.delayed(const Duration(seconds: 2));
-      final results = await PostApi(_dio).getPosts("ALL", 0, 1); // 실제 API 호출
+      final results = await PostApi(_dio).getPosts("ALL", 0, 32); // 실제 API 호출
 
       // 3. 성공 상태로 변경하고, 로드된 데이터를 함께 전달
       emit(PostPageState.loaded(items: results));

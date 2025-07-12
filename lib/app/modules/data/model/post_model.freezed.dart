@@ -26,8 +26,7 @@ mixin _$PostModel {
   String get type => throw _privateConstructorUsedError;
   List<String>? get tags =>
       throw _privateConstructorUsedError; //required UserModel author,
-  String get author => throw _privateConstructorUsedError;
-  String get authorId => throw _privateConstructorUsedError;
+  UserModel get author => throw _privateConstructorUsedError;
   List<UserModel>? get participants => throw _privateConstructorUsedError;
   int get maxParticipants => throw _privateConstructorUsedError;
   DateTime get createdAt => throw _privateConstructorUsedError;
@@ -54,12 +53,13 @@ abstract class $PostModelCopyWith<$Res> {
       String content,
       String type,
       List<String>? tags,
-      String author,
-      String authorId,
+      UserModel author,
       List<UserModel>? participants,
       int maxParticipants,
       DateTime createdAt,
       DateTime? deadline});
+
+  $UserModelCopyWith<$Res> get author;
 }
 
 /// @nodoc
@@ -83,7 +83,6 @@ class _$PostModelCopyWithImpl<$Res, $Val extends PostModel>
     Object? type = null,
     Object? tags = freezed,
     Object? author = null,
-    Object? authorId = null,
     Object? participants = freezed,
     Object? maxParticipants = null,
     Object? createdAt = null,
@@ -113,11 +112,7 @@ class _$PostModelCopyWithImpl<$Res, $Val extends PostModel>
       author: null == author
           ? _value.author
           : author // ignore: cast_nullable_to_non_nullable
-              as String,
-      authorId: null == authorId
-          ? _value.authorId
-          : authorId // ignore: cast_nullable_to_non_nullable
-              as String,
+              as UserModel,
       participants: freezed == participants
           ? _value.participants
           : participants // ignore: cast_nullable_to_non_nullable
@@ -136,6 +131,16 @@ class _$PostModelCopyWithImpl<$Res, $Val extends PostModel>
               as DateTime?,
     ) as $Val);
   }
+
+  /// Create a copy of PostModel
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $UserModelCopyWith<$Res> get author {
+    return $UserModelCopyWith<$Res>(_value.author, (value) {
+      return _then(_value.copyWith(author: value) as $Val);
+    });
+  }
 }
 
 /// @nodoc
@@ -152,12 +157,14 @@ abstract class _$$PostModelImplCopyWith<$Res>
       String content,
       String type,
       List<String>? tags,
-      String author,
-      String authorId,
+      UserModel author,
       List<UserModel>? participants,
       int maxParticipants,
       DateTime createdAt,
       DateTime? deadline});
+
+  @override
+  $UserModelCopyWith<$Res> get author;
 }
 
 /// @nodoc
@@ -179,7 +186,6 @@ class __$$PostModelImplCopyWithImpl<$Res>
     Object? type = null,
     Object? tags = freezed,
     Object? author = null,
-    Object? authorId = null,
     Object? participants = freezed,
     Object? maxParticipants = null,
     Object? createdAt = null,
@@ -209,11 +215,7 @@ class __$$PostModelImplCopyWithImpl<$Res>
       author: null == author
           ? _value.author
           : author // ignore: cast_nullable_to_non_nullable
-              as String,
-      authorId: null == authorId
-          ? _value.authorId
-          : authorId // ignore: cast_nullable_to_non_nullable
-              as String,
+              as UserModel,
       participants: freezed == participants
           ? _value._participants
           : participants // ignore: cast_nullable_to_non_nullable
@@ -244,7 +246,6 @@ class _$PostModelImpl implements _PostModel {
       required this.type,
       final List<String>? tags,
       required this.author,
-      required this.authorId,
       final List<UserModel>? participants,
       required this.maxParticipants,
       required this.createdAt,
@@ -275,9 +276,7 @@ class _$PostModelImpl implements _PostModel {
 
 //required UserModel author,
   @override
-  final String author;
-  @override
-  final String authorId;
+  final UserModel author;
   final List<UserModel>? _participants;
   @override
   List<UserModel>? get participants {
@@ -297,7 +296,7 @@ class _$PostModelImpl implements _PostModel {
 
   @override
   String toString() {
-    return 'PostModel(uuid: $uuid, title: $title, content: $content, type: $type, tags: $tags, author: $author, authorId: $authorId, participants: $participants, maxParticipants: $maxParticipants, createdAt: $createdAt, deadline: $deadline)';
+    return 'PostModel(uuid: $uuid, title: $title, content: $content, type: $type, tags: $tags, author: $author, participants: $participants, maxParticipants: $maxParticipants, createdAt: $createdAt, deadline: $deadline)';
   }
 
   @override
@@ -311,8 +310,6 @@ class _$PostModelImpl implements _PostModel {
             (identical(other.type, type) || other.type == type) &&
             const DeepCollectionEquality().equals(other._tags, _tags) &&
             (identical(other.author, author) || other.author == author) &&
-            (identical(other.authorId, authorId) ||
-                other.authorId == authorId) &&
             const DeepCollectionEquality()
                 .equals(other._participants, _participants) &&
             (identical(other.maxParticipants, maxParticipants) ||
@@ -333,7 +330,6 @@ class _$PostModelImpl implements _PostModel {
       type,
       const DeepCollectionEquality().hash(_tags),
       author,
-      authorId,
       const DeepCollectionEquality().hash(_participants),
       maxParticipants,
       createdAt,
@@ -362,8 +358,7 @@ abstract class _PostModel implements PostModel {
       required final String content,
       required final String type,
       final List<String>? tags,
-      required final String author,
-      required final String authorId,
+      required final UserModel author,
       final List<UserModel>? participants,
       required final int maxParticipants,
       required final DateTime createdAt,
@@ -383,9 +378,7 @@ abstract class _PostModel implements PostModel {
   @override
   List<String>? get tags; //required UserModel author,
   @override
-  String get author;
-  @override
-  String get authorId;
+  UserModel get author;
   @override
   List<UserModel>? get participants;
   @override
