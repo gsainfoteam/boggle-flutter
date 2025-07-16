@@ -1,5 +1,5 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:boggle_flutter/app/modules/presentation/bloc/post_page_bloc.dart';
+import 'package:boggle_flutter/app/modules/presentation/post/bloc/post_page_bloc.dart';
 import 'package:boggle_flutter/app/modules/presentation/widgets/recruitment.dart';
 import 'package:flutter/material.dart';
 import 'package:boggle_flutter/app/modules/data/model/post_model.dart';
@@ -33,7 +33,7 @@ class PostPage extends StatelessWidget {
         body:
             BlocBuilder<PostPageBloc, PostPageState>(builder: (context, state) {
           return state.when(
-              init: () => const Center(child: Text('Boggle에 오신걸 환영합니다!')),
+              init: () => const Center(child: Text('게시글을 불러오는 중입니다...')),
               loading: () => const Center(child: CircularProgressIndicator()),
               loaded: (items) => RefreshIndicator(
                     onRefresh: () async {

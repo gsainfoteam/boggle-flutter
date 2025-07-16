@@ -5,6 +5,7 @@ import 'package:boggle_flutter/routes/app_router.gr.dart';
 class AppRouter extends RootStackRouter {
   @override
   List<AutoRoute> get routes => [
-        AutoRoute(page: PostRoute.page, initial: true),
+        AutoRoute(page: LoginRoute.page, initial: true),
+        AutoRoute(page: PostRoute.page),
       ];
 }

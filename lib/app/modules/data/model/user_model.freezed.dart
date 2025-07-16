@@ -20,8 +20,8 @@ UserModel _$UserModelFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$UserModel {
-  String get uuid => throw _privateConstructorUsedError;
-  String get name => throw _privateConstructorUsedError;
+  String? get uuid => throw _privateConstructorUsedError;
+  String? get name => throw _privateConstructorUsedError;
   String? get email => throw _privateConstructorUsedError;
   String? get password => throw _privateConstructorUsedError;
   String? get studentId => throw _privateConstructorUsedError;
@@ -43,8 +43,8 @@ abstract class $UserModelCopyWith<$Res> {
       _$UserModelCopyWithImpl<$Res, UserModel>;
   @useResult
   $Res call(
-      {String uuid,
-      String name,
+      {String? uuid,
+      String? name,
       String? email,
       String? password,
       String? studentId,
@@ -66,22 +66,22 @@ class _$UserModelCopyWithImpl<$Res, $Val extends UserModel>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? uuid = null,
-    Object? name = null,
+    Object? uuid = freezed,
+    Object? name = freezed,
     Object? email = freezed,
     Object? password = freezed,
     Object? studentId = freezed,
     Object? major = freezed,
   }) {
     return _then(_value.copyWith(
-      uuid: null == uuid
+      uuid: freezed == uuid
           ? _value.uuid
           : uuid // ignore: cast_nullable_to_non_nullable
-              as String,
-      name: null == name
+              as String?,
+      name: freezed == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       email: freezed == email
           ? _value.email
           : email // ignore: cast_nullable_to_non_nullable
@@ -111,8 +111,8 @@ abstract class _$$UserModelImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {String uuid,
-      String name,
+      {String? uuid,
+      String? name,
       String? email,
       String? password,
       String? studentId,
@@ -132,22 +132,22 @@ class __$$UserModelImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? uuid = null,
-    Object? name = null,
+    Object? uuid = freezed,
+    Object? name = freezed,
     Object? email = freezed,
     Object? password = freezed,
     Object? studentId = freezed,
     Object? major = freezed,
   }) {
     return _then(_$UserModelImpl(
-      uuid: null == uuid
+      uuid: freezed == uuid
           ? _value.uuid
           : uuid // ignore: cast_nullable_to_non_nullable
-              as String,
-      name: null == name
+              as String?,
+      name: freezed == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       email: freezed == email
           ? _value.email
           : email // ignore: cast_nullable_to_non_nullable
@@ -172,8 +172,8 @@ class __$$UserModelImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$UserModelImpl implements _UserModel {
   const _$UserModelImpl(
-      {required this.uuid,
-      required this.name,
+      {this.uuid,
+      this.name,
       this.email,
       this.password,
       this.studentId,
@@ -183,9 +183,9 @@ class _$UserModelImpl implements _UserModel {
       _$$UserModelImplFromJson(json);
 
   @override
-  final String uuid;
+  final String? uuid;
   @override
-  final String name;
+  final String? name;
   @override
   final String? email;
   @override
@@ -238,8 +238,8 @@ class _$UserModelImpl implements _UserModel {
 
 abstract class _UserModel implements UserModel {
   const factory _UserModel(
-      {required final String uuid,
-      required final String name,
+      {final String? uuid,
+      final String? name,
       final String? email,
       final String? password,
       final String? studentId,
@@ -249,9 +249,9 @@ abstract class _UserModel implements UserModel {
       _$UserModelImpl.fromJson;
 
   @override
-  String get uuid;
+  String? get uuid;
   @override
-  String get name;
+  String? get name;
   @override
   String? get email;
   @override
