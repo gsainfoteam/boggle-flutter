@@ -1,18 +1,9 @@
-import 'package:boggle_flutter/app/modules/data/model/post_list_model.dart';
 import 'package:boggle_flutter/app/modules/data/model/user_model.dart';
 import 'package:boggle_flutter/app/modules/data/repository/auth_repository.dart';
-import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:boggle_flutter/app/modules/data/data_source/post_api.dart';
-import 'package:dio/dio.dart';
-import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 
 part 'login_page_bloc.freezed.dart';
-
-final Dio _dio = Dio(BaseOptions(
-    baseUrl: 'http://13.125.147.62/',
-    headers: {'Content-Type': 'application/json'}));
 
 @freezed
 abstract class LoginPageEvent with _$LoginPageEvent {

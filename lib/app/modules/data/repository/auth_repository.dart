@@ -1,18 +1,19 @@
-//login 메소드 -> 1. 로그인 api 호출 2. token을 fluttersecure storage에 저장
-
 import 'package:boggle_flutter/app/modules/data/data_source/auth_api.dart';
 import 'package:boggle_flutter/app/modules/data/data_source/token_storage.dart';
 import 'package:boggle_flutter/app/modules/data/model/user_model.dart';
 import 'package:dio/dio.dart';
 import 'package:boggle_flutter/app/modules/data/model/auth_token_model.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
-import 'package:vsc_quill_delta_to_html/vsc_quill_delta_to_html.dart';
 
 class AuthRepository {
-  final AuthApi api;
+  final Dio dio;
+  late final AuthApi api = AuthApi(dio);
   final FlutterSecureStorage storage = const FlutterSecureStorage();
-  late final TokenStorage tokenStorage = TokenStorage(storage);
-  AuthRepository(Dio dio) : api = AuthApi(dio);
+  late final TokenStorage tokenStorage;
+  AuthRepository({
+    required this.dio,
+    required this.tokenStorage,
+  });
 
   // authRepository의 메소드 정의.
   Future<void> login(

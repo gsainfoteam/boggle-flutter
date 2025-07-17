@@ -1,18 +1,10 @@
 import 'package:boggle_flutter/app/modules/data/data_source/token_storage.dart';
-import 'package:boggle_flutter/app/modules/data/model/post_list_model.dart';
 import 'package:boggle_flutter/app/modules/data/model/user_model.dart';
 import 'package:boggle_flutter/app/modules/data/repository/auth_repository.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:boggle_flutter/app/modules/data/data_source/post_api.dart';
-import 'package:dio/dio.dart';
-import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 
 part 'auth_bloc.freezed.dart';
-
-final Dio _dio = Dio(BaseOptions(
-    baseUrl: 'http://13.125.147.62/',
-    headers: {'Content-Type': 'application/json'}));
 
 @freezed
 abstract class AuthEvent with _$AuthEvent {
@@ -38,8 +30,10 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
       _authRepository; // 변수명이나 함수명 앞에 _(언더스코어) 붙이면 이 파일에서만 접근 가능.
   final TokenStorage _tokenStorage; // import해서 이 변수 못 가져옴.
   // 초기 상태를 StateInit()으로 설정
-  AuthBloc(this._authRepository, this._tokenStorage)
-      : super(const AuthState.init()) {
+  AuthBloc(
+    this._authRepository,
+    this._tokenStorage,
+  ) : super(const AuthState.init()) {
     // 'LoginEvent'가 들어왔을 때 실행할 로직을 등록
     on<AppStartEvent>(_appStart);
     on<LoginEvent>(_login);

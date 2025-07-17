@@ -2,11 +2,8 @@ import 'package:auto_route/auto_route.dart';
 import 'package:boggle_flutter/app/modules/presentation/post/bloc/post_page_bloc.dart';
 import 'package:boggle_flutter/app/modules/presentation/widgets/recruitment.dart';
 import 'package:flutter/material.dart';
-import 'package:boggle_flutter/app/modules/data/model/post_model.dart';
 //import 'package:boggle_flutter/app/modules/presentation/widgets/tag.dart';
-import 'package:boggle_flutter/app/modules/presentation/widgets/boggle_Nav.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:intl/intl.dart';
 import 'package:boggle_flutter/app/modules/presentation/widgets/boggle_app_bar.dart';
 
 @RoutePage()

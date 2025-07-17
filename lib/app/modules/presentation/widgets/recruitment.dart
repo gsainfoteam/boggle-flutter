@@ -1,13 +1,9 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:boggle_flutter/app/modules/data/model/post_list_model.dart';
 import 'package:boggle_flutter/gen/assets.gen.dart';
 import 'package:boggle_flutter/routes/app_router.gr.dart';
 import 'package:flutter/material.dart';
 //import 'package:boggle_flutter/app/modules/data/model/post_list_image_model.dart';
 import 'package:boggle_flutter/app/modules/data/model/post_model.dart';
-import 'package:boggle_flutter/app/modules/presentation/widgets/active_symbol.dart';
-import 'dart:convert';
-import 'dart:typed_data';
 
 class Recruitment extends StatelessWidget {
   const Recruitment({

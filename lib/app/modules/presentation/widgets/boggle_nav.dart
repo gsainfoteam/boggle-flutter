@@ -1,7 +1,6 @@
 import 'package:boggle_flutter/gen/assets.gen.dart';
-import 'package:boggle_flutter/routes/app_router.gr.dart';
+
 import 'package:flutter/material.dart';
-import 'package:auto_route/auto_route.dart';
 
 class BoggleNav extends StatelessWidget {
   const BoggleNav({
