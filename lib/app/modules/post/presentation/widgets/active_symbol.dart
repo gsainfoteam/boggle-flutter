@@ -2,45 +2,34 @@ import 'package:boggle_flutter/app/modules/post/data/model/post_model.dart';
 import 'package:flutter/material.dart';
 
 class ActiveSymbol extends StatelessWidget {
-  ActiveSymbol({super.key, required this.index, required this.postModel});
+  const ActiveSymbol({super.key, required this.index, required this.postModel});
 
   final int index;
-  //final int imageIndex;
   final List<PostModel> postModel;
-  DateTime today = DateTime.now();
   @override
   Widget build(BuildContext context) {
-    DateTime hurry =
-        postModel[index].deadline.subtract(const Duration(days: 3));
+    final DateTime today = DateTime.now();
+    final DateTime deadline = postModel[index].deadline;
+    // hurry는 마감 날짜 3일 전
+    final DateTime hurry = deadline.subtract(const Duration(days: 3));
+    Color symbolColor;
+
     if (today.isBefore(hurry)) {
-      return Container(
-        height: 10,
-        width: 10,
-        decoration: const BoxDecoration(
-            color: Color.fromARGB(255, 59, 207, 64), shape: BoxShape.circle),
-      );
-    } else if (today.isBefore(postModel[index].deadline)) {
-      return Container(
-        height: 10,
-        width: 10,
-        decoration: const BoxDecoration(
-            color: Color.fromARGB(255, 255, 174, 0), shape: BoxShape.circle),
-      );
-    } else if (today.isAfter(postModel[index].deadline)) {
-      return Container(
-        height: 10,
-        width: 10,
-        decoration: const BoxDecoration(
-            color: Color.fromARGB(255, 207, 59, 59), shape: BoxShape.circle),
-      );
-    } else // data 제대로 못 받아왔을 경우우
-    {
-      return Container(
-        height: 10,
-        width: 10,
-        decoration: const BoxDecoration(
-            color: Color.fromARGB(255, 0, 0, 0), shape: BoxShape.circle),
-      );
+      symbolColor = const Color.fromARGB(255, 59, 207, 64);
+    } else if (today.isBefore(deadline)) {
+      symbolColor = const Color.fromARGB(255, 255, 174, 0);
+    } else {
+      symbolColor = const Color.fromARGB(255, 207, 59, 59);
     }
+
+    return _buildSymbol(symbolColor);
+  }
+
+  Widget _buildSymbol(Color color) {
+    return Container(
+      height: 10,
+      width: 10,
+      decoration: BoxDecoration(color: color, shape: BoxShape.circle),
+    );
   }
 }
