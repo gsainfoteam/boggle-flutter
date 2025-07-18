@@ -9,9 +9,9 @@
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
 import 'package:auto_route/auto_route.dart' as _i3;
-import 'package:boggle_flutter/app/modules/presentation/auth/view/login_page.dart'
+import 'package:boggle_flutter/app/modules/login/presentation/view/login_page.dart'
     as _i1;
-import 'package:boggle_flutter/app/modules/presentation/post/view/post_page.dart'
+import 'package:boggle_flutter/app/modules/post/presentation/view/post_page.dart'
     as _i2;
 
 /// generated route for

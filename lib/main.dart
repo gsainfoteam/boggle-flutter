@@ -1,8 +1,7 @@
-import 'package:boggle_flutter/app/modules/data/data_source/auth_api.dart';
-import 'package:boggle_flutter/app/modules/data/data_source/token_storage.dart';
-import 'package:boggle_flutter/app/modules/data/repository/auth_repository.dart';
-import 'package:boggle_flutter/app/modules/presentation/auth/bloc/auth_bloc.dart';
-import 'package:boggle_flutter/common/dio/auth_interceptor.dart';
+import 'package:boggle_flutter/app/modules/auth/data/data_source/token_storage.dart';
+import 'package:boggle_flutter/app/modules/auth/data/repository/auth_repository.dart';
+import 'package:boggle_flutter/app/modules/user/presentation/bloc/auth_bloc.dart';
+import 'package:boggle_flutter/app/modules/auth/data/data_source/auth_interceptor.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:boggle_flutter/routes/app_router.dart';
