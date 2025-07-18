@@ -1,7 +1,5 @@
-/*import 'package:flutter/material.dart';
-import 'package:boggle_flutter/app/modules/data/model/post_model.dart';
-
-//import 'package:infoteam_app/routes/app_router.gr.dart';
+import 'package:boggle_flutter/app/modules/post/data/model/post_model.dart';
+import 'package:flutter/material.dart';
 
 class ActiveSymbol extends StatelessWidget {
   ActiveSymbol({super.key, required this.index, required this.postModel});
@@ -46,4 +44,3 @@ class ActiveSymbol extends StatelessWidget {
     }
   }
 }
-*/

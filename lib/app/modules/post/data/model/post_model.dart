@@ -8,7 +8,7 @@ part 'post_model.g.dart';
 @freezed
 abstract class PostModel with _$PostModel {
   const factory PostModel({
-    required String uuid,
+    required String id,
     required String title,
     required String content,
     required String type,
@@ -18,7 +18,7 @@ abstract class PostModel with _$PostModel {
     List<UserModel>? participants,
     required int maxParticipants,
     required DateTime createdAt,
-    DateTime? deadline,
+    required DateTime deadline,
     //List<PostListImageModel>? images,
   }) = _PostModel;
 

@@ -1,7 +1,6 @@
 import 'package:boggle_flutter/gen/assets.gen.dart';
 import 'package:flutter/material.dart';
 import 'package:boggle_flutter/app/modules/common/presentation/widgets/boggle_app_bar.dart';
-import 'package:boggle_flutter/app/modules/common/presentation/widgets/boggle_nav.dart';
 import 'package:auto_route/annotations.dart';
 import 'package:auto_route/auto_route.dart';
 

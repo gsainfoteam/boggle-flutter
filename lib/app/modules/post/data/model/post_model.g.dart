@@ -8,7 +8,7 @@ part of 'post_model.dart';
 
 _$PostModelImpl _$$PostModelImplFromJson(Map<String, dynamic> json) =>
     _$PostModelImpl(
-      uuid: json['uuid'] as String,
+      id: json['id'] as String,
       title: json['title'] as String,
       content: json['content'] as String,
       type: json['type'] as String,
@@ -19,14 +19,12 @@ _$PostModelImpl _$$PostModelImplFromJson(Map<String, dynamic> json) =>
           .toList(),
       maxParticipants: (json['maxParticipants'] as num).toInt(),
       createdAt: DateTime.parse(json['createdAt'] as String),
-      deadline: json['deadline'] == null
-          ? null
-          : DateTime.parse(json['deadline'] as String),
+      deadline: DateTime.parse(json['deadline'] as String),
     );
 
 Map<String, dynamic> _$$PostModelImplToJson(_$PostModelImpl instance) =>
     <String, dynamic>{
-      'uuid': instance.uuid,
+      'id': instance.id,
       'title': instance.title,
       'content': instance.content,
       'type': instance.type,
@@ -35,5 +33,5 @@ Map<String, dynamic> _$$PostModelImplToJson(_$PostModelImpl instance) =>
       'participants': instance.participants,
       'maxParticipants': instance.maxParticipants,
       'createdAt': instance.createdAt.toIso8601String(),
-      'deadline': instance.deadline?.toIso8601String(),
+      'deadline': instance.deadline.toIso8601String(),
     };

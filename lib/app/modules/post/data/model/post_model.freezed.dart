@@ -20,7 +20,7 @@ PostModel _$PostModelFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$PostModel {
-  String get uuid => throw _privateConstructorUsedError;
+  String get id => throw _privateConstructorUsedError;
   String get title => throw _privateConstructorUsedError;
   String get content => throw _privateConstructorUsedError;
   String get type => throw _privateConstructorUsedError;
@@ -30,7 +30,7 @@ mixin _$PostModel {
   List<UserModel>? get participants => throw _privateConstructorUsedError;
   int get maxParticipants => throw _privateConstructorUsedError;
   DateTime get createdAt => throw _privateConstructorUsedError;
-  DateTime? get deadline => throw _privateConstructorUsedError;
+  DateTime get deadline => throw _privateConstructorUsedError;
 
   /// Serializes this PostModel to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -48,7 +48,7 @@ abstract class $PostModelCopyWith<$Res> {
       _$PostModelCopyWithImpl<$Res, PostModel>;
   @useResult
   $Res call(
-      {String uuid,
+      {String id,
       String title,
       String content,
       String type,
@@ -57,7 +57,7 @@ abstract class $PostModelCopyWith<$Res> {
       List<UserModel>? participants,
       int maxParticipants,
       DateTime createdAt,
-      DateTime? deadline});
+      DateTime deadline});
 
   $UserModelCopyWith<$Res> get author;
 }
@@ -77,7 +77,7 @@ class _$PostModelCopyWithImpl<$Res, $Val extends PostModel>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? uuid = null,
+    Object? id = null,
     Object? title = null,
     Object? content = null,
     Object? type = null,
@@ -86,12 +86,12 @@ class _$PostModelCopyWithImpl<$Res, $Val extends PostModel>
     Object? participants = freezed,
     Object? maxParticipants = null,
     Object? createdAt = null,
-    Object? deadline = freezed,
+    Object? deadline = null,
   }) {
     return _then(_value.copyWith(
-      uuid: null == uuid
-          ? _value.uuid
-          : uuid // ignore: cast_nullable_to_non_nullable
+      id: null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
               as String,
       title: null == title
           ? _value.title
@@ -125,10 +125,10 @@ class _$PostModelCopyWithImpl<$Res, $Val extends PostModel>
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
               as DateTime,
-      deadline: freezed == deadline
+      deadline: null == deadline
           ? _value.deadline
           : deadline // ignore: cast_nullable_to_non_nullable
-              as DateTime?,
+              as DateTime,
     ) as $Val);
   }
 
@@ -152,7 +152,7 @@ abstract class _$$PostModelImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {String uuid,
+      {String id,
       String title,
       String content,
       String type,
@@ -161,7 +161,7 @@ abstract class _$$PostModelImplCopyWith<$Res>
       List<UserModel>? participants,
       int maxParticipants,
       DateTime createdAt,
-      DateTime? deadline});
+      DateTime deadline});
 
   @override
   $UserModelCopyWith<$Res> get author;
@@ -180,7 +180,7 @@ class __$$PostModelImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? uuid = null,
+    Object? id = null,
     Object? title = null,
     Object? content = null,
     Object? type = null,
@@ -189,12 +189,12 @@ class __$$PostModelImplCopyWithImpl<$Res>
     Object? participants = freezed,
     Object? maxParticipants = null,
     Object? createdAt = null,
-    Object? deadline = freezed,
+    Object? deadline = null,
   }) {
     return _then(_$PostModelImpl(
-      uuid: null == uuid
-          ? _value.uuid
-          : uuid // ignore: cast_nullable_to_non_nullable
+      id: null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
               as String,
       title: null == title
           ? _value.title
@@ -228,10 +228,10 @@ class __$$PostModelImplCopyWithImpl<$Res>
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
               as DateTime,
-      deadline: freezed == deadline
+      deadline: null == deadline
           ? _value.deadline
           : deadline // ignore: cast_nullable_to_non_nullable
-              as DateTime?,
+              as DateTime,
     ));
   }
 }
@@ -240,7 +240,7 @@ class __$$PostModelImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$PostModelImpl implements _PostModel {
   const _$PostModelImpl(
-      {required this.uuid,
+      {required this.id,
       required this.title,
       required this.content,
       required this.type,
@@ -249,7 +249,7 @@ class _$PostModelImpl implements _PostModel {
       final List<UserModel>? participants,
       required this.maxParticipants,
       required this.createdAt,
-      this.deadline})
+      required this.deadline})
       : _tags = tags,
         _participants = participants;
 
@@ -257,7 +257,7 @@ class _$PostModelImpl implements _PostModel {
       _$$PostModelImplFromJson(json);
 
   @override
-  final String uuid;
+  final String id;
   @override
   final String title;
   @override
@@ -292,11 +292,11 @@ class _$PostModelImpl implements _PostModel {
   @override
   final DateTime createdAt;
   @override
-  final DateTime? deadline;
+  final DateTime deadline;
 
   @override
   String toString() {
-    return 'PostModel(uuid: $uuid, title: $title, content: $content, type: $type, tags: $tags, author: $author, participants: $participants, maxParticipants: $maxParticipants, createdAt: $createdAt, deadline: $deadline)';
+    return 'PostModel(id: $id, title: $title, content: $content, type: $type, tags: $tags, author: $author, participants: $participants, maxParticipants: $maxParticipants, createdAt: $createdAt, deadline: $deadline)';
   }
 
   @override
@@ -304,7 +304,7 @@ class _$PostModelImpl implements _PostModel {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$PostModelImpl &&
-            (identical(other.uuid, uuid) || other.uuid == uuid) &&
+            (identical(other.id, id) || other.id == id) &&
             (identical(other.title, title) || other.title == title) &&
             (identical(other.content, content) || other.content == content) &&
             (identical(other.type, type) || other.type == type) &&
@@ -324,7 +324,7 @@ class _$PostModelImpl implements _PostModel {
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      uuid,
+      id,
       title,
       content,
       type,
@@ -353,7 +353,7 @@ class _$PostModelImpl implements _PostModel {
 
 abstract class _PostModel implements PostModel {
   const factory _PostModel(
-      {required final String uuid,
+      {required final String id,
       required final String title,
       required final String content,
       required final String type,
@@ -362,13 +362,13 @@ abstract class _PostModel implements PostModel {
       final List<UserModel>? participants,
       required final int maxParticipants,
       required final DateTime createdAt,
-      final DateTime? deadline}) = _$PostModelImpl;
+      required final DateTime deadline}) = _$PostModelImpl;
 
   factory _PostModel.fromJson(Map<String, dynamic> json) =
       _$PostModelImpl.fromJson;
 
   @override
-  String get uuid;
+  String get id;
   @override
   String get title;
   @override
@@ -386,7 +386,7 @@ abstract class _PostModel implements PostModel {
   @override
   DateTime get createdAt;
   @override
-  DateTime? get deadline;
+  DateTime get deadline;
 
   /// Create a copy of PostModel
   /// with the given fields replaced by the non-null parameter values.
