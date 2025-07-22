@@ -1,5 +1,5 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:boggle_flutter/app/modules/auth/data/repository/auth_repository.dart';
+import 'package:boggle_flutter/app/modules/auth/data/repository/rest_auth_repository.dart';
 import 'package:boggle_flutter/app/modules/login/presentation/bloc/login_page_bloc.dart';
 import 'package:boggle_flutter/gen/assets.gen.dart';
 import 'package:boggle_flutter/routes/app_router.gr.dart';

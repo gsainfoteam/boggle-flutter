@@ -1,21 +1,23 @@
 import 'package:boggle_flutter/app/modules/auth/data/data_source/auth_api.dart';
 import 'package:boggle_flutter/app/modules/auth/data/data_source/token_storage.dart';
+import 'package:boggle_flutter/app/modules/auth/domain/repositories/auth_repository.dart';
 import 'package:boggle_flutter/app/modules/user/data/model/user_model.dart';
 import 'package:dio/dio.dart';
 import 'package:boggle_flutter/app/modules/auth/data/model/auth_token_model.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 
-class AuthRepository {
+class RestAuthRepository implements AuthRepository {
   final Dio dio;
   late final AuthApi api = AuthApi(dio);
   final FlutterSecureStorage storage = const FlutterSecureStorage();
   late final TokenStorage tokenStorage;
-  AuthRepository({
+  RestAuthRepository({
     required this.dio,
     required this.tokenStorage,
   });
 
   // authRepository의 메소드 정의.
+  @override
   Future<void> login(
     UserModel user,
   ) async {
@@ -31,6 +33,7 @@ class AuthRepository {
     }
   }
 
+  @override
   Future<AuthTokenModel> refresh(
     AuthTokenModel refreshToken,
   ) async {
@@ -50,6 +53,7 @@ class AuthRepository {
     return newAccessToken; // 갱신된 토큰 반환
   }
 
+  @override
   Future<void> logout() async {
     try {
       await tokenStorage.logout();

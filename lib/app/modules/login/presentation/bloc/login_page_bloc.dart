@@ -1,5 +1,5 @@
 import 'package:boggle_flutter/app/modules/user/data/model/user_model.dart';
-import 'package:boggle_flutter/app/modules/auth/data/repository/auth_repository.dart';
+import 'package:boggle_flutter/app/modules/auth/data/repository/rest_auth_repository.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 

@@ -1,6 +1,6 @@
 import 'package:boggle_flutter/app/modules/auth/data/data_source/auth_api.dart';
 import 'package:boggle_flutter/app/modules/auth/data/data_source/token_storage.dart';
-import 'package:boggle_flutter/app/modules/auth/data/repository/auth_repository.dart';
+import 'package:boggle_flutter/app/modules/auth/data/repository/rest_auth_repository.dart';
 import 'package:dio/dio.dart';
 
 class CustomInterceptors extends Interceptor {
