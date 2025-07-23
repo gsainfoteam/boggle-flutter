@@ -1,6 +1,8 @@
 import 'package:boggle_flutter/app/modules/auth/data/model/auth_token_model.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
+import 'package:injectable/injectable.dart';
 
+@singleton
 class TokenStorage {
   final FlutterSecureStorage storage;
 
@@ -22,24 +24,6 @@ class TokenStorage {
       );
     } catch (e) {
       throw Exception('토큰 저장 실패: $e');
-    }
-  }
-
-  Future<void> refresh(
-    String newRefreshToken,
-    String newAccessToken,
-  ) async {
-    try {
-      final refreshToken = await storage.read(key: 'refreshToken');
-      if (refreshToken == null) {
-        throw Exception('Refresh token이 존재하지 않습니다.');
-      } else if (newRefreshToken != refreshToken) {
-        throw Exception('새로운 Refresh token이 기존과 다릅니다.');
-      } else {
-        await storage.write(key: 'accessToken', value: newAccessToken);
-      }
-    } catch (e) {
-      throw Exception('토큰 갱신 실패: $e');
     }
   }
 

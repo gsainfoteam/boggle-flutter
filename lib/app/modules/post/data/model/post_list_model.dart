@@ -5,7 +5,7 @@ part 'post_list_model.freezed.dart';
 part 'post_list_model.g.dart';
 
 @freezed
-abstract class PostListModel with _$PostListModel {
+class PostListModel with _$PostListModel {
   const factory PostListModel({
     required int total,
     required List<PostModel> posts,

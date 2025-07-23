@@ -1,7 +1,8 @@
+import 'package:boggle_flutter/app/modules/auth/domain/repositories/auth_repository.dart';
 import 'package:boggle_flutter/app/modules/user/data/model/user_model.dart';
-import 'package:boggle_flutter/app/modules/auth/data/repository/rest_auth_repository.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:injectable/injectable.dart';
 
 part 'login_page_bloc.freezed.dart';
 
@@ -25,11 +26,14 @@ abstract class LoginPageState with _$LoginPageState {
       ErrorState; // 에러 상태 (메시지 포함)
 }
 
+@injectable
 class LoginPageBloc extends Bloc<LoginPageEvent, LoginPageState> {
-  final AuthRepository authRepository;
+  final AuthRepository _authRepository;
   // 생성자에서 AuthRepository를 주입
   // 초기 상태를 StateInit()으로 설정
-  LoginPageBloc(this.authRepository) : super(const LoginPageState.init()) {
+  LoginPageBloc(AuthRepository authRepository)
+      : _authRepository = authRepository,
+        super(const LoginPageState.init()) {
     // 'LoginEvent'가 들어왔을 때 실행할 로직을 등록
     on<LoginEvent>(_onLogin);
     on<RetryEvent>(_onRetry); // RetryEvent도 로그인 로직을 재사용
@@ -41,7 +45,7 @@ class LoginPageBloc extends Bloc<LoginPageEvent, LoginPageState> {
       // 로딩 상태로 변경하여 UI에 로딩 인디케이터를 표시하도록 함
       emit(LoginPageState.loading());
       final user = UserModel(email: event.email, password: event.password);
-      await authRepository.login(user);
+      await _authRepository.login(user);
       // 3. 성공 상태로 변경
       emit(LoginPageState.loaded());
     } catch (e) {

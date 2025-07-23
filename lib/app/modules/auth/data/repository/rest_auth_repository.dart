@@ -4,28 +4,28 @@ import 'package:boggle_flutter/app/modules/auth/domain/repositories/auth_reposit
 import 'package:boggle_flutter/app/modules/user/data/model/user_model.dart';
 import 'package:dio/dio.dart';
 import 'package:boggle_flutter/app/modules/auth/data/model/auth_token_model.dart';
-import 'package:flutter_secure_storage/flutter_secure_storage.dart';
+import 'package:injectable/injectable.dart';
 
+@Injectable(as: AuthRepository)
 class RestAuthRepository implements AuthRepository {
-  final Dio dio;
-  late final AuthApi api = AuthApi(dio);
-  final FlutterSecureStorage storage = const FlutterSecureStorage();
-  late final TokenStorage tokenStorage;
+  final AuthApi _api;
+  final TokenStorage _tokenStorage;
   RestAuthRepository({
-    required this.dio,
-    required this.tokenStorage,
-  });
+    required AuthApi api,
+    required TokenStorage tokenStorage,
+  })  : _tokenStorage = tokenStorage,
+        _api = api;
 
   // authRepository의 메소드 정의.
   @override
   Future<void> login(
     UserModel user,
   ) async {
-    final response = await api.login(
+    final response = await _api.login(
       user,
     );
     try {
-      await tokenStorage.saveToken(
+      await _tokenStorage.saveToken(
         response,
       );
     } catch (e) {
@@ -38,25 +38,22 @@ class RestAuthRepository implements AuthRepository {
     AuthTokenModel refreshToken,
   ) async {
     // tokenStorage에 저장된 토큰 업데이트
-    final newAccessToken = await api.refresh(
+    final newTokens = await _api.refresh(
       refreshToken,
     );
     try {
-      await tokenStorage.refresh(
-        refreshToken.refreshToken!,
-        newAccessToken.accessToken!,
-      );
+      await _tokenStorage.saveToken(newTokens);
     } catch (e) {
       throw Exception('토큰 갱신 실패: $e');
     }
 
-    return newAccessToken; // 갱신된 토큰 반환
+    return newTokens; // 갱신된 토큰 반환
   }
 
   @override
   Future<void> logout() async {
     try {
-      await tokenStorage.logout();
+      await _tokenStorage.logout();
     } catch (e) {
       throw Exception('로그아웃 실패: $e');
     }

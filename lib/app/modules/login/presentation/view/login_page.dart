@@ -1,5 +1,6 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:boggle_flutter/app/modules/auth/data/repository/rest_auth_repository.dart';
+import 'package:boggle_flutter/app/di/locator.dart';
+import 'package:boggle_flutter/app/modules/auth/domain/repositories/auth_repository.dart';
 import 'package:boggle_flutter/app/modules/login/presentation/bloc/login_page_bloc.dart';
 import 'package:boggle_flutter/gen/assets.gen.dart';
 import 'package:boggle_flutter/routes/app_router.gr.dart';
@@ -33,13 +34,7 @@ class _LoginPageState extends State<LoginPage> {
     final router = context.router;
 
     return BlocProvider(
-        create: (context) => LoginPageBloc(
-              context.read<
-                  AuthRepository>(), // main.dart에서 context에 주입된 AuthRepository를 가져오기
-            )..add(LoginPageEvent.login(
-                emailController.text,
-                passwordController.text,
-              )),
+        create: (context) => sl<LoginPageBloc>(),
         child: BlocListener<LoginPageBloc, LoginPageState>(
           listener: (context, state) {
             state.whenOrNull(

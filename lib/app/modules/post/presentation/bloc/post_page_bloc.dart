@@ -1,14 +1,12 @@
 import 'package:boggle_flutter/app/modules/post/data/model/post_list_model.dart';
+import 'package:boggle_flutter/app/modules/post/domain/repositories/post_repository.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:boggle_flutter/app/modules/post/data/data_source/post_api.dart';
 import 'package:dio/dio.dart';
+import 'package:injectable/injectable.dart';
 
 part 'post_page_bloc.freezed.dart';
-
-final Dio _dio = Dio(BaseOptions(
-    baseUrl: 'http://13.125.147.62/',
-    headers: {'Content-Type': 'application/json'}));
 
 @freezed
 abstract class PostPageEvent with _$PostPageEvent {
@@ -26,9 +24,13 @@ abstract class PostPageState with _$PostPageState {
       ErrorState; // 에러 상태 (메시지 포함)
 }
 
+@injectable
 class PostPageBloc extends Bloc<PostPageEvent, PostPageState> {
+  final PostRepository _postRepository;
   // 초기 상태를 StateInit()으로 설정
-  PostPageBloc() : super(const PostPageState.init()) {
+  PostPageBloc(PostRepository postRepository)
+      : _postRepository = postRepository,
+        super(const PostPageState.init()) {
     // 'LoadEvent'가 들어왔을 때 실행할 로직을 등록
     on<LoadEvent>(_onLoad);
   }
@@ -41,7 +43,7 @@ class PostPageBloc extends Bloc<PostPageEvent, PostPageState> {
       // 2. 데이터 로딩 (실제로는 API 호출
       // 여기서는 2초 지연으로 API 호출을 흉내 냅니다.
       await Future.delayed(const Duration(seconds: 2));
-      final results = await PostApi(_dio).getPosts("ALL", 0, 32); // 실제 API 호출
+      final results = await _postRepository.getPosts("ALL", 0, 32);
 
       // 3. 성공 상태로 변경하고, 로드된 데이터를 함께 전달
       emit(PostPageState.loaded(items: results));

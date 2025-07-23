@@ -6,7 +6,7 @@ part 'auth_token_model.freezed.dart';
 part 'auth_token_model.g.dart';
 
 @freezed
-abstract class AuthTokenModel with _$AuthTokenModel {
+class AuthTokenModel with _$AuthTokenModel {
   const factory AuthTokenModel({
     String? uuid,
     @JsonKey(name: 'access_token') String? accessToken,

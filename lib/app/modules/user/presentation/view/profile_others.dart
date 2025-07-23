@@ -1,4 +1,5 @@
-import 'package:boggle_flutter/gen/assets.gen.dart';
+//미구현
+/*import 'package:boggle_flutter/gen/assets.gen.dart';
 import 'package:flutter/material.dart';
 import 'package:boggle_flutter/app/modules/common/presentation/widgets/boggle_app_bar.dart';
 import 'package:auto_route/annotations.dart';
@@ -113,3 +114,4 @@ class Profile_others_Page extends StatelessWidget {
     );
   }
 }
+*/

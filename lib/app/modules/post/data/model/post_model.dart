@@ -6,7 +6,7 @@ part 'post_model.freezed.dart';
 part 'post_model.g.dart';
 
 @freezed
-abstract class PostModel with _$PostModel {
+class PostModel with _$PostModel {
   const factory PostModel({
     required String id,
     required String title,
