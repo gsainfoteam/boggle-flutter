@@ -2,8 +2,6 @@ import 'package:boggle_flutter/app/modules/post/data/model/post_list_model.dart'
 import 'package:boggle_flutter/app/modules/post/domain/repositories/post_repository.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:boggle_flutter/app/modules/post/data/data_source/post_api.dart';
-import 'package:dio/dio.dart';
 import 'package:injectable/injectable.dart';
 
 part 'post_page_bloc.freezed.dart';
