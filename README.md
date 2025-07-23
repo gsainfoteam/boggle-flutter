@@ -32,3 +32,28 @@
    - DIO INTERCEPTOR에서 onError(401 Error)가 발생했을 경우 REFRESH TOKEN을 활용하여 새로운 ACCESS TOKEN을 서버로부터 받는다. 만약, REFRESH TOKEN도 만료되었다면 로그인 페이지로 이동하여 1번 과정을 다시 수행해야한다.
    - ACCESS TOKEN이 만료되었으나 DIO INTERCEPTOR에서 onError가 발생하지 않은 경우라면 ACCESS TOKEN이 딱히 필요하지 않은 경우이므로 당장은 REFRESH TOKEN을 활용하여 새로운 ACCESS TOKEN을 가져올 필요가 없다.
    3. REFRESH TOKEN이 기간 만료된 경우 - REFRESH TOKEN이 만료되었다면 로그인 페이지로 이동하여 1번 과정을 다시 수행한다.
+
+과제 5
+
+1. 새롭게 만든 파일에 대한 설명
+   1. post_repository와 rest_post_repository / auth_repository와 rest_auth_repository
+      - 기존에는 data layer에 존재하는 repository와 presentation layer에 존재하는 page 및 bloc이
+        서로 직접 의존하고, 사용했다. 하지만, 이는 clean architecture에 위반되었다. 따라서,
+        domain layer에 abstract class로 xxxx_repository를 만들어, 메소드를 선언만 한다.
+        그 후, data layer에서 rest_xxxx_repository를 만들고, @injectable(as:xxxxRepository)와 implement 문법을 사용하여 해당 추상 클래스를 직접 구현하는 하였다.
+   2. locator.dart
+      - DI 컨테이너 시작 설정
+   3. module.dart
+      - 외부에서 가져온 객체(FlutterSecureStorage) 혹은 설정이 필요한 객체(Dio)를 @module annotation과 @lazySingleton, @Singleton을 활용하여 DI 컨테이너에 등록함.
+   4. @injectable 적용
+      - api : api를 injectable로 저장해야 했다. 그러나, api는 abstract class이므로 @injectable annotation이 build하지 못할 가능성이 있다. 따라서, @factoryMethod를 사용하여 @injectable annotation에게 build 방법을 알려주어 해결함.
+      - tokenStorage : @Singleton을 활용하여 앱 전체에서 tokenStorage 인스턴스를 오직 하나만 사용하도록 구성함과 동시에 DI 컨테이너에 등록함.
+      - rest_xxxx_repository : @injectable(as:xxxxRepository)를 활용하여 DI 컨테이너에 xxxxRepository가 필요하다면 대신 rest_xxxx_repository를 만들어서 제공하도록 등록함.
+      - bloc : presentation/view의 page에서 Bloc을 활용할 때, DI 컨테이너에서 bloc이 구성될 때 필요한 객체들을 자동 구성하도록 하기 위해 @injectable annotation을 활용하여 등록함.
+2. clean architecture 설명
+   1. 기능 별로 layer 분리
+      - 유지 보수에 도움됨
+      - 의존성 규칙을 따르도록 설정 가능
+      - 의존성 규칙을 따른다면, 데이터베이스를 변경하거나 UI를 변경하더라도 앱의 핵심 로직인 Domain layer에는 영향 끼치지 못함.
+   2. 의존성 주입 (DI)
+      - 객체들을 DI 컨테이너에서 관리하며, 필요하다면 DI에서 자동 구성하여 객체를 제공하기 때문에 유지 보수 및 기능 구현에 도움된다.
