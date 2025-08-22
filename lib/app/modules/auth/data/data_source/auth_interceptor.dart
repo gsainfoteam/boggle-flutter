@@ -9,7 +9,7 @@ class AuthInterceptors extends Interceptor {
   final TokenStorage tokenStorage;
   final Dio _dio;
   AuthInterceptors(
-      this.authRepository, this.tokenStorage, @Named('default') this._dio);
+      this.authRepository, this.tokenStorage, @Named('refresh') this._dio);
   @override
   Future<void> onRequest(
       RequestOptions options, RequestInterceptorHandler handler) async {

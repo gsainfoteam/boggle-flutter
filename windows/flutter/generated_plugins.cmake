@@ -6,7 +6,6 @@ list(APPEND FLUTTER_PLUGIN_LIST
   app_links
   desktop_webview_window
   file_selector_windows
-  firebase_core
   flutter_inappwebview_windows
   flutter_secure_storage_windows
   permission_handler_windows
