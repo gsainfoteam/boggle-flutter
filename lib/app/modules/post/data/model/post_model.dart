@@ -13,7 +13,6 @@ class PostModel with _$PostModel {
     required String content,
     required String type,
     List<String>? tags,
-    //required UserModel author,
     required UserModel author,
     List<UserModel>? participants,
     required int maxParticipants,

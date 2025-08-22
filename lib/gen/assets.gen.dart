@@ -15,39 +15,35 @@ import 'package:vector_graphics/vector_graphics.dart' as _vg;
 class $AssetsFontsGen {
   const $AssetsFontsGen();
 
-  /// File path: assets/fonts/Pretendard-1.3.9.zip
-  String get pretendard139 => 'assets/fonts/Pretendard-1.3.9.zip';
+  /// File path: assets/fonts/Pretendard-Black.ttf
+  String get pretendardBlack => 'assets/fonts/Pretendard-Black.ttf';
 
-  /// File path: assets/fonts/Pretendard-Black.otf
-  String get pretendardBlack => 'assets/fonts/Pretendard-Black.otf';
+  /// File path: assets/fonts/Pretendard-Bold.ttf
+  String get pretendardBold => 'assets/fonts/Pretendard-Bold.ttf';
 
-  /// File path: assets/fonts/Pretendard-Bold.otf
-  String get pretendardBold => 'assets/fonts/Pretendard-Bold.otf';
+  /// File path: assets/fonts/Pretendard-ExtraBold.ttf
+  String get pretendardExtraBold => 'assets/fonts/Pretendard-ExtraBold.ttf';
 
-  /// File path: assets/fonts/Pretendard-ExtraBold.otf
-  String get pretendardExtraBold => 'assets/fonts/Pretendard-ExtraBold.otf';
+  /// File path: assets/fonts/Pretendard-ExtraLight.ttf
+  String get pretendardExtraLight => 'assets/fonts/Pretendard-ExtraLight.ttf';
 
-  /// File path: assets/fonts/Pretendard-ExtraLight.otf
-  String get pretendardExtraLight => 'assets/fonts/Pretendard-ExtraLight.otf';
+  /// File path: assets/fonts/Pretendard-Light.ttf
+  String get pretendardLight => 'assets/fonts/Pretendard-Light.ttf';
 
-  /// File path: assets/fonts/Pretendard-Light.otf
-  String get pretendardLight => 'assets/fonts/Pretendard-Light.otf';
+  /// File path: assets/fonts/Pretendard-Medium.ttf
+  String get pretendardMedium => 'assets/fonts/Pretendard-Medium.ttf';
 
-  /// File path: assets/fonts/Pretendard-Medium.otf
-  String get pretendardMedium => 'assets/fonts/Pretendard-Medium.otf';
+  /// File path: assets/fonts/Pretendard-Regular.ttf
+  String get pretendardRegular => 'assets/fonts/Pretendard-Regular.ttf';
 
-  /// File path: assets/fonts/Pretendard-Regular.otf
-  String get pretendardRegular => 'assets/fonts/Pretendard-Regular.otf';
+  /// File path: assets/fonts/Pretendard-SemiBold.ttf
+  String get pretendardSemiBold => 'assets/fonts/Pretendard-SemiBold.ttf';
 
-  /// File path: assets/fonts/Pretendard-SemiBold.otf
-  String get pretendardSemiBold => 'assets/fonts/Pretendard-SemiBold.otf';
-
-  /// File path: assets/fonts/Pretendard-Thin.otf
-  String get pretendardThin => 'assets/fonts/Pretendard-Thin.otf';
+  /// File path: assets/fonts/Pretendard-Thin.ttf
+  String get pretendardThin => 'assets/fonts/Pretendard-Thin.ttf';
 
   /// List of all assets
   List<String> get values => [
-        pretendard139,
         pretendardBlack,
         pretendardBold,
         pretendardExtraBold,
