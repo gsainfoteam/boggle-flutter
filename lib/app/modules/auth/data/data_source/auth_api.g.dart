@@ -24,11 +24,14 @@ class _AuthApi implements AuthApi {
   final ParseErrorLogger? errorLogger;
 
   @override
-  Future<AuthTokenModel> login(UserModel body) async {
+  Future<AuthTokenModel> login(
+    String id,
+    String password,
+  ) async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
-    final _data = body;
+    final _data = id;
     final _options = _setStreamType<AuthTokenModel>(Options(
       method: 'POST',
       headers: _headers,

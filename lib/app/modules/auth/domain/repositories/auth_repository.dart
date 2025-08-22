@@ -1,9 +1,9 @@
-import 'package:boggle_flutter/app/modules/user/data/model/user_model.dart';
 import 'package:boggle_flutter/app/modules/auth/data/model/auth_token_model.dart';
 
 abstract class AuthRepository {
   Future<void> login(
-    UserModel user,
+    String id,
+    String password,
   );
   Future<AuthTokenModel> refresh(
     AuthTokenModel refreshToken,

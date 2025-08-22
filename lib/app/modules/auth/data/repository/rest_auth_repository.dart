@@ -1,7 +1,6 @@
 import 'package:boggle_flutter/app/modules/auth/data/data_source/auth_api.dart';
 import 'package:boggle_flutter/app/modules/auth/data/data_source/token_storage.dart';
 import 'package:boggle_flutter/app/modules/auth/domain/repositories/auth_repository.dart';
-import 'package:boggle_flutter/app/modules/user/data/model/user_model.dart';
 import 'package:boggle_flutter/app/modules/auth/data/model/auth_token_model.dart';
 import 'package:injectable/injectable.dart';
 
@@ -18,11 +17,10 @@ class RestAuthRepository implements AuthRepository {
   // authRepository의 메소드 정의.
   @override
   Future<void> login(
-    UserModel user,
+    String id,
+    String password,
   ) async {
-    final response = await _api.login(
-      user,
-    );
+    final response = await _api.login(id, password);
     try {
       await _tokenStorage.saveToken(
         response,

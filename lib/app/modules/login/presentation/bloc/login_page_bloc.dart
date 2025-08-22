@@ -1,5 +1,4 @@
 import 'package:boggle_flutter/app/modules/auth/domain/repositories/auth_repository.dart';
-import 'package:boggle_flutter/app/modules/user/data/model/user_model.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:injectable/injectable.dart';
@@ -44,8 +43,7 @@ class LoginPageBloc extends Bloc<LoginPageEvent, LoginPageState> {
     try {
       // 로딩 상태로 변경하여 UI에 로딩 인디케이터를 표시하도록 함
       emit(LoginPageState.loading());
-      final user = UserModel(email: event.email, password: event.password);
-      await _authRepository.login(user);
+      await _authRepository.login(event.email!, event.password!);
       // 3. 성공 상태로 변경
       emit(LoginPageState.loaded());
     } catch (e) {

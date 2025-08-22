@@ -24,8 +24,7 @@ mixin _$PostModel {
   String get title => throw _privateConstructorUsedError;
   String get content => throw _privateConstructorUsedError;
   String get type => throw _privateConstructorUsedError;
-  List<String>? get tags =>
-      throw _privateConstructorUsedError; //required UserModel author,
+  List<String>? get tags => throw _privateConstructorUsedError;
   UserModel get author => throw _privateConstructorUsedError;
   List<UserModel>? get participants => throw _privateConstructorUsedError;
   int get maxParticipants => throw _privateConstructorUsedError;
@@ -274,7 +273,6 @@ class _$PostModelImpl implements _PostModel {
     return EqualUnmodifiableListView(value);
   }
 
-//required UserModel author,
   @override
   final UserModel author;
   final List<UserModel>? _participants;
@@ -376,7 +374,7 @@ abstract class _PostModel implements PostModel {
   @override
   String get type;
   @override
-  List<String>? get tags; //required UserModel author,
+  List<String>? get tags;
   @override
   UserModel get author;
   @override

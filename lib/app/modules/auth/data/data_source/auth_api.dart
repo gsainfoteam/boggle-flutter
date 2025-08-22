@@ -1,5 +1,4 @@
 import 'package:boggle_flutter/app/modules/auth/data/model/auth_token_model.dart';
-import 'package:boggle_flutter/app/modules/user/data/model/user_model.dart';
 import 'package:injectable/injectable.dart';
 import 'package:retrofit/retrofit.dart';
 import 'package:dio/dio.dart';
@@ -14,7 +13,8 @@ abstract class AuthApi {
 
   @POST('/login')
   Future<AuthTokenModel> login(
-    @Body() UserModel body,
+    @Body() String id,
+    @Body() String password,
   );
 
   @POST('/refresh')

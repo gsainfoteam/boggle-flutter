@@ -1,6 +1,5 @@
 import 'package:boggle_flutter/app/modules/auth/data/data_source/token_storage.dart';
 import 'package:boggle_flutter/app/modules/auth/domain/repositories/auth_repository.dart';
-import 'package:boggle_flutter/app/modules/user/data/model/user_model.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:injectable/injectable.dart';
@@ -62,7 +61,8 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
     emit(const AuthState.loading()); // UI에 로딩 표시
     try {
       await _authRepository.login(
-        UserModel(email: event.email, password: event.password),
+        event.email!,
+        event.password!,
       );
       emit(const AuthState.authenticate()); // 인증 성공 시 상태 변경
     } catch (e) {
