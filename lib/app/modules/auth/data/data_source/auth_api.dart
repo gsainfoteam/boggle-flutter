@@ -6,7 +6,7 @@ import 'package:dio/dio.dart';
 part 'auth_api.g.dart';
 
 @injectable
-@RestApi(baseUrl: 'auth')
+@RestApi(baseUrl: 'user')
 abstract class AuthApi {
   @factoryMethod
   factory AuthApi(@Named('default') Dio dio, {String? baseUrl}) = _AuthApi;

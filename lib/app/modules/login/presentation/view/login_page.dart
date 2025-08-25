@@ -138,8 +138,9 @@ class _LoginPageState extends State<LoginPage> {
                   ),
                   loading: () =>
                       const Center(child: CircularProgressIndicator()),
-                  loaded: () => const SizedBox
-                      .shrink(), // loaded 상태 시, 다른 페이지로 전환되므로 login page UI 아무 것도 필요 없음.
+                  loaded: () => const Center(
+                      child:
+                          CircularProgressIndicator()), // 다른 페이지로 전환되는 동안 로딩 표시
                   error: (message) => Center(
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,

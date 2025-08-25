@@ -47,9 +47,10 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
   Future<void> _appStart(AuthEvent event, Emitter<AuthState> emit) async {
     emit(const AuthState.loading()); // UI에 로딩 표시
     try {
-      final accessToken = await _tokenStorage.storage.read(key: 'accessToken');
+      final accessToken = await _tokenStorage.getAccessToken();
       if (accessToken != null) {
-        emit(const AuthState.unAuthenticate());
+        await _authRepository.refresh(accessToken);
+        emit(const AuthState.authenticate());
       }
     } catch (e) {
       emit(const AuthState.unAuthenticate());

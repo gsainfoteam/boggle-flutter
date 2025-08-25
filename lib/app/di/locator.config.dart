@@ -76,6 +76,10 @@ extension GetItInjectableX on _i174.GetIt {
         () => _i1037.TokenStorage(gh<_i558.FlutterSecureStorage>()));
     gh.factory<_i455.PostRepository>(
         () => _i772.RestPostRepository(api: gh<_i199.PostApi>()));
+    gh.factory<_i78.AuthInterceptors>(() => _i78.AuthInterceptors(
+          gh<_i1037.TokenStorage>(),
+          gh<_i361.Dio>(instanceName: 'refresh'),
+        ));
     gh.factory<_i167.PostPageBloc>(
         () => _i167.PostPageBloc(gh<_i455.PostRepository>()));
     gh.factory<_i1033.AuthRepository>(() => _i1013.RestAuthRepository(
@@ -84,11 +88,6 @@ extension GetItInjectableX on _i174.GetIt {
         ));
     gh.factory<_i829.LoginPageBloc>(
         () => _i829.LoginPageBloc(gh<_i1033.AuthRepository>()));
-    gh.factory<_i78.AuthInterceptors>(() => _i78.AuthInterceptors(
-          gh<_i1033.AuthRepository>(),
-          gh<_i1037.TokenStorage>(),
-          gh<_i361.Dio>(instanceName: 'refresh'),
-        ));
     gh.factory<_i986.AuthBloc>(() => _i986.AuthBloc(
           gh<_i1033.AuthRepository>(),
           gh<_i1037.TokenStorage>(),

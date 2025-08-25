@@ -14,7 +14,7 @@ class _AuthApi implements AuthApi {
     this.baseUrl,
     this.errorLogger,
   }) {
-    baseUrl ??= 'auth';
+    baseUrl ??= 'user';
   }
 
   final Dio _dio;
