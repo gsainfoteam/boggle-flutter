@@ -13,7 +13,6 @@ _$TokenRequestWithCodeModelImpl _$$TokenRequestWithCodeModelImplFromJson(
       code: json['code'] as String,
       codeVerifier: json['code_verifier'] as String,
       clientId: json['client_id'] as String,
-      clientSecret: json['client_secret'] as String,
     );
 
 Map<String, dynamic> _$$TokenRequestWithCodeModelImplToJson(
@@ -23,5 +22,4 @@ Map<String, dynamic> _$$TokenRequestWithCodeModelImplToJson(
       'code': instance.code,
       'code_verifier': instance.codeVerifier,
       'client_id': instance.clientId,
-      'client_secret': instance.clientSecret,
     };

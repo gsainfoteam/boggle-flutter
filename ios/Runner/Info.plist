@@ -46,15 +46,15 @@
 	<key>UIApplicationSupportsIndirectInputEvents</key>
 	<true/>
 	<key>CFBundleURLTypes</key>
-    <array>
-        <dict>
-            <key>CFBundleTypeRole</key>
-            <string>Editor</string>
-            <key>CFBundleURLSchemes</key>
-            <array>
-                <string>boggle-app</string>
-            </array>
-        </dict>
-    </array>
+		<array>
+    		<dict>
+        		<key>CFBundleTypeRole</key>
+        		<string>Editor</string>
+        		<key>CFBundleURLSchemes</key>
+        		<array>
+            		<string>boggle-app</string>
+        		</array>
+    		</dict>
+		</array>
 </dict>
 </plist>

@@ -34,7 +34,8 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
         _oauthRepository = _oauthRepository,
         super(const AuthState.init()) {
     // 'LoginEvent'가 들어왔을 때 실행할 로직을 등록
-    on<AppStartEvent>(_appStart);
+    on<AppStartEvent>(_test);
+    //on<AppStartEvent>(_appStart);
     //on<LoginEvent>(_login);
     on<LogoutEvent>(_logout);
   }
@@ -50,6 +51,11 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
     } catch (e) {
       emit(const AuthState.unAuthenticate());
     }
+  }
+
+  Future<void> _test(AuthEvent event, Emitter<AuthState> emit) async {
+    emit(const AuthState.loading()); // UI에 로딩 표시
+    emit(const AuthState.authenticate());
   }
 
   Future<void> _logout(AuthEvent event, Emitter<AuthState> emit) async {

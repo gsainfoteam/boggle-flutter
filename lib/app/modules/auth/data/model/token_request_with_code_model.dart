@@ -11,7 +11,7 @@ class TokenRequestWithCodeModel with _$TokenRequestWithCodeModel {
     required String code,
     required String codeVerifier,
     required String clientId,
-    required String clientSecret,
+    //required String clientSecret,
   }) = _TokenRequestWithCodeModel;
 
   factory TokenRequestWithCodeModel.fromJson(Map<String, dynamic> json) =>

@@ -1,6 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:boggle_flutter/app/di/locator.dart';
 import 'package:boggle_flutter/app/modules/login/presentation/bloc/login_page_bloc.dart';
+import 'package:boggle_flutter/app/modules/user/presentation/bloc/auth_bloc.dart';
 import 'package:boggle_flutter/gen/assets.gen.dart';
 import 'package:boggle_flutter/routes/app_router.gr.dart';
 import 'package:flutter/material.dart';
@@ -57,11 +58,37 @@ class LoginPage extends StatelessWidget {
                               shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(30)),
                             ),
-                            child: const Text('Google 계정으로 로그인',
+                            child: const Text('GIST 메일로 시작하기',
                                 style: TextStyle(
                                     fontSize: 16,
                                     fontFamily: 'Pretendard',
-                                    fontWeight: FontWeight.w600)),
+                                    fontWeight: FontWeight.w600,
+                                    color: Colors.white)),
+                          ),
+                        ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.symmetric(vertical: 5),
+                        child: SizedBox(
+                          height: 50,
+                          child: ElevatedButton(
+                            onPressed: () {
+                              context
+                                  .read<LoginPageBloc>()
+                                  .add(const LoginPageEvent.skip());
+                            },
+                            style: ElevatedButton.styleFrom(
+                              backgroundColor:
+                                  const Color.fromARGB(255, 75, 126, 255),
+                              shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(30)),
+                            ),
+                            child: const Text('일단 넘어가기(테스트용)',
+                                style: TextStyle(
+                                    fontSize: 16,
+                                    fontFamily: 'Pretendard',
+                                    fontWeight: FontWeight.w600,
+                                    color: Colors.white)),
                           ),
                         ),
                       )

@@ -14,22 +14,22 @@ class BoggleAppBar extends StatelessWidget implements PreferredSizeWidget {
   final Color? backgroundColor;
 
   factory BoggleAppBar.main({
-    required VoidCallback onTapSearch,
-    required VoidCallback onTapWrite,
     Color? backgroundColor, // #DEF2FF or #4B7EFF or #FFFFFF
   }) =>
       BoggleAppBar(
         backgroundColor: backgroundColor,
         actions: [
           GestureDetector(
-            onTap: onTapSearch,
+            onTap: () {
+              print('Search icon tapped');
+            },
             behavior: HitTestBehavior.translucent,
             child: AspectRatio(
                 aspectRatio: 1,
                 child: Center(child: Assets.icons.search.svg())),
           ),
           GestureDetector(
-            onTap: onTapWrite,
+            onTap: () {},
             behavior: HitTestBehavior.translucent,
             child: AspectRatio(
                 aspectRatio: 1,

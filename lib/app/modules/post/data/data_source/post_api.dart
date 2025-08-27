@@ -9,7 +9,7 @@ part 'post_api.g.dart';
 @RestApi(baseUrl: 'post')
 abstract class PostApi {
   @factoryMethod
-  factory PostApi(@Named('default') Dio dio, {String? baseUrl}) = _PostApi;
+  factory PostApi(@Named('default') Dio dio) = _PostApi;
   @GET('')
   Future<PostListModel> getPosts(
     @Query('type') String type,

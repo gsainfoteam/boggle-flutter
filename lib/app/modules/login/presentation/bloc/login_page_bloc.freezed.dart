@@ -20,18 +20,21 @@ mixin _$LoginPageEvent {
   TResult when<TResult extends Object?>({
     required TResult Function() login,
     required TResult Function() retry,
+    required TResult Function() skip,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? login,
     TResult? Function()? retry,
+    TResult? Function()? skip,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? login,
     TResult Function()? retry,
+    TResult Function()? skip,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -39,18 +42,21 @@ mixin _$LoginPageEvent {
   TResult map<TResult extends Object?>({
     required TResult Function(LoginEvent value) login,
     required TResult Function(RetryEvent value) retry,
+    required TResult Function(SkipEvent value) skip,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(LoginEvent value)? login,
     TResult? Function(RetryEvent value)? retry,
+    TResult? Function(SkipEvent value)? skip,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(LoginEvent value)? login,
     TResult Function(RetryEvent value)? retry,
+    TResult Function(SkipEvent value)? skip,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -120,6 +126,7 @@ class _$LoginEventImpl implements LoginEvent {
   TResult when<TResult extends Object?>({
     required TResult Function() login,
     required TResult Function() retry,
+    required TResult Function() skip,
   }) {
     return login();
   }
@@ -129,6 +136,7 @@ class _$LoginEventImpl implements LoginEvent {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? login,
     TResult? Function()? retry,
+    TResult? Function()? skip,
   }) {
     return login?.call();
   }
@@ -138,6 +146,7 @@ class _$LoginEventImpl implements LoginEvent {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? login,
     TResult Function()? retry,
+    TResult Function()? skip,
     required TResult orElse(),
   }) {
     if (login != null) {
@@ -151,6 +160,7 @@ class _$LoginEventImpl implements LoginEvent {
   TResult map<TResult extends Object?>({
     required TResult Function(LoginEvent value) login,
     required TResult Function(RetryEvent value) retry,
+    required TResult Function(SkipEvent value) skip,
   }) {
     return login(this);
   }
@@ -160,6 +170,7 @@ class _$LoginEventImpl implements LoginEvent {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(LoginEvent value)? login,
     TResult? Function(RetryEvent value)? retry,
+    TResult? Function(SkipEvent value)? skip,
   }) {
     return login?.call(this);
   }
@@ -169,6 +180,7 @@ class _$LoginEventImpl implements LoginEvent {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(LoginEvent value)? login,
     TResult Function(RetryEvent value)? retry,
+    TResult Function(SkipEvent value)? skip,
     required TResult orElse(),
   }) {
     if (login != null) {
@@ -225,6 +237,7 @@ class _$RetryEventImpl implements RetryEvent {
   TResult when<TResult extends Object?>({
     required TResult Function() login,
     required TResult Function() retry,
+    required TResult Function() skip,
   }) {
     return retry();
   }
@@ -234,6 +247,7 @@ class _$RetryEventImpl implements RetryEvent {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? login,
     TResult? Function()? retry,
+    TResult? Function()? skip,
   }) {
     return retry?.call();
   }
@@ -243,6 +257,7 @@ class _$RetryEventImpl implements RetryEvent {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? login,
     TResult Function()? retry,
+    TResult Function()? skip,
     required TResult orElse(),
   }) {
     if (retry != null) {
@@ -256,6 +271,7 @@ class _$RetryEventImpl implements RetryEvent {
   TResult map<TResult extends Object?>({
     required TResult Function(LoginEvent value) login,
     required TResult Function(RetryEvent value) retry,
+    required TResult Function(SkipEvent value) skip,
   }) {
     return retry(this);
   }
@@ -265,6 +281,7 @@ class _$RetryEventImpl implements RetryEvent {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(LoginEvent value)? login,
     TResult? Function(RetryEvent value)? retry,
+    TResult? Function(SkipEvent value)? skip,
   }) {
     return retry?.call(this);
   }
@@ -274,6 +291,7 @@ class _$RetryEventImpl implements RetryEvent {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(LoginEvent value)? login,
     TResult Function(RetryEvent value)? retry,
+    TResult Function(SkipEvent value)? skip,
     required TResult orElse(),
   }) {
     if (retry != null) {
@@ -285,6 +303,117 @@ class _$RetryEventImpl implements RetryEvent {
 
 abstract class RetryEvent implements LoginPageEvent {
   const factory RetryEvent() = _$RetryEventImpl;
+}
+
+/// @nodoc
+abstract class _$$SkipEventImplCopyWith<$Res> {
+  factory _$$SkipEventImplCopyWith(
+          _$SkipEventImpl value, $Res Function(_$SkipEventImpl) then) =
+      __$$SkipEventImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$SkipEventImplCopyWithImpl<$Res>
+    extends _$LoginPageEventCopyWithImpl<$Res, _$SkipEventImpl>
+    implements _$$SkipEventImplCopyWith<$Res> {
+  __$$SkipEventImplCopyWithImpl(
+      _$SkipEventImpl _value, $Res Function(_$SkipEventImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of LoginPageEvent
+  /// with the given fields replaced by the non-null parameter values.
+}
+
+/// @nodoc
+
+class _$SkipEventImpl implements SkipEvent {
+  const _$SkipEventImpl();
+
+  @override
+  String toString() {
+    return 'LoginPageEvent.skip()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$SkipEventImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() login,
+    required TResult Function() retry,
+    required TResult Function() skip,
+  }) {
+    return skip();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? login,
+    TResult? Function()? retry,
+    TResult? Function()? skip,
+  }) {
+    return skip?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? login,
+    TResult Function()? retry,
+    TResult Function()? skip,
+    required TResult orElse(),
+  }) {
+    if (skip != null) {
+      return skip();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(LoginEvent value) login,
+    required TResult Function(RetryEvent value) retry,
+    required TResult Function(SkipEvent value) skip,
+  }) {
+    return skip(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(LoginEvent value)? login,
+    TResult? Function(RetryEvent value)? retry,
+    TResult? Function(SkipEvent value)? skip,
+  }) {
+    return skip?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(LoginEvent value)? login,
+    TResult Function(RetryEvent value)? retry,
+    TResult Function(SkipEvent value)? skip,
+    required TResult orElse(),
+  }) {
+    if (skip != null) {
+      return skip(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class SkipEvent implements LoginPageEvent {
+  const factory SkipEvent() = _$SkipEventImpl;
 }
 
 /// @nodoc

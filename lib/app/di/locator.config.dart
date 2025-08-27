@@ -64,30 +64,28 @@ extension GetItInjectableX on _i174.GetIt {
           gh<_i361.Dio>(),
           baseUrl: gh<String>(),
         ));
-    gh.factory<_i199.PostApi>(() => _i199.PostApi(
-          gh<_i361.Dio>(instanceName: 'default'),
-          baseUrl: gh<String>(),
-        ));
     gh.factory<_i1070.AuthApi>(
         () => _i1070.AuthApi(gh<_i361.Dio>(instanceName: 'auth')));
     gh.singleton<_i1037.TokenStorage>(
         () => _i1037.TokenStorage(gh<_i558.FlutterSecureStorage>()));
-    gh.factory<_i455.PostRepository>(
-        () => _i772.RestPostRepository(api: gh<_i199.PostApi>()));
+    gh.factory<_i199.PostApi>(
+        () => _i199.PostApi(gh<_i361.Dio>(instanceName: 'default')));
     gh.factory<_i754.OAuthRepository>(() => _i746.RestOAuthRepository(
           api: gh<_i1070.AuthApi>(),
           tokenStorage: gh<_i1037.TokenStorage>(),
         ));
-    gh.factory<_i167.PostPageBloc>(
-        () => _i167.PostPageBloc(gh<_i455.PostRepository>()));
     gh.factory<_i986.AuthBloc>(() => _i986.AuthBloc(
           gh<_i1037.TokenStorage>(),
           gh<_i754.OAuthRepository>(),
         ));
     gh.factory<_i78.AuthInterceptors>(
         () => _i78.AuthInterceptors(gh<_i1037.TokenStorage>()));
+    gh.factory<_i455.PostRepository>(
+        () => _i772.RestPostRepository(api: gh<_i199.PostApi>()));
     gh.factory<_i829.LoginPageBloc>(
         () => _i829.LoginPageBloc(gh<_i754.OAuthRepository>()));
+    gh.factory<_i167.PostPageBloc>(
+        () => _i167.PostPageBloc(gh<_i455.PostRepository>()));
     return this;
   }
 }

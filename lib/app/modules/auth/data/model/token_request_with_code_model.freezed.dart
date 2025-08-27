@@ -25,7 +25,6 @@ mixin _$TokenRequestWithCodeModel {
   String get code => throw _privateConstructorUsedError;
   String get codeVerifier => throw _privateConstructorUsedError;
   String get clientId => throw _privateConstructorUsedError;
-  String get clientSecret => throw _privateConstructorUsedError;
 
   /// Serializes this TokenRequestWithCodeModel to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -44,11 +43,7 @@ abstract class $TokenRequestWithCodeModelCopyWith<$Res> {
       _$TokenRequestWithCodeModelCopyWithImpl<$Res, TokenRequestWithCodeModel>;
   @useResult
   $Res call(
-      {String grantType,
-      String code,
-      String codeVerifier,
-      String clientId,
-      String clientSecret});
+      {String grantType, String code, String codeVerifier, String clientId});
 }
 
 /// @nodoc
@@ -71,7 +66,6 @@ class _$TokenRequestWithCodeModelCopyWithImpl<$Res,
     Object? code = null,
     Object? codeVerifier = null,
     Object? clientId = null,
-    Object? clientSecret = null,
   }) {
     return _then(_value.copyWith(
       grantType: null == grantType
@@ -90,10 +84,6 @@ class _$TokenRequestWithCodeModelCopyWithImpl<$Res,
           ? _value.clientId
           : clientId // ignore: cast_nullable_to_non_nullable
               as String,
-      clientSecret: null == clientSecret
-          ? _value.clientSecret
-          : clientSecret // ignore: cast_nullable_to_non_nullable
-              as String,
     ) as $Val);
   }
 }
@@ -108,11 +98,7 @@ abstract class _$$TokenRequestWithCodeModelImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {String grantType,
-      String code,
-      String codeVerifier,
-      String clientId,
-      String clientSecret});
+      {String grantType, String code, String codeVerifier, String clientId});
 }
 
 /// @nodoc
@@ -134,7 +120,6 @@ class __$$TokenRequestWithCodeModelImplCopyWithImpl<$Res>
     Object? code = null,
     Object? codeVerifier = null,
     Object? clientId = null,
-    Object? clientSecret = null,
   }) {
     return _then(_$TokenRequestWithCodeModelImpl(
       grantType: null == grantType
@@ -153,10 +138,6 @@ class __$$TokenRequestWithCodeModelImplCopyWithImpl<$Res>
           ? _value.clientId
           : clientId // ignore: cast_nullable_to_non_nullable
               as String,
-      clientSecret: null == clientSecret
-          ? _value.clientSecret
-          : clientSecret // ignore: cast_nullable_to_non_nullable
-              as String,
     ));
   }
 }
@@ -169,8 +150,7 @@ class _$TokenRequestWithCodeModelImpl implements _TokenRequestWithCodeModel {
       {this.grantType = 'authorization_code',
       required this.code,
       required this.codeVerifier,
-      required this.clientId,
-      required this.clientSecret});
+      required this.clientId});
 
   factory _$TokenRequestWithCodeModelImpl.fromJson(Map<String, dynamic> json) =>
       _$$TokenRequestWithCodeModelImplFromJson(json);
@@ -184,12 +164,10 @@ class _$TokenRequestWithCodeModelImpl implements _TokenRequestWithCodeModel {
   final String codeVerifier;
   @override
   final String clientId;
-  @override
-  final String clientSecret;
 
   @override
   String toString() {
-    return 'TokenRequestWithCodeModel(grantType: $grantType, code: $code, codeVerifier: $codeVerifier, clientId: $clientId, clientSecret: $clientSecret)';
+    return 'TokenRequestWithCodeModel(grantType: $grantType, code: $code, codeVerifier: $codeVerifier, clientId: $clientId)';
   }
 
   @override
@@ -203,15 +181,13 @@ class _$TokenRequestWithCodeModelImpl implements _TokenRequestWithCodeModel {
             (identical(other.codeVerifier, codeVerifier) ||
                 other.codeVerifier == codeVerifier) &&
             (identical(other.clientId, clientId) ||
-                other.clientId == clientId) &&
-            (identical(other.clientSecret, clientSecret) ||
-                other.clientSecret == clientSecret));
+                other.clientId == clientId));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(
-      runtimeType, grantType, code, codeVerifier, clientId, clientSecret);
+  int get hashCode =>
+      Object.hash(runtimeType, grantType, code, codeVerifier, clientId);
 
   /// Create a copy of TokenRequestWithCodeModel
   /// with the given fields replaced by the non-null parameter values.
@@ -235,8 +211,7 @@ abstract class _TokenRequestWithCodeModel implements TokenRequestWithCodeModel {
       {final String grantType,
       required final String code,
       required final String codeVerifier,
-      required final String clientId,
-      required final String clientSecret}) = _$TokenRequestWithCodeModelImpl;
+      required final String clientId}) = _$TokenRequestWithCodeModelImpl;
 
   factory _TokenRequestWithCodeModel.fromJson(Map<String, dynamic> json) =
       _$TokenRequestWithCodeModelImpl.fromJson;
@@ -249,8 +224,6 @@ abstract class _TokenRequestWithCodeModel implements TokenRequestWithCodeModel {
   String get codeVerifier;
   @override
   String get clientId;
-  @override
-  String get clientSecret;
 
   /// Create a copy of TokenRequestWithCodeModel
   /// with the given fields replaced by the non-null parameter values.

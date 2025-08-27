@@ -10,6 +10,7 @@ part 'login_page_bloc.freezed.dart';
 abstract class LoginPageEvent with _$LoginPageEvent {
   const factory LoginPageEvent.login() = LoginEvent; // 'Login' 이벤트를 정의
   const factory LoginPageEvent.retry() = RetryEvent; // 'Retry' 이벤트를 정의
+  const factory LoginPageEvent.skip() = SkipEvent; // 'Skip' 이벤트를 정의
 }
 
 // --- State 정의 ---
@@ -34,6 +35,7 @@ class LoginPageBloc extends Bloc<LoginPageEvent, LoginPageState> {
     // 'LoginEvent'가 들어왔을 때 실행할 로직을 등록
     on<LoginEvent>(_onLogin);
     on<RetryEvent>(_onRetry); // RetryEvent도 로그인 로직을 재사용
+    on<SkipEvent>(_onSkip);
   }
 
   // onLoad 메소드 정의
@@ -55,5 +57,10 @@ class LoginPageBloc extends Bloc<LoginPageEvent, LoginPageState> {
   Future<void> _onRetry(RetryEvent event, Emitter<LoginPageState> emit) async {
     // error 상태일 때 RetryEvent가 발생하면 login page 처음 상태로 되돌리기
     emit(const LoginPageState.init()); // 초기 상태로 변경
+  }
+
+  Future<void> _onSkip(SkipEvent event, Emitter<LoginPageState> emit) async {
+    emit(const LoginPageState.loading());
+    emit(const LoginPageState.loaded());
   }
 }

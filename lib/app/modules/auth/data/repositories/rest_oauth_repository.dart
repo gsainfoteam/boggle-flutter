@@ -23,35 +23,37 @@ class RestOAuthRepository implements OAuthRepository {
   @override
   Future<void> login() async {
     const clientId = '5aec0c22-288b-478f-8bbc-92cfd89fc91d';
+    //const clientSecret = '5aec0c22-288b-478f-8bbc-92cfd89fc91d';
     const redirectUri = 'boggle-app://callback';
-    const scopes = 'openid profile student_id email offline_access';
-
-    // --- 정상 코드와 동일하게 state, PKCE 생성 ---
-    final state = Nonce.secure().toString(); // 1. state 파라미터 생성
+    const scopes = 'profile student_id email';
+    final state = Nonce.secure().toString();
     final codeVerifier = Nonce.secure().toString();
     final codeChallenge = base64Url
         .encode(sha256.convert(utf8.encode(codeVerifier)).bytes)
         .replaceAll('=', '');
-    final nonce = Nonce.secure().toString();
+
+    final queryParams = {
+      'response_type': 'code',
+      'client_id': clientId,
+      'redirect_uri': redirectUri,
+      'scope': scopes,
+      'state': state,
+      'code_challenge': codeChallenge,
+      'code_challenge_method': 'plain',
+    };
+
+    final queryString = queryParams.entries
+        .map((entry) =>
+            '${Uri.encodeComponent(entry.key)}=${Uri.encodeComponent(entry.value)}')
+        .join('&');
 
     final authorizeUri = Uri(
       scheme: 'https',
       host: 'idp.gistory.me',
       path: '/authorize',
-      queryParameters: {
-        'client_id': clientId,
-        'redirect_uri': redirectUri,
-        'response_type': 'code',
-        'scope': scopes,
-        'state': state,
-        'nonce': nonce,
-        'code_challenge': codeChallenge,
-        'code_challenge_method': 'S256',
-        'prompt': 'consent',
-      },
-    );
+    ).replace(query: queryString);
 
-    print('Requesting Auth URL with State & PKCE: ${authorizeUri.toString()}');
+    print('Requesting FINAL Auth URL: ${authorizeUri.toString()}');
 
     try {
       final result = await FlutterWebAuth2.authenticate(
@@ -59,31 +61,25 @@ class RestOAuthRepository implements OAuthRepository {
         callbackUrlScheme: 'boggle-app',
       );
       print('>>>>>> Callback Result from IDP: $result');
-
       final uri = Uri.parse(result);
 
-      // 4. 돌아온 state 값이 맨 처음 보낸 값과 일치하는지 반드시 확인!
       final receivedState = uri.queryParameters['state'];
-      if (receivedState != state) {
-        // 일치하지 않으면 보안 공격일 수 있으므로 에러 처리
-        // throw InvalidAuthorizationStateException();
-        throw Exception('Invalid authorization state.');
-      }
+      if (receivedState != state) throw Exception('Invalid state');
 
       final authCode = uri.queryParameters['code'];
-      if (authCode == null) {
-        throw Exception('Authorization code not found.');
-      }
+      if (authCode == null) throw Exception('Authorization code not found.');
 
       final response = await _api.getTokenFromCode(TokenRequestWithCodeModel(
-          code: authCode,
-          codeVerifier: codeVerifier,
-          clientId: clientId,
-          clientSecret: 'ogbqj2DanT5fGh8URqoiDYfxbJcz9XSBE4BLyxPM'));
+        code: authCode,
+        codeVerifier: codeVerifier,
+        clientId: clientId,
+        //clientSecret: clientSecret,
+      ));
+
       await _tokenStorage.saveToken(
         AuthTokenEntity(
           accessToken: response.accessToken,
-          refreshToken: response.refreshToken, // refreshToken도 있다면 저장
+          refreshToken: response.refreshToken,
         ),
       );
     } catch (e) {

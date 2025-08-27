@@ -21,15 +21,6 @@ class _PostPageState extends State<PostPage> {
   @override
   void initState() {
     super.initState();
-    //기존에는 BlocProvider의 create 부분에서 ..add(const PostPageEvent.load());
-    //를 하였으나, BlocProvider의 create 콜백은 Bloc 인스턴스를 생성하고 제공하는 역할만
-    //수행해야한다. 즉, 여기에 ..add(event);는 단일 책임 원칙에 어긋난다.
-    //그래서, PostPage를 StatefulWidget으로 바꾸고, initState에서 load Event를 추가할 것이다.
-    WidgetsBinding.instance.addPostFrameCallback((_) {
-      context.read<PostPageBloc>().add(const PostPageEvent.load());
-    });
-    //WidgetsBinding.instance.addPostFrameCallback((_) {}) 은 이번 프레임 렌더링이 완전히 끝난 이후에
-    //이 안에 있는 코드를 딱 한 번 실행해달라는 메소드이다.
   }
 
   @override
@@ -43,7 +34,7 @@ class _PostPageState extends State<PostPage> {
     }*/
 
     return BlocProvider(
-      create: (context) => sl<PostPageBloc>(),
+      create: (context) => sl<PostPageBloc>()..add(const PostPageEvent.load()),
       child: Scaffold(
         backgroundColor: const Color.fromARGB(255, 255, 255, 255),
         appBar: BoggleAppBar(),
