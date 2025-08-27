@@ -14,7 +14,7 @@ class _AuthApi implements AuthApi {
     this.baseUrl,
     this.errorLogger,
   }) {
-    baseUrl ??= 'user';
+    baseUrl ??= 'oauth/';
   }
 
   final Dio _dio;
@@ -24,14 +24,12 @@ class _AuthApi implements AuthApi {
   final ParseErrorLogger? errorLogger;
 
   @override
-  Future<AuthTokenModel> login(
-    String id,
-    String password,
-  ) async {
+  Future<AuthTokenModel> getTokenFromCode(
+      TokenRequestWithCodeModel request) async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
-    final _data = id;
+    final _data = request;
     final _options = _setStreamType<AuthTokenModel>(Options(
       method: 'POST',
       headers: _headers,
@@ -39,7 +37,7 @@ class _AuthApi implements AuthApi {
     )
         .compose(
           _dio.options,
-          '/login',
+          'token',
           queryParameters: queryParameters,
           data: _data,
         )
@@ -57,64 +55,6 @@ class _AuthApi implements AuthApi {
       rethrow;
     }
     return _value;
-  }
-
-  @override
-  Future<AuthTokenModel> refresh(AuthTokenModel body) async {
-    final _extra = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{};
-    final _headers = <String, dynamic>{};
-    final _data = body;
-    final _options = _setStreamType<AuthTokenModel>(Options(
-      method: 'POST',
-      headers: _headers,
-      extra: _extra,
-    )
-        .compose(
-          _dio.options,
-          '/refresh',
-          queryParameters: queryParameters,
-          data: _data,
-        )
-        .copyWith(
-            baseUrl: _combineBaseUrls(
-          _dio.options.baseUrl,
-          baseUrl,
-        )));
-    final _result = await _dio.fetch<Map<String, dynamic>>(_options);
-    late AuthTokenModel _value;
-    try {
-      _value = AuthTokenModel.fromJson(_result.data!);
-    } on Object catch (e, s) {
-      errorLogger?.logError(e, s, _options);
-      rethrow;
-    }
-    return _value;
-  }
-
-  @override
-  Future<void> logout(AuthTokenModel body) async {
-    final _extra = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{};
-    final _headers = <String, dynamic>{};
-    final _data = body;
-    final _options = _setStreamType<void>(Options(
-      method: 'POST',
-      headers: _headers,
-      extra: _extra,
-    )
-        .compose(
-          _dio.options,
-          '/logout',
-          queryParameters: queryParameters,
-          data: _data,
-        )
-        .copyWith(
-            baseUrl: _combineBaseUrls(
-          _dio.options.baseUrl,
-          baseUrl,
-        )));
-    await _dio.fetch<void>(_options);
   }
 
   RequestOptions _setStreamType<T>(RequestOptions requestOptions) {

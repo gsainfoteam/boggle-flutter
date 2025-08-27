@@ -1,4 +1,5 @@
 import 'package:boggle_flutter/app/modules/auth/data/model/auth_token_model.dart';
+import 'package:boggle_flutter/app/modules/auth/domain/entities/auth_token_entity.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:injectable/injectable.dart';
 
@@ -11,7 +12,7 @@ class TokenStorage {
 
   // TokenStorage 메소드 정의
   Future<void> saveToken(
-    AuthTokenModel token,
+    AuthTokenEntity token,
   ) async {
     try {
       await storage.write(
@@ -36,14 +37,14 @@ class TokenStorage {
     }
   }
 
-  Future<AuthTokenModel?> getAccessToken() async {
+  Future<AuthTokenEntity?> getAccessToken() async {
     try {
       final accessToken = await storage.read(key: 'accessToken');
 
       if (accessToken == null) {
         return null; // 토큰이 없으면 null 반환
       } else if (accessToken.isNotEmpty) {
-        return AuthTokenModel(accessToken: accessToken);
+        return AuthTokenEntity(accessToken: accessToken);
       } else {
         return null; // 토큰이 비어 있으면(문자열이 비어있음 => '' 상태) null 반환
       }
@@ -51,7 +52,8 @@ class TokenStorage {
       throw Exception('Access token을 가져오는 데 실패했습니다: $e');
     }
   }
-
+  //Idp 도입으로 인해 사용하지 않음. 보류
+  /*
   Future<AuthTokenModel?> getRefreshToken() async {
     try {
       final refreshToken = await storage.read(key: 'refreshToken');
@@ -66,5 +68,5 @@ class TokenStorage {
     } catch (e) {
       throw Exception('Refresh token을 가져오는 데 실패했습니다: $e');
     }
-  }
+  }*/
 }

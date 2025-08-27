@@ -6,8 +6,8 @@ import 'package:injectable/injectable.dart';
 
 @module
 abstract class AppModule {
-  @Named('default')
   @lazySingleton
+  @Named('default')
   Dio createDefaultDio() {
     final dio = Dio(
       BaseOptions(
@@ -18,13 +18,14 @@ abstract class AppModule {
     return dio;
   }
 
-  @Named('refresh')
   @lazySingleton
-  Dio createRefreshDio() {
-    final dio = Dio(BaseOptions(
-      baseUrl: 'http://boggle.is-an.ai/',
-    ));
-
+  @Named('auth')
+  Dio createAuthDio() {
+    final dio = Dio(
+      BaseOptions(
+        baseUrl: 'https://api.idp.gistory.me/',
+      ),
+    );
     return dio;
   }
 

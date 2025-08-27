@@ -19,21 +19,21 @@ mixin _$AuthEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() appStart,
-    required TResult Function(String? email, String? password) login,
+    required TResult Function() login,
     required TResult Function() logout,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? appStart,
-    TResult? Function(String? email, String? password)? login,
+    TResult? Function()? login,
     TResult? Function()? logout,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? appStart,
-    TResult Function(String? email, String? password)? login,
+    TResult Function()? login,
     TResult Function()? logout,
     required TResult orElse(),
   }) =>
@@ -124,7 +124,7 @@ class _$AppStartEventImpl implements AppStartEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() appStart,
-    required TResult Function(String? email, String? password) login,
+    required TResult Function() login,
     required TResult Function() logout,
   }) {
     return appStart();
@@ -134,7 +134,7 @@ class _$AppStartEventImpl implements AppStartEvent {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? appStart,
-    TResult? Function(String? email, String? password)? login,
+    TResult? Function()? login,
     TResult? Function()? logout,
   }) {
     return appStart?.call();
@@ -144,7 +144,7 @@ class _$AppStartEventImpl implements AppStartEvent {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? appStart,
-    TResult Function(String? email, String? password)? login,
+    TResult Function()? login,
     TResult Function()? logout,
     required TResult orElse(),
   }) {
@@ -198,8 +198,6 @@ abstract class _$$LoginEventImplCopyWith<$Res> {
   factory _$$LoginEventImplCopyWith(
           _$LoginEventImpl value, $Res Function(_$LoginEventImpl) then) =
       __$$LoginEventImplCopyWithImpl<$Res>;
-  @useResult
-  $Res call({String? email, String? password});
 }
 
 /// @nodoc
@@ -212,91 +210,57 @@ class __$$LoginEventImplCopyWithImpl<$Res>
 
   /// Create a copy of AuthEvent
   /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? email = freezed,
-    Object? password = freezed,
-  }) {
-    return _then(_$LoginEventImpl(
-      freezed == email
-          ? _value.email
-          : email // ignore: cast_nullable_to_non_nullable
-              as String?,
-      freezed == password
-          ? _value.password
-          : password // ignore: cast_nullable_to_non_nullable
-              as String?,
-    ));
-  }
 }
 
 /// @nodoc
 
 class _$LoginEventImpl implements LoginEvent {
-  const _$LoginEventImpl(this.email, this.password);
-
-  @override
-  final String? email;
-  @override
-  final String? password;
+  const _$LoginEventImpl();
 
   @override
   String toString() {
-    return 'AuthEvent.login(email: $email, password: $password)';
+    return 'AuthEvent.login()';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$LoginEventImpl &&
-            (identical(other.email, email) || other.email == email) &&
-            (identical(other.password, password) ||
-                other.password == password));
+        (other.runtimeType == runtimeType && other is _$LoginEventImpl);
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, email, password);
-
-  /// Create a copy of AuthEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$LoginEventImplCopyWith<_$LoginEventImpl> get copyWith =>
-      __$$LoginEventImplCopyWithImpl<_$LoginEventImpl>(this, _$identity);
+  int get hashCode => runtimeType.hashCode;
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() appStart,
-    required TResult Function(String? email, String? password) login,
+    required TResult Function() login,
     required TResult Function() logout,
   }) {
-    return login(email, password);
+    return login();
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? appStart,
-    TResult? Function(String? email, String? password)? login,
+    TResult? Function()? login,
     TResult? Function()? logout,
   }) {
-    return login?.call(email, password);
+    return login?.call();
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? appStart,
-    TResult Function(String? email, String? password)? login,
+    TResult Function()? login,
     TResult Function()? logout,
     required TResult orElse(),
   }) {
     if (login != null) {
-      return login(email, password);
+      return login();
     }
     return orElse();
   }
@@ -337,17 +301,7 @@ class _$LoginEventImpl implements LoginEvent {
 }
 
 abstract class LoginEvent implements AuthEvent {
-  const factory LoginEvent(final String? email, final String? password) =
-      _$LoginEventImpl;
-
-  String? get email;
-  String? get password;
-
-  /// Create a copy of AuthEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$LoginEventImplCopyWith<_$LoginEventImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  const factory LoginEvent() = _$LoginEventImpl;
 }
 
 /// @nodoc
@@ -392,7 +346,7 @@ class _$LogoutEventImpl implements LogoutEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() appStart,
-    required TResult Function(String? email, String? password) login,
+    required TResult Function() login,
     required TResult Function() logout,
   }) {
     return logout();
@@ -402,7 +356,7 @@ class _$LogoutEventImpl implements LogoutEvent {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? appStart,
-    TResult? Function(String? email, String? password)? login,
+    TResult? Function()? login,
     TResult? Function()? logout,
   }) {
     return logout?.call();
@@ -412,7 +366,7 @@ class _$LogoutEventImpl implements LogoutEvent {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? appStart,
-    TResult Function(String? email, String? password)? login,
+    TResult Function()? login,
     TResult Function()? logout,
     required TResult orElse(),
   }) {

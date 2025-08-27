@@ -21,9 +21,7 @@ AuthTokenModel _$AuthTokenModelFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$AuthTokenModel {
   String? get uuid => throw _privateConstructorUsedError;
-  @JsonKey(name: 'access_token')
-  String? get accessToken => throw _privateConstructorUsedError;
-  @JsonKey(name: 'refresh_token')
+  String get accessToken => throw _privateConstructorUsedError;
   String? get refreshToken => throw _privateConstructorUsedError;
 
   /// Serializes this AuthTokenModel to a JSON map.
@@ -42,10 +40,7 @@ abstract class $AuthTokenModelCopyWith<$Res> {
           AuthTokenModel value, $Res Function(AuthTokenModel) then) =
       _$AuthTokenModelCopyWithImpl<$Res, AuthTokenModel>;
   @useResult
-  $Res call(
-      {String? uuid,
-      @JsonKey(name: 'access_token') String? accessToken,
-      @JsonKey(name: 'refresh_token') String? refreshToken});
+  $Res call({String? uuid, String accessToken, String? refreshToken});
 }
 
 /// @nodoc
@@ -64,7 +59,7 @@ class _$AuthTokenModelCopyWithImpl<$Res, $Val extends AuthTokenModel>
   @override
   $Res call({
     Object? uuid = freezed,
-    Object? accessToken = freezed,
+    Object? accessToken = null,
     Object? refreshToken = freezed,
   }) {
     return _then(_value.copyWith(
@@ -72,10 +67,10 @@ class _$AuthTokenModelCopyWithImpl<$Res, $Val extends AuthTokenModel>
           ? _value.uuid
           : uuid // ignore: cast_nullable_to_non_nullable
               as String?,
-      accessToken: freezed == accessToken
+      accessToken: null == accessToken
           ? _value.accessToken
           : accessToken // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
       refreshToken: freezed == refreshToken
           ? _value.refreshToken
           : refreshToken // ignore: cast_nullable_to_non_nullable
@@ -92,10 +87,7 @@ abstract class _$$AuthTokenModelImplCopyWith<$Res>
       __$$AuthTokenModelImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call(
-      {String? uuid,
-      @JsonKey(name: 'access_token') String? accessToken,
-      @JsonKey(name: 'refresh_token') String? refreshToken});
+  $Res call({String? uuid, String accessToken, String? refreshToken});
 }
 
 /// @nodoc
@@ -112,7 +104,7 @@ class __$$AuthTokenModelImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? uuid = freezed,
-    Object? accessToken = freezed,
+    Object? accessToken = null,
     Object? refreshToken = freezed,
   }) {
     return _then(_$AuthTokenModelImpl(
@@ -120,10 +112,10 @@ class __$$AuthTokenModelImplCopyWithImpl<$Res>
           ? _value.uuid
           : uuid // ignore: cast_nullable_to_non_nullable
               as String?,
-      accessToken: freezed == accessToken
+      accessToken: null == accessToken
           ? _value.accessToken
           : accessToken // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
       refreshToken: freezed == refreshToken
           ? _value.refreshToken
           : refreshToken // ignore: cast_nullable_to_non_nullable
@@ -136,9 +128,7 @@ class __$$AuthTokenModelImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$AuthTokenModelImpl implements _AuthTokenModel {
   const _$AuthTokenModelImpl(
-      {this.uuid,
-      @JsonKey(name: 'access_token') this.accessToken,
-      @JsonKey(name: 'refresh_token') this.refreshToken});
+      {this.uuid, required this.accessToken, this.refreshToken});
 
   factory _$AuthTokenModelImpl.fromJson(Map<String, dynamic> json) =>
       _$$AuthTokenModelImplFromJson(json);
@@ -146,10 +136,8 @@ class _$AuthTokenModelImpl implements _AuthTokenModel {
   @override
   final String? uuid;
   @override
-  @JsonKey(name: 'access_token')
-  final String? accessToken;
+  final String accessToken;
   @override
-  @JsonKey(name: 'refresh_token')
   final String? refreshToken;
 
   @override
@@ -192,10 +180,9 @@ class _$AuthTokenModelImpl implements _AuthTokenModel {
 
 abstract class _AuthTokenModel implements AuthTokenModel {
   const factory _AuthTokenModel(
-          {final String? uuid,
-          @JsonKey(name: 'access_token') final String? accessToken,
-          @JsonKey(name: 'refresh_token') final String? refreshToken}) =
-      _$AuthTokenModelImpl;
+      {final String? uuid,
+      required final String accessToken,
+      final String? refreshToken}) = _$AuthTokenModelImpl;
 
   factory _AuthTokenModel.fromJson(Map<String, dynamic> json) =
       _$AuthTokenModelImpl.fromJson;
@@ -203,10 +190,8 @@ abstract class _AuthTokenModel implements AuthTokenModel {
   @override
   String? get uuid;
   @override
-  @JsonKey(name: 'access_token')
-  String? get accessToken;
+  String get accessToken;
   @override
-  @JsonKey(name: 'refresh_token')
   String? get refreshToken;
 
   /// Create a copy of AuthTokenModel

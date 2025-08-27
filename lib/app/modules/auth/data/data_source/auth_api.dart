@@ -1,4 +1,5 @@
 import 'package:boggle_flutter/app/modules/auth/data/model/auth_token_model.dart';
+import 'package:boggle_flutter/app/modules/auth/data/model/token_request_with_code_model.dart';
 import 'package:injectable/injectable.dart';
 import 'package:retrofit/retrofit.dart';
 import 'package:dio/dio.dart';
@@ -6,24 +7,13 @@ import 'package:dio/dio.dart';
 part 'auth_api.g.dart';
 
 @injectable
-@RestApi(baseUrl: 'user')
+@RestApi(baseUrl: 'oauth/')
 abstract class AuthApi {
   @factoryMethod
-  factory AuthApi(@Named('default') Dio dio, {String? baseUrl}) = _AuthApi;
+  factory AuthApi(@Named('auth') Dio dio) = _AuthApi;
 
-  @POST('/login')
-  Future<AuthTokenModel> login(
-    @Body() String id,
-    @Body() String password,
-  );
-
-  @POST('/refresh')
-  Future<AuthTokenModel> refresh(
-    @Body() AuthTokenModel body,
-  );
-
-  @POST('/logout')
-  Future<void> logout(
-    @Body() AuthTokenModel body,
+  @POST('token')
+  Future<AuthTokenModel> getTokenFromCode(
+    @Body() TokenRequestWithCodeModel request,
   );
 }

@@ -3,8 +3,9 @@ import 'package:boggle_flutter/app/modules/auth/data/data_source/token_storage.d
 import 'package:boggle_flutter/app/modules/auth/domain/repositories/auth_repository.dart';
 import 'package:boggle_flutter/app/modules/auth/data/model/auth_token_model.dart';
 import 'package:injectable/injectable.dart';
+//Idp 도입으로 인해 사용하지 않음. 보류
 
-@Injectable(as: AuthRepository)
+/*@Injectable(as: AuthRepository)
 class RestAuthRepository implements AuthRepository {
   final AuthApi _api;
   final TokenStorage _tokenStorage;
@@ -17,10 +18,9 @@ class RestAuthRepository implements AuthRepository {
   // authRepository의 메소드 정의.
   @override
   Future<void> login(
-    String id,
-    String password,
+    String code,
   ) async {
-    final response = await _api.login(id, password);
+    final response = await _api.getTokenFromCode(code);
     try {
       await _tokenStorage.saveToken(
         response,
@@ -29,7 +29,6 @@ class RestAuthRepository implements AuthRepository {
       throw Exception('Token 저장 실패: $e');
     }
   }
-
   @override
   Future<AuthTokenModel> refresh(
     AuthTokenModel refreshToken,
@@ -56,4 +55,4 @@ class RestAuthRepository implements AuthRepository {
     }
     // tokenStorage에 저장된 토큰 삭제
   }
-}
+}*/

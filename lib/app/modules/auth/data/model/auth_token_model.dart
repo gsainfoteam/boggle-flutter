@@ -9,8 +9,8 @@ part 'auth_token_model.g.dart';
 class AuthTokenModel with _$AuthTokenModel {
   const factory AuthTokenModel({
     String? uuid,
-    @JsonKey(name: 'access_token') String? accessToken,
-    @JsonKey(name: 'refresh_token') String? refreshToken,
+    required String accessToken,
+    String? refreshToken,
   }) = _AuthTokenModel;
 
   factory AuthTokenModel.fromJson(Map<String, dynamic> json) =>
