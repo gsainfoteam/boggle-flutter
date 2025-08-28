@@ -19,6 +19,8 @@ import 'package:boggle_flutter/app/modules/auth/data/repositories/rest_oauth_rep
     as _i746;
 import 'package:boggle_flutter/app/modules/auth/domain/repositories/oauth_repository.dart'
     as _i754;
+import 'package:boggle_flutter/app/modules/category/presentation/bloc/category_page_bloc.dart'
+    as _i992;
 import 'package:boggle_flutter/app/modules/login/presentation/bloc/login_page_bloc.dart'
     as _i829;
 import 'package:boggle_flutter/app/modules/post/data/data_source/post_api.dart'
@@ -29,6 +31,8 @@ import 'package:boggle_flutter/app/modules/post/domain/repositories/post_reposit
     as _i455;
 import 'package:boggle_flutter/app/modules/post/presentation/bloc/post_page_bloc.dart'
     as _i167;
+import 'package:boggle_flutter/app/modules/roommate/presentation/bloc/rm_page_bloc.dart'
+    as _i431;
 import 'package:boggle_flutter/app/modules/user/data/data_source/user_api.dart'
     as _i249;
 import 'package:boggle_flutter/app/modules/user/presentation/bloc/auth_bloc.dart'
@@ -50,6 +54,7 @@ extension GetItInjectableX on _i174.GetIt {
       environmentFilter,
     );
     final appModule = _$AppModule();
+    gh.factory<_i992.CategoryPageBloc>(() => _i992.CategoryPageBloc());
     gh.singleton<_i558.FlutterSecureStorage>(
         () => appModule.flutterSecureStorage);
     gh.lazySingleton<_i361.Dio>(
@@ -86,6 +91,8 @@ extension GetItInjectableX on _i174.GetIt {
         () => _i829.LoginPageBloc(gh<_i754.OAuthRepository>()));
     gh.factory<_i167.PostPageBloc>(
         () => _i167.PostPageBloc(gh<_i455.PostRepository>()));
+    gh.factory<_i431.RMPageBloc>(
+        () => _i431.RMPageBloc(gh<_i455.PostRepository>()));
     return this;
   }
 }

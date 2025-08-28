@@ -55,7 +55,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
 
   Future<void> _test(AuthEvent event, Emitter<AuthState> emit) async {
     emit(const AuthState.loading()); // UI에 로딩 표시
-    emit(const AuthState.authenticate());
+    //emit(const AuthState.authenticate());
   }
 
   Future<void> _logout(AuthEvent event, Emitter<AuthState> emit) async {

@@ -113,6 +113,9 @@ class $AssetsIconsGen {
   /// File path: assets/icons/flower.svg
   SvgGenImage get flower => const SvgGenImage('assets/icons/flower.svg');
 
+  /// File path: assets/icons/group_purchase.svg
+  SvgGenImage get groupPurchase => const SvgGenImage('assets/icons/group_purchase.svg');
+
   /// File path: assets/icons/hashtag.svg
   SvgGenImage get hashtag => const SvgGenImage('assets/icons/hashtag.svg');
 
@@ -185,6 +188,9 @@ class $AssetsIconsGen {
   /// File path: assets/icons/plus_circle_on.svg
   SvgGenImage get plusCircleOn => const SvgGenImage('assets/icons/plus_circle_on.svg');
 
+  /// File path: assets/icons/roommate.svg
+  SvgGenImage get roommate => const SvgGenImage('assets/icons/roommate.svg');
+
   /// File path: assets/icons/search.svg
   SvgGenImage get search => const SvgGenImage('assets/icons/search.svg');
 
@@ -206,6 +212,9 @@ class $AssetsIconsGen {
   /// File path: assets/icons/star_on.svg
   SvgGenImage get starOn => const SvgGenImage('assets/icons/star_on.svg');
 
+  /// File path: assets/icons/study.svg
+  SvgGenImage get study => const SvgGenImage('assets/icons/study.svg');
+
   /// File path: assets/icons/text.svg
   SvgGenImage get text => const SvgGenImage('assets/icons/text.svg');
 
@@ -214,6 +223,9 @@ class $AssetsIconsGen {
 
   /// File path: assets/icons/trash_on.svg
   SvgGenImage get trashOn => const SvgGenImage('assets/icons/trash_on.svg');
+
+  /// File path: assets/icons/truck.svg
+  SvgGenImage get truck => const SvgGenImage('assets/icons/truck.svg');
 
   /// File path: assets/icons/underline.svg
   SvgGenImage get underline => const SvgGenImage('assets/icons/underline.svg');
@@ -271,6 +283,7 @@ class $AssetsIconsGen {
         fireFlameOff,
         fireFlameOn,
         flower,
+        groupPurchase,
         hashtag,
         headingBig,
         headingSmall,
@@ -295,6 +308,7 @@ class $AssetsIconsGen {
         navArrowUp,
         plusCircleOff,
         plusCircleOn,
+        roommate,
         search,
         shareAndroidOff,
         shareAndroidOn,
@@ -302,9 +316,11 @@ class $AssetsIconsGen {
         sparksOn,
         starOff,
         starOn,
+        study,
         text,
         trashOff,
         trashOn,
+        truck,
         underline,
         userCircleOff,
         userCircleOn,
