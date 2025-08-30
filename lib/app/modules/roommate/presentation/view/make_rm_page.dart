@@ -5,10 +5,17 @@ import 'package:boggle_flutter/app/di/locator.dart';
 import 'package:boggle_flutter/app/modules/common/presentation/widgets/boggle_app_bar.dart';
 import 'package:boggle_flutter/app/modules/roommate/presentation/bloc/make_rm_page_bloc.dart';
 import 'package:boggle_flutter/app/modules/roommate/presentation/view/make_rm_step_1.dart';
+import 'package:boggle_flutter/app/modules/roommate/presentation/view/make_rm_step_10.dart';
 import 'package:boggle_flutter/app/modules/roommate/presentation/view/make_rm_step_2.dart';
 import 'package:boggle_flutter/app/modules/roommate/presentation/view/make_rm_step_3.dart';
 import 'package:boggle_flutter/app/modules/roommate/presentation/view/make_rm_step_4.dart';
+import 'package:boggle_flutter/app/modules/roommate/presentation/view/make_rm_step_5.dart';
+import 'package:boggle_flutter/app/modules/roommate/presentation/view/make_rm_step_6.dart';
+import 'package:boggle_flutter/app/modules/roommate/presentation/view/make_rm_step_7.dart';
+import 'package:boggle_flutter/app/modules/roommate/presentation/view/make_rm_step_8.dart';
+import 'package:boggle_flutter/app/modules/roommate/presentation/view/make_rm_step_9.dart';
 import 'package:boggle_flutter/app/modules/roommate/presentation/widgets/common/progress_bar.dart';
+import 'package:boggle_flutter/app/modules/roommate/presentation/widgets/common/progress_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -18,7 +25,7 @@ class MakeRMPage extends StatelessWidget {
   MakeRMPage({super.key});
 
   // UI에서 폼 데이터와 키를 관리 (BLoC은 비즈니스 로직에만 집중)
-  final _formKeys = List.generate(4, (_) => GlobalKey<FormState>());
+  final _formKeys = List.generate(10, (_) => GlobalKey<FormState>());
   final _pageController = PageController();
 
   @override
@@ -35,7 +42,7 @@ class MakeRMPage extends StatelessWidget {
           listener: (context, state) {
             // 페이지 컨트롤러를 BLoC의 currentStep과 동기화
             final pageIndex = state.currentStep - 1;
-            if (pageIndex < 4 && pageIndex != _pageController.page?.round()) {
+            if (pageIndex < 10 && pageIndex != _pageController.page?.round()) {
               _pageController.animateToPage(
                 pageIndex,
                 duration: const Duration(milliseconds: 300),
@@ -69,14 +76,15 @@ class MakeRMPage extends StatelessWidget {
 
               return Column(
                 children: [
-                  Padding(
-                    padding: const EdgeInsets.all(24.0),
-                    child: ProgressBar(
-                      totalSteps: state.totalSteps,
-                      currentStep: state.currentStep,
-                      activeColor: Colors.blue,
+                  if (state.currentStep <= 4)
+                    Padding(
+                      padding: const EdgeInsets.all(24.0),
+                      child: ProgressBar(
+                        totalSteps: 4, // stepIndex 기준, 3까지만 필요
+                        currentStep: state.currentStep,
+                        activeColor: Colors.blue,
+                      ),
                     ),
-                  ),
                   Expanded(
                     child: PageView(
                       controller: _pageController,
@@ -98,6 +106,30 @@ class MakeRMPage extends StatelessWidget {
                             context: context,
                             stepIndex: 3,
                             child: MakeRMStep4()),
+                        _buildStep(
+                            context: context,
+                            stepIndex: 4,
+                            child: MakeRMStep5()),
+                        _buildStep(
+                            context: context,
+                            stepIndex: 5,
+                            child: MakeRMStep6()),
+                        _buildStep(
+                            context: context,
+                            stepIndex: 6,
+                            child: MakeRMStep7()),
+                        _buildStep(
+                            context: context,
+                            stepIndex: 7,
+                            child: MakeRMStep8()),
+                        _buildStep(
+                            context: context,
+                            stepIndex: 8,
+                            child: MakeRMStep9()),
+                        _buildStep(
+                            context: context,
+                            stepIndex: 9,
+                            child: MakeRMStep10()),
                       ],
                     ),
                   ),
@@ -113,69 +145,57 @@ class MakeRMPage extends StatelessWidget {
             return const SizedBox.shrink();
 
           final bool isEnabled = _isNextButtonEnabled(state);
-
+          final String buttonText;
+          if (state.currentStep == 4 || state.currentStep == 7) {
+            buttonText = '프로필 확인';
+          } else if (state.currentStep == 5) {
+            buttonText = '작성 완료 ';
+          } else if (state.currentStep == 6) {
+            buttonText = '예';
+          } else if (state.currentStep == 7) {
+            buttonText = '모집글 미리보기';
+          } else if (state.currentStep == 8) {
+            buttonText = '게시하기';
+          } else if (state.currentStep == 9) {
+            buttonText = '모집글 확인하기';
+          } else {
+            buttonText = '다음';
+          }
           final isLastStep = state.currentStep == state.totalSteps;
 
-          return Padding(
-            padding: const EdgeInsets.all(16.0),
-            child: Row(
-              children: [
-                // '이전' 버튼
-                if (state.currentStep > 1)
-                  Expanded(
-                    child: TextButton(
-                      style:
-                          TextButton.styleFrom(minimumSize: const Size(0, 50)),
-                      onPressed: () => context
-                          .read<MakeRMPageBloc>()
-                          .add(const MakeRMPageEvent.previous()),
-                      child: const Text('이전'),
-                    ),
-                  ),
-                if (state.currentStep > 1) const SizedBox(width: 16),
-                // '다음' 또는 '작성 완료' 버튼
-                Expanded(
-                  child: ElevatedButton(
-                    style: ElevatedButton.styleFrom(
-                        minimumSize: const Size(0, 50),
-                        backgroundColor: isEnabled
-                            ? Colors.blue
-                            : Colors.grey, // 활성화/비활성화 시 색상 변경
-                        foregroundColor: Colors.white),
-                    // 2. isEnabled 값에 따라 onPressed 로직을 할당하거나 null을 할당
-                    onPressed: isEnabled
-                        ? () {
-                            final formKey = _formKeys[state.currentStep - 1];
-                            if (formKey.currentState!.validate()) {
-                              formKey.currentState!.save();
-                              if (isLastStep) {
-                                context
-                                    .read<MakeRMPageBloc>()
-                                    .add(const MakeRMPageEvent.submit());
-                              } else {
-                                context
-                                    .read<MakeRMPageBloc>()
-                                    .add(const MakeRMPageEvent.next());
-                              }
-                            }
-                          }
-                        : null, // isEnabled가 false이면 버튼 비활성화
-                    child: Text(isLastStep ? '작성 완료' : '다음'),
-                  ),
-                ),
-              ],
-            ),
+          return ProgressButtons(
+            nextButtonText: buttonText,
+            isNextEnabled: _isNextButtonEnabled(state),
+            showPreviousButton: state.currentStep > 1,
+            onPreviousPressed: () => context
+                .read<MakeRMPageBloc>()
+                .add(const MakeRMPageEvent.previous()),
+            onNextPressed: () {
+              final formKey = _formKeys[state.currentStep - 1];
+              if (formKey.currentState!.validate()) {
+                formKey.currentState!.save();
+                if (isLastStep) {
+                  context
+                      .read<MakeRMPageBloc>()
+                      .add(const MakeRMPageEvent.submit());
+                } else {
+                  context
+                      .read<MakeRMPageBloc>()
+                      .add(const MakeRMPageEvent.next());
+                }
+              }
+            },
           );
         }),
       ),
     );
   }
 
-  // 간단한 예시를 위해 공통 Step 위젯 빌더를 만듦
   Widget _buildStep({
     required BuildContext context,
     required int stepIndex,
-    required Widget child, // TextFormField 대신 child 위젯을 직접 받음
+    required Widget child,
+    bool isRequired = false, // 기본값은 false (필수 아님)
   }) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 24.0),
@@ -184,20 +204,19 @@ class MakeRMPage extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.end,
-              children: [
-                Text('*',
-                    style: TextStyle(
-                        color: Color.fromARGB(255, 255, 0, 0), fontSize: 20)),
-                Text('필수',
-                    style: TextStyle(
-                        color: Color.fromARGB(255, 122, 122, 122),
-                        fontSize: 15)),
-              ],
-            ),
+            // 2. isRequired가 true일 때만 '필수*' Row를 보여줌
+            if (isRequired)
+              Row(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  const Text('*',
+                      style: TextStyle(color: Colors.red, fontSize: 20)),
+                  const Text('필수',
+                      style: TextStyle(color: Colors.grey, fontSize: 15)),
+                ],
+              ),
             const SizedBox(height: 20),
-            child,
+            Expanded(child: child),
           ],
         ),
       ),
@@ -222,6 +241,21 @@ class MakeRMPage extends StatelessWidget {
       case 4:
         // 4단계 필수 조건: title
         return state.submit.title;
+      case 5:
+        return true;
+      case 6:
+        return true;
+      case 7:
+        return state.submit.rmGrade &&
+            state.submit.rmAge &&
+            state.submit.rmWakeUpTime &&
+            state.submit.rmSleepTime;
+      case 8:
+        return true;
+      case 9:
+        return true;
+      case 10:
+        return true;
       default:
         // 그 외의 경우는 비활성화
         return false;

@@ -79,13 +79,13 @@ class MakeRMStep2 extends StatelessWidget {
               _buildFormRow(
                 label: '기상시간',
                 isRequired: true,
-                child: const WakeUpTimePickerButton(),
+                child: WakeUpTimePickerButton.myself(),
               ),
               const SizedBox(height: 30),
               _buildFormRow(
                 label: '취침시간',
                 isRequired: true,
-                child: const SleepTimePickerButton(),
+                child: SleepTimePickerButton.myself(),
               ),
             ],
           ),

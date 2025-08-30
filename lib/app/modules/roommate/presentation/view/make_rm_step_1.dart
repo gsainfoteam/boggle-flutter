@@ -62,13 +62,13 @@ class MakeRMStep1 extends StatelessWidget {
               _buildFormRow(
                 label: '학년',
                 isRequired: true,
-                child: GradePickerButton(),
+                child: GradePickerButton.myself(),
               ),
               const SizedBox(height: 30),
               _buildFormRow(
                 label: '나이',
                 isRequired: true,
-                child: AgePickerButton(),
+                child: AgePickerButton.myself(),
               ),
               const SizedBox(height: 30),
               _buildFormRow(

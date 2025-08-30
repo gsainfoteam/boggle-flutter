@@ -1,15 +1,64 @@
+// sleep_time_picker_button.dart
+
+import 'package:boggle_flutter/app/modules/roommate/domain/entities/rm_entity.dart';
 import 'package:boggle_flutter/app/modules/roommate/presentation/bloc/make_rm_page_bloc.dart';
 import 'package:boggle_flutter/app/modules/roommate/presentation/widgets/sleepTime/sleep_time_dialog.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:intl/intl.dart';
 
+// 1. 함수 타입 정의
+typedef TimeValueSelector = DateTime? Function(RMEntity formData);
+typedef TimeValueUpdater = void Function(
+    BuildContext context, DateTime selectedValue);
+
 class SleepTimePickerButton extends StatelessWidget {
-  const SleepTimePickerButton({super.key});
+  final String _placeholder;
+  final TimeValueSelector _selector;
+  final TimeValueUpdater _updater;
+
+  // 2. private 생성자
+  const SleepTimePickerButton._({
+    required String placeholder,
+    required TimeValueSelector selector,
+    required TimeValueUpdater updater,
+  })  : _placeholder = placeholder,
+        _selector = selector,
+        _updater = updater;
+
+  // 3. '나의 취침 시간'을 위한 factory 생성자
+  factory SleepTimePickerButton.myself({Key? key}) {
+    return SleepTimePickerButton._(
+      placeholder: '취침시간을 선택하세요',
+      selector: (formData) => formData.sleepTime,
+      updater: (context, selectedTime) {
+        final bloc = context.read<MakeRMPageBloc>();
+        final newFormData =
+            bloc.state.formData.copyWith(sleepTime: selectedTime);
+        final newSubmit = bloc.state.submit.copyWith(sleepTime: true);
+        bloc.add(MakeRMPageEvent.formDataChanged(newFormData, newSubmit));
+      },
+    );
+  }
+
+  // 4. '희망 룸메이트 취침 시간'을 위한 factory 생성자
+  factory SleepTimePickerButton.roommate({Key? key}) {
+    return SleepTimePickerButton._(
+      placeholder: '희망 취침시간을 선택하세요',
+      selector: (formData) => formData.rmSleepTime,
+      updater: (context, selectedTime) {
+        final bloc = context.read<MakeRMPageBloc>();
+        final newFormData =
+            bloc.state.formData.copyWith(rmSleepTime: selectedTime);
+        final newSubmit = bloc.state.submit.copyWith(rmSleepTime: true);
+        bloc.add(MakeRMPageEvent.formDataChanged(newFormData, newSubmit));
+      },
+    );
+  }
 
   Future<void> _showTimePicker(BuildContext context) async {
     final bloc = context.read<MakeRMPageBloc>();
-    final initialTime = bloc.state.formData.sleepTime;
+    final initialTime = _selector(bloc.state.formData);
 
     final selectedTime = await showDialog<DateTime>(
       context: context,
@@ -17,21 +66,17 @@ class SleepTimePickerButton extends StatelessWidget {
     );
 
     if (selectedTime != null) {
-      final newFormData = bloc.state.formData.copyWith(sleepTime: selectedTime);
-      final newSubmit = bloc.state.submit.copyWith(sleepTime: true);
-      bloc.add(MakeRMPageEvent.formDataChanged(newFormData, newSubmit));
+      _updater(context, selectedTime);
     }
   }
 
   @override
   Widget build(BuildContext context) {
-    // BLoC 상태를 watch하여 시간이 변경될 때마다 UI를 갱신
     final selectedTime =
-        context.watch<MakeRMPageBloc>().state.formData.sleepTime;
+        context.watch<MakeRMPageBloc>().state.formData.let(_selector);
 
-    // DateTime을 '오전 hh:mm' 형식의 문자열로 포맷
     final timeText = selectedTime == null
-        ? '취침시간을 선택하세요'
+        ? _placeholder
         : DateFormat('a hh:mm', 'ko_KR').format(selectedTime);
 
     final textColor =
@@ -55,5 +100,12 @@ class SleepTimePickerButton extends StatelessWidget {
         ),
       ),
     );
+  }
+}
+
+// let 확장 함수
+extension DataSelector<T> on T {
+  R let<R>(R Function(T) block) {
+    return block(this);
   }
 }

@@ -79,23 +79,3 @@ class Recruitment extends StatelessWidget {
     );
   }
 }
-
-// 참고: Tag 위젯이 다음과 같이 정의되어 있다고 가정함
-/*
-class Tag extends StatelessWidget {
-  final String tagText;
-  const Tag({super.key, required this.tagText});
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
-      decoration: BoxDecoration(
-        color: Colors.blue.shade100,
-        borderRadius: BorderRadius.circular(4),
-      ),
-      child: Text(tagText),
-    );
-  }
-}
-*/

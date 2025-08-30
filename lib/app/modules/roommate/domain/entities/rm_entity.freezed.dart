@@ -33,11 +33,16 @@ mixin _$RMEntity {
   DateTime? get sleepTime => throw _privateConstructorUsedError;
   DateTime? get wakeUpTime => throw _privateConstructorUsedError;
   String? get mbti => throw _privateConstructorUsedError;
-  bool get rmRefrigerator => throw _privateConstructorUsedError;
-  bool get rmWifi => throw _privateConstructorUsedError;
+  String get rmGrade => throw _privateConstructorUsedError;
+  int get rmAge => throw _privateConstructorUsedError;
+  DateTime? get rmSleepTime => throw _privateConstructorUsedError;
+  DateTime? get rmWakeUpTime => throw _privateConstructorUsedError;
   bool get rmSnoring => throw _privateConstructorUsedError;
-  bool get rmSmoking => throw _privateConstructorUsedError;
-  String get rmMbti => throw _privateConstructorUsedError;
+  bool get rmGrindingTeeth => throw _privateConstructorUsedError;
+  bool get rmSmoking =>
+      throw _privateConstructorUsedError; //required bool rmRefrigerator,
+//required bool rmWifi,
+//required String rmMbti,
   String get title => throw _privateConstructorUsedError;
   String? get content => throw _privateConstructorUsedError;
 
@@ -70,11 +75,13 @@ abstract class $RMEntityCopyWith<$Res> {
       DateTime? sleepTime,
       DateTime? wakeUpTime,
       String? mbti,
-      bool rmRefrigerator,
-      bool rmWifi,
+      String rmGrade,
+      int rmAge,
+      DateTime? rmSleepTime,
+      DateTime? rmWakeUpTime,
       bool rmSnoring,
+      bool rmGrindingTeeth,
       bool rmSmoking,
-      String rmMbti,
       String title,
       String? content});
 }
@@ -107,11 +114,13 @@ class _$RMEntityCopyWithImpl<$Res, $Val extends RMEntity>
     Object? sleepTime = freezed,
     Object? wakeUpTime = freezed,
     Object? mbti = freezed,
-    Object? rmRefrigerator = null,
-    Object? rmWifi = null,
+    Object? rmGrade = null,
+    Object? rmAge = null,
+    Object? rmSleepTime = freezed,
+    Object? rmWakeUpTime = freezed,
     Object? rmSnoring = null,
+    Object? rmGrindingTeeth = null,
     Object? rmSmoking = null,
-    Object? rmMbti = null,
     Object? title = null,
     Object? content = freezed,
   }) {
@@ -168,26 +177,34 @@ class _$RMEntityCopyWithImpl<$Res, $Val extends RMEntity>
           ? _value.mbti
           : mbti // ignore: cast_nullable_to_non_nullable
               as String?,
-      rmRefrigerator: null == rmRefrigerator
-          ? _value.rmRefrigerator
-          : rmRefrigerator // ignore: cast_nullable_to_non_nullable
-              as bool,
-      rmWifi: null == rmWifi
-          ? _value.rmWifi
-          : rmWifi // ignore: cast_nullable_to_non_nullable
-              as bool,
+      rmGrade: null == rmGrade
+          ? _value.rmGrade
+          : rmGrade // ignore: cast_nullable_to_non_nullable
+              as String,
+      rmAge: null == rmAge
+          ? _value.rmAge
+          : rmAge // ignore: cast_nullable_to_non_nullable
+              as int,
+      rmSleepTime: freezed == rmSleepTime
+          ? _value.rmSleepTime
+          : rmSleepTime // ignore: cast_nullable_to_non_nullable
+              as DateTime?,
+      rmWakeUpTime: freezed == rmWakeUpTime
+          ? _value.rmWakeUpTime
+          : rmWakeUpTime // ignore: cast_nullable_to_non_nullable
+              as DateTime?,
       rmSnoring: null == rmSnoring
           ? _value.rmSnoring
           : rmSnoring // ignore: cast_nullable_to_non_nullable
+              as bool,
+      rmGrindingTeeth: null == rmGrindingTeeth
+          ? _value.rmGrindingTeeth
+          : rmGrindingTeeth // ignore: cast_nullable_to_non_nullable
               as bool,
       rmSmoking: null == rmSmoking
           ? _value.rmSmoking
           : rmSmoking // ignore: cast_nullable_to_non_nullable
               as bool,
-      rmMbti: null == rmMbti
-          ? _value.rmMbti
-          : rmMbti // ignore: cast_nullable_to_non_nullable
-              as String,
       title: null == title
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
@@ -222,11 +239,13 @@ abstract class _$$RMEntityImplCopyWith<$Res>
       DateTime? sleepTime,
       DateTime? wakeUpTime,
       String? mbti,
-      bool rmRefrigerator,
-      bool rmWifi,
+      String rmGrade,
+      int rmAge,
+      DateTime? rmSleepTime,
+      DateTime? rmWakeUpTime,
       bool rmSnoring,
+      bool rmGrindingTeeth,
       bool rmSmoking,
-      String rmMbti,
       String title,
       String? content});
 }
@@ -257,11 +276,13 @@ class __$$RMEntityImplCopyWithImpl<$Res>
     Object? sleepTime = freezed,
     Object? wakeUpTime = freezed,
     Object? mbti = freezed,
-    Object? rmRefrigerator = null,
-    Object? rmWifi = null,
+    Object? rmGrade = null,
+    Object? rmAge = null,
+    Object? rmSleepTime = freezed,
+    Object? rmWakeUpTime = freezed,
     Object? rmSnoring = null,
+    Object? rmGrindingTeeth = null,
     Object? rmSmoking = null,
-    Object? rmMbti = null,
     Object? title = null,
     Object? content = freezed,
   }) {
@@ -318,26 +339,34 @@ class __$$RMEntityImplCopyWithImpl<$Res>
           ? _value.mbti
           : mbti // ignore: cast_nullable_to_non_nullable
               as String?,
-      rmRefrigerator: null == rmRefrigerator
-          ? _value.rmRefrigerator
-          : rmRefrigerator // ignore: cast_nullable_to_non_nullable
-              as bool,
-      rmWifi: null == rmWifi
-          ? _value.rmWifi
-          : rmWifi // ignore: cast_nullable_to_non_nullable
-              as bool,
+      rmGrade: null == rmGrade
+          ? _value.rmGrade
+          : rmGrade // ignore: cast_nullable_to_non_nullable
+              as String,
+      rmAge: null == rmAge
+          ? _value.rmAge
+          : rmAge // ignore: cast_nullable_to_non_nullable
+              as int,
+      rmSleepTime: freezed == rmSleepTime
+          ? _value.rmSleepTime
+          : rmSleepTime // ignore: cast_nullable_to_non_nullable
+              as DateTime?,
+      rmWakeUpTime: freezed == rmWakeUpTime
+          ? _value.rmWakeUpTime
+          : rmWakeUpTime // ignore: cast_nullable_to_non_nullable
+              as DateTime?,
       rmSnoring: null == rmSnoring
           ? _value.rmSnoring
           : rmSnoring // ignore: cast_nullable_to_non_nullable
+              as bool,
+      rmGrindingTeeth: null == rmGrindingTeeth
+          ? _value.rmGrindingTeeth
+          : rmGrindingTeeth // ignore: cast_nullable_to_non_nullable
               as bool,
       rmSmoking: null == rmSmoking
           ? _value.rmSmoking
           : rmSmoking // ignore: cast_nullable_to_non_nullable
               as bool,
-      rmMbti: null == rmMbti
-          ? _value.rmMbti
-          : rmMbti // ignore: cast_nullable_to_non_nullable
-              as String,
       title: null == title
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
@@ -367,11 +396,13 @@ class _$RMEntityImpl implements _RMEntity {
       this.sleepTime,
       this.wakeUpTime,
       this.mbti,
-      required this.rmRefrigerator,
-      required this.rmWifi,
+      required this.rmGrade,
+      required this.rmAge,
+      this.rmSleepTime,
+      this.rmWakeUpTime,
       required this.rmSnoring,
+      required this.rmGrindingTeeth,
       required this.rmSmoking,
-      required this.rmMbti,
       required this.title,
       this.content});
 
@@ -405,15 +436,22 @@ class _$RMEntityImpl implements _RMEntity {
   @override
   final String? mbti;
   @override
-  final bool rmRefrigerator;
+  final String rmGrade;
   @override
-  final bool rmWifi;
+  final int rmAge;
+  @override
+  final DateTime? rmSleepTime;
+  @override
+  final DateTime? rmWakeUpTime;
   @override
   final bool rmSnoring;
   @override
-  final bool rmSmoking;
+  final bool rmGrindingTeeth;
   @override
-  final String rmMbti;
+  final bool rmSmoking;
+//required bool rmRefrigerator,
+//required bool rmWifi,
+//required String rmMbti,
   @override
   final String title;
   @override
@@ -421,7 +459,7 @@ class _$RMEntityImpl implements _RMEntity {
 
   @override
   String toString() {
-    return 'RMEntity(gender: $gender, grade: $grade, age: $age, room: $room, semester: $semester, refrigerator: $refrigerator, wifi: $wifi, snoring: $snoring, grindingTeeth: $grindingTeeth, smoking: $smoking, sleepTime: $sleepTime, wakeUpTime: $wakeUpTime, mbti: $mbti, rmRefrigerator: $rmRefrigerator, rmWifi: $rmWifi, rmSnoring: $rmSnoring, rmSmoking: $rmSmoking, rmMbti: $rmMbti, title: $title, content: $content)';
+    return 'RMEntity(gender: $gender, grade: $grade, age: $age, room: $room, semester: $semester, refrigerator: $refrigerator, wifi: $wifi, snoring: $snoring, grindingTeeth: $grindingTeeth, smoking: $smoking, sleepTime: $sleepTime, wakeUpTime: $wakeUpTime, mbti: $mbti, rmGrade: $rmGrade, rmAge: $rmAge, rmSleepTime: $rmSleepTime, rmWakeUpTime: $rmWakeUpTime, rmSnoring: $rmSnoring, rmGrindingTeeth: $rmGrindingTeeth, rmSmoking: $rmSmoking, title: $title, content: $content)';
   }
 
   @override
@@ -447,14 +485,18 @@ class _$RMEntityImpl implements _RMEntity {
             (identical(other.wakeUpTime, wakeUpTime) ||
                 other.wakeUpTime == wakeUpTime) &&
             (identical(other.mbti, mbti) || other.mbti == mbti) &&
-            (identical(other.rmRefrigerator, rmRefrigerator) ||
-                other.rmRefrigerator == rmRefrigerator) &&
-            (identical(other.rmWifi, rmWifi) || other.rmWifi == rmWifi) &&
+            (identical(other.rmGrade, rmGrade) || other.rmGrade == rmGrade) &&
+            (identical(other.rmAge, rmAge) || other.rmAge == rmAge) &&
+            (identical(other.rmSleepTime, rmSleepTime) ||
+                other.rmSleepTime == rmSleepTime) &&
+            (identical(other.rmWakeUpTime, rmWakeUpTime) ||
+                other.rmWakeUpTime == rmWakeUpTime) &&
             (identical(other.rmSnoring, rmSnoring) ||
                 other.rmSnoring == rmSnoring) &&
+            (identical(other.rmGrindingTeeth, rmGrindingTeeth) ||
+                other.rmGrindingTeeth == rmGrindingTeeth) &&
             (identical(other.rmSmoking, rmSmoking) ||
                 other.rmSmoking == rmSmoking) &&
-            (identical(other.rmMbti, rmMbti) || other.rmMbti == rmMbti) &&
             (identical(other.title, title) || other.title == title) &&
             (identical(other.content, content) || other.content == content));
   }
@@ -476,11 +518,13 @@ class _$RMEntityImpl implements _RMEntity {
         sleepTime,
         wakeUpTime,
         mbti,
-        rmRefrigerator,
-        rmWifi,
+        rmGrade,
+        rmAge,
+        rmSleepTime,
+        rmWakeUpTime,
         rmSnoring,
+        rmGrindingTeeth,
         rmSmoking,
-        rmMbti,
         title,
         content
       ]);
@@ -516,11 +560,13 @@ abstract class _RMEntity implements RMEntity {
       final DateTime? sleepTime,
       final DateTime? wakeUpTime,
       final String? mbti,
-      required final bool rmRefrigerator,
-      required final bool rmWifi,
+      required final String rmGrade,
+      required final int rmAge,
+      final DateTime? rmSleepTime,
+      final DateTime? rmWakeUpTime,
       required final bool rmSnoring,
+      required final bool rmGrindingTeeth,
       required final bool rmSmoking,
-      required final String rmMbti,
       required final String title,
       final String? content}) = _$RMEntityImpl;
 
@@ -554,15 +600,21 @@ abstract class _RMEntity implements RMEntity {
   @override
   String? get mbti;
   @override
-  bool get rmRefrigerator;
+  String get rmGrade;
   @override
-  bool get rmWifi;
+  int get rmAge;
+  @override
+  DateTime? get rmSleepTime;
+  @override
+  DateTime? get rmWakeUpTime;
   @override
   bool get rmSnoring;
   @override
-  bool get rmSmoking;
+  bool get rmGrindingTeeth;
   @override
-  String get rmMbti;
+  bool get rmSmoking; //required bool rmRefrigerator,
+//required bool rmWifi,
+//required String rmMbti,
   @override
   String get title;
   @override

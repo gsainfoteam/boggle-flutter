@@ -25,11 +25,17 @@ _$RMModelImpl _$$RMModelImplFromJson(Map<String, dynamic> json) =>
           ? null
           : DateTime.parse(json['wakeUpTime'] as String),
       mbti: json['mbti'] as String?,
-      rmRefrigerator: json['rmRefrigerator'] as bool,
-      rmWifi: json['rmWifi'] as bool,
+      rmGrade: json['rmGrade'] as String,
+      rmAge: (json['rmAge'] as num).toInt(),
+      rmSleepTime: json['rmSleepTime'] == null
+          ? null
+          : DateTime.parse(json['rmSleepTime'] as String),
+      rmWakeUpTime: json['rmWakeUpTime'] == null
+          ? null
+          : DateTime.parse(json['rmWakeUpTime'] as String),
       rmSnoring: json['rmSnoring'] as bool,
+      rmGrindingTeeth: json['rmGrindingTeeth'] as bool,
       rmSmoking: json['rmSmoking'] as bool,
-      rmMbti: json['rmMbti'] as String,
     );
 
 Map<String, dynamic> _$$RMModelImplToJson(_$RMModelImpl instance) =>
@@ -47,9 +53,11 @@ Map<String, dynamic> _$$RMModelImplToJson(_$RMModelImpl instance) =>
       'sleepTime': instance.sleepTime?.toIso8601String(),
       'wakeUpTime': instance.wakeUpTime?.toIso8601String(),
       'mbti': instance.mbti,
-      'rmRefrigerator': instance.rmRefrigerator,
-      'rmWifi': instance.rmWifi,
+      'rmGrade': instance.rmGrade,
+      'rmAge': instance.rmAge,
+      'rmSleepTime': instance.rmSleepTime?.toIso8601String(),
+      'rmWakeUpTime': instance.rmWakeUpTime?.toIso8601String(),
       'rmSnoring': instance.rmSnoring,
+      'rmGrindingTeeth': instance.rmGrindingTeeth,
       'rmSmoking': instance.rmSmoking,
-      'rmMbti': instance.rmMbti,
     };
