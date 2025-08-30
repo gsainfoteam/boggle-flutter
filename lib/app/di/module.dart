@@ -6,15 +6,19 @@ import 'package:injectable/injectable.dart';
 
 @module
 abstract class AppModule {
-  @lazySingleton
+  @Singleton()
   @Named('default')
-  Dio createDefaultDio() {
+  // 1. 필요한 AuthInterceptors를 파라미터로 직접 주입받습니다.
+  Dio createDefaultDio(AuthInterceptors interceptors) {
     final dio = Dio(
       BaseOptions(
         baseUrl: 'http://boggle.is-an.ai/',
+        connectTimeout: const Duration(seconds: 3),
+        receiveTimeout: const Duration(seconds: 3),
       ),
     );
-    dio.interceptors.add(sl<AuthInterceptors>());
+    // 2. 전역 변수 sl 대신, 주입받은 interceptors를 사용합니다.
+    dio.interceptors.add(interceptors);
     return dio;
   }
 

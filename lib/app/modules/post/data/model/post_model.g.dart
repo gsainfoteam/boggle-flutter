@@ -8,18 +8,25 @@ part of 'post_model.dart';
 
 _$PostModelImpl _$$PostModelImplFromJson(Map<String, dynamic> json) =>
     _$PostModelImpl(
-      id: json['id'] as String,
+      id: json['id'] as String?,
       title: json['title'] as String,
-      content: json['content'] as String,
+      content: json['content'] as String?,
       type: json['type'] as String,
       tags: (json['tags'] as List<dynamic>?)?.map((e) => e as String).toList(),
-      author: UserModel.fromJson(json['author'] as Map<String, dynamic>),
+      author: json['author'] == null
+          ? null
+          : UserModel.fromJson(json['author'] as Map<String, dynamic>),
       participants: (json['participants'] as List<dynamic>?)
           ?.map((e) => UserModel.fromJson(e as Map<String, dynamic>))
           .toList(),
-      maxParticipants: (json['maxParticipants'] as num).toInt(),
+      maxParticipants: (json['maxParticipants'] as num?)?.toInt(),
       createdAt: DateTime.parse(json['createdAt'] as String),
-      deadline: DateTime.parse(json['deadline'] as String),
+      deadline: json['deadline'] == null
+          ? null
+          : DateTime.parse(json['deadline'] as String),
+      imageUrls: (json['imageUrls'] as List<dynamic>?)
+          ?.map((e) => e as String)
+          .toList(),
       roommateDetails: json['roommateDetails'] == null
           ? null
           : RMModel.fromJson(json['roommateDetails'] as Map<String, dynamic>),
@@ -36,6 +43,7 @@ Map<String, dynamic> _$$PostModelImplToJson(_$PostModelImpl instance) =>
       'participants': instance.participants,
       'maxParticipants': instance.maxParticipants,
       'createdAt': instance.createdAt.toIso8601String(),
-      'deadline': instance.deadline.toIso8601String(),
+      'deadline': instance.deadline?.toIso8601String(),
+      'imageUrls': instance.imageUrls,
       'roommateDetails': instance.roommateDetails,
     };

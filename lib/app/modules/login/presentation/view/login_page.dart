@@ -24,7 +24,7 @@ class LoginPage extends StatelessWidget {
             state.whenOrNull(
               loaded: () {
                 // 로그인 성공 시 홈 화면으로 이동
-                router.push(const PostRoute());
+                //router.push(const PostRoute());
               },
             );
           },

@@ -9,7 +9,7 @@ part of 'post_list_entity.dart';
 _$PostListEntityImpl _$$PostListEntityImplFromJson(Map<String, dynamic> json) =>
     _$PostListEntityImpl(
       total: (json['total'] as num).toInt(),
-      list: (json['list'] as List<dynamic>)
+      posts: (json['posts'] as List<dynamic>)
           .map((e) => PostEntity.fromJson(e as Map<String, dynamic>))
           .toList(),
     );
@@ -18,5 +18,5 @@ Map<String, dynamic> _$$PostListEntityImplToJson(
         _$PostListEntityImpl instance) =>
     <String, dynamic>{
       'total': instance.total,
-      'list': instance.list,
+      'posts': instance.posts,
     };

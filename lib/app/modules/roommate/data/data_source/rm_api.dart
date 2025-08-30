@@ -10,7 +10,7 @@ part 'rm_api.g.dart';
 abstract class RMApi {
   @factoryMethod
   factory RMApi(@Named('default') Dio dio) = _RMApi;
-  @POST('post')
+  @POST('')
   Future<PostEntity> postRM(
     @Body() Map<String, dynamic> body,
   );

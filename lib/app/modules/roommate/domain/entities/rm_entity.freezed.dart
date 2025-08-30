@@ -39,10 +39,10 @@ mixin _$RMEntity {
   DateTime? get rmWakeUpTime => throw _privateConstructorUsedError;
   bool get rmSnoring => throw _privateConstructorUsedError;
   bool get rmGrindingTeeth => throw _privateConstructorUsedError;
-  bool get rmSmoking =>
-      throw _privateConstructorUsedError; //required bool rmRefrigerator,
-//required bool rmWifi,
-//required String rmMbti,
+  bool get rmSmoking => throw _privateConstructorUsedError;
+  bool get rmRefrigerator => throw _privateConstructorUsedError;
+  bool get rmWifi =>
+      throw _privateConstructorUsedError; //required String rmMbti,
   String get title => throw _privateConstructorUsedError;
   String? get content => throw _privateConstructorUsedError;
 
@@ -82,6 +82,8 @@ abstract class $RMEntityCopyWith<$Res> {
       bool rmSnoring,
       bool rmGrindingTeeth,
       bool rmSmoking,
+      bool rmRefrigerator,
+      bool rmWifi,
       String title,
       String? content});
 }
@@ -121,6 +123,8 @@ class _$RMEntityCopyWithImpl<$Res, $Val extends RMEntity>
     Object? rmSnoring = null,
     Object? rmGrindingTeeth = null,
     Object? rmSmoking = null,
+    Object? rmRefrigerator = null,
+    Object? rmWifi = null,
     Object? title = null,
     Object? content = freezed,
   }) {
@@ -205,6 +209,14 @@ class _$RMEntityCopyWithImpl<$Res, $Val extends RMEntity>
           ? _value.rmSmoking
           : rmSmoking // ignore: cast_nullable_to_non_nullable
               as bool,
+      rmRefrigerator: null == rmRefrigerator
+          ? _value.rmRefrigerator
+          : rmRefrigerator // ignore: cast_nullable_to_non_nullable
+              as bool,
+      rmWifi: null == rmWifi
+          ? _value.rmWifi
+          : rmWifi // ignore: cast_nullable_to_non_nullable
+              as bool,
       title: null == title
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
@@ -246,6 +258,8 @@ abstract class _$$RMEntityImplCopyWith<$Res>
       bool rmSnoring,
       bool rmGrindingTeeth,
       bool rmSmoking,
+      bool rmRefrigerator,
+      bool rmWifi,
       String title,
       String? content});
 }
@@ -283,6 +297,8 @@ class __$$RMEntityImplCopyWithImpl<$Res>
     Object? rmSnoring = null,
     Object? rmGrindingTeeth = null,
     Object? rmSmoking = null,
+    Object? rmRefrigerator = null,
+    Object? rmWifi = null,
     Object? title = null,
     Object? content = freezed,
   }) {
@@ -367,6 +383,14 @@ class __$$RMEntityImplCopyWithImpl<$Res>
           ? _value.rmSmoking
           : rmSmoking // ignore: cast_nullable_to_non_nullable
               as bool,
+      rmRefrigerator: null == rmRefrigerator
+          ? _value.rmRefrigerator
+          : rmRefrigerator // ignore: cast_nullable_to_non_nullable
+              as bool,
+      rmWifi: null == rmWifi
+          ? _value.rmWifi
+          : rmWifi // ignore: cast_nullable_to_non_nullable
+              as bool,
       title: null == title
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
@@ -403,6 +427,8 @@ class _$RMEntityImpl implements _RMEntity {
       required this.rmSnoring,
       required this.rmGrindingTeeth,
       required this.rmSmoking,
+      required this.rmRefrigerator,
+      required this.rmWifi,
       required this.title,
       this.content});
 
@@ -449,8 +475,10 @@ class _$RMEntityImpl implements _RMEntity {
   final bool rmGrindingTeeth;
   @override
   final bool rmSmoking;
-//required bool rmRefrigerator,
-//required bool rmWifi,
+  @override
+  final bool rmRefrigerator;
+  @override
+  final bool rmWifi;
 //required String rmMbti,
   @override
   final String title;
@@ -459,7 +487,7 @@ class _$RMEntityImpl implements _RMEntity {
 
   @override
   String toString() {
-    return 'RMEntity(gender: $gender, grade: $grade, age: $age, room: $room, semester: $semester, refrigerator: $refrigerator, wifi: $wifi, snoring: $snoring, grindingTeeth: $grindingTeeth, smoking: $smoking, sleepTime: $sleepTime, wakeUpTime: $wakeUpTime, mbti: $mbti, rmGrade: $rmGrade, rmAge: $rmAge, rmSleepTime: $rmSleepTime, rmWakeUpTime: $rmWakeUpTime, rmSnoring: $rmSnoring, rmGrindingTeeth: $rmGrindingTeeth, rmSmoking: $rmSmoking, title: $title, content: $content)';
+    return 'RMEntity(gender: $gender, grade: $grade, age: $age, room: $room, semester: $semester, refrigerator: $refrigerator, wifi: $wifi, snoring: $snoring, grindingTeeth: $grindingTeeth, smoking: $smoking, sleepTime: $sleepTime, wakeUpTime: $wakeUpTime, mbti: $mbti, rmGrade: $rmGrade, rmAge: $rmAge, rmSleepTime: $rmSleepTime, rmWakeUpTime: $rmWakeUpTime, rmSnoring: $rmSnoring, rmGrindingTeeth: $rmGrindingTeeth, rmSmoking: $rmSmoking, rmRefrigerator: $rmRefrigerator, rmWifi: $rmWifi, title: $title, content: $content)';
   }
 
   @override
@@ -497,6 +525,9 @@ class _$RMEntityImpl implements _RMEntity {
                 other.rmGrindingTeeth == rmGrindingTeeth) &&
             (identical(other.rmSmoking, rmSmoking) ||
                 other.rmSmoking == rmSmoking) &&
+            (identical(other.rmRefrigerator, rmRefrigerator) ||
+                other.rmRefrigerator == rmRefrigerator) &&
+            (identical(other.rmWifi, rmWifi) || other.rmWifi == rmWifi) &&
             (identical(other.title, title) || other.title == title) &&
             (identical(other.content, content) || other.content == content));
   }
@@ -525,6 +556,8 @@ class _$RMEntityImpl implements _RMEntity {
         rmSnoring,
         rmGrindingTeeth,
         rmSmoking,
+        rmRefrigerator,
+        rmWifi,
         title,
         content
       ]);
@@ -567,6 +600,8 @@ abstract class _RMEntity implements RMEntity {
       required final bool rmSnoring,
       required final bool rmGrindingTeeth,
       required final bool rmSmoking,
+      required final bool rmRefrigerator,
+      required final bool rmWifi,
       required final String title,
       final String? content}) = _$RMEntityImpl;
 
@@ -612,9 +647,11 @@ abstract class _RMEntity implements RMEntity {
   @override
   bool get rmGrindingTeeth;
   @override
-  bool get rmSmoking; //required bool rmRefrigerator,
-//required bool rmWifi,
-//required String rmMbti,
+  bool get rmSmoking;
+  @override
+  bool get rmRefrigerator;
+  @override
+  bool get rmWifi; //required String rmMbti,
   @override
   String get title;
   @override

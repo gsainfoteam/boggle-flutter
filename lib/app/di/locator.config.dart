@@ -29,6 +29,8 @@ import 'package:boggle_flutter/app/modules/post/data/repository/rest_post_reposi
     as _i772;
 import 'package:boggle_flutter/app/modules/post/domain/repositories/post_repository.dart'
     as _i455;
+import 'package:boggle_flutter/app/modules/post/presentation/bloc/post_detail_bloc.dart'
+    as _i617;
 import 'package:boggle_flutter/app/modules/post/presentation/bloc/post_page_bloc.dart'
     as _i167;
 import 'package:boggle_flutter/app/modules/roommate/data/data_source/rm_api.dart'
@@ -64,25 +66,13 @@ extension GetItInjectableX on _i174.GetIt {
     gh.singleton<_i558.FlutterSecureStorage>(
         () => appModule.flutterSecureStorage);
     gh.lazySingleton<_i361.Dio>(
-      () => appModule.createDefaultDio(),
-      instanceName: 'default',
-    );
-    gh.lazySingleton<_i361.Dio>(
       () => appModule.createAuthDio(),
       instanceName: 'auth',
     );
-    gh.factory<_i249.UserApi>(() => _i249.UserApi(
-          gh<_i361.Dio>(),
-          baseUrl: gh<String>(),
-        ));
     gh.factory<_i1070.AuthApi>(
         () => _i1070.AuthApi(gh<_i361.Dio>(instanceName: 'auth')));
     gh.singleton<_i1037.TokenStorage>(
         () => _i1037.TokenStorage(gh<_i558.FlutterSecureStorage>()));
-    gh.factory<_i199.PostApi>(
-        () => _i199.PostApi(gh<_i361.Dio>(instanceName: 'default')));
-    gh.factory<_i759.RMApi>(
-        () => _i759.RMApi(gh<_i361.Dio>(instanceName: 'default')));
     gh.factory<_i754.OAuthRepository>(() => _i746.RestOAuthRepository(
           api: gh<_i1070.AuthApi>(),
           tokenStorage: gh<_i1037.TokenStorage>(),
@@ -91,14 +81,28 @@ extension GetItInjectableX on _i174.GetIt {
           gh<_i1037.TokenStorage>(),
           gh<_i754.OAuthRepository>(),
         ));
-    gh.factory<_i631.RMRepository>(
-        () => _i864.RestRMRepository(api: gh<_i759.RMApi>()));
     gh.factory<_i78.AuthInterceptors>(
         () => _i78.AuthInterceptors(gh<_i1037.TokenStorage>()));
-    gh.factory<_i455.PostRepository>(
-        () => _i772.RestPostRepository(api: gh<_i199.PostApi>()));
     gh.factory<_i829.LoginPageBloc>(
         () => _i829.LoginPageBloc(gh<_i754.OAuthRepository>()));
+    gh.singleton<_i361.Dio>(
+      () => appModule.createDefaultDio(gh<_i78.AuthInterceptors>()),
+      instanceName: 'default',
+    );
+    gh.factory<_i199.PostApi>(
+        () => _i199.PostApi(gh<_i361.Dio>(instanceName: 'default')));
+    gh.factory<_i759.RMApi>(
+        () => _i759.RMApi(gh<_i361.Dio>(instanceName: 'default')));
+    gh.factory<_i631.RMRepository>(
+        () => _i864.RestRMRepository(api: gh<_i759.RMApi>()));
+    gh.factory<_i249.UserApi>(() => _i249.UserApi(
+          gh<_i361.Dio>(instanceName: 'default'),
+          baseUrl: gh<String>(),
+        ));
+    gh.factory<_i455.PostRepository>(
+        () => _i772.RestPostRepository(api: gh<_i199.PostApi>()));
+    gh.factory<_i617.PostDetailBloc>(
+        () => _i617.PostDetailBloc(gh<_i455.PostRepository>()));
     gh.factory<_i167.PostPageBloc>(
         () => _i167.PostPageBloc(gh<_i455.PostRepository>()));
     gh.factory<_i813.MakeRMPageBloc>(

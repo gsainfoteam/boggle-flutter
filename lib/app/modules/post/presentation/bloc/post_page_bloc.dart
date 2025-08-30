@@ -1,3 +1,4 @@
+import 'package:boggle_flutter/app/modules/post/data/data_source/post_api.dart';
 import 'package:boggle_flutter/app/modules/post/data/model/post_list_model.dart';
 import 'package:boggle_flutter/app/modules/post/domain/repositories/post_repository.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
@@ -14,7 +15,8 @@ abstract class PostPageEvent with _$PostPageEvent {
 // --- State 정의 ---
 @freezed
 abstract class PostPageState with _$PostPageState {
-  const factory PostPageState.init() = InitState; // 초기 상태
+  // 초기상태는 필요 없음.
+  const factory PostPageState.init() = InitState;
   const factory PostPageState.loading() = LoadingState; // 로딩 중 상태
   const factory PostPageState.loaded({required PostListModel items}) =
       LoadedState; // 성공 상태 (데이터 포함)
@@ -35,9 +37,9 @@ class PostPageBloc extends Bloc<PostPageEvent, PostPageState> {
   // onLoad 메소드 정의
   Future<void> _onLoad(LoadEvent event, Emitter<PostPageState> emit) async {
     try {
-      // 1. 로딩 상태로 변경하여 UI에 로딩 인디케이터를 표시하도록 함
-      emit(const PostPageState.loading());
-
+      emit(PostPageState.loading());
+      print(
+          "loadingloadingloadingloadingloadingloadingloadingloadingloadingloadingloadingloadingloadingloading");
       // 2. 데이터 로딩 (실제로는 API 호출
       // 여기서는 2초 지연으로 API 호출을 흉내 냅니다.
       await Future.delayed(const Duration(seconds: 2));

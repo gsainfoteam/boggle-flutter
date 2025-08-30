@@ -20,7 +20,7 @@ class Recruitment extends StatelessWidget {
 
     return GestureDetector(
       onTap: () {
-        router.push(PostRoute());
+        router.push(PostRMRoute(postId: postModel.id!));
       },
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 46.5),

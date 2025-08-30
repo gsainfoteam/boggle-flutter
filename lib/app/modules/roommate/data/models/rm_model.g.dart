@@ -8,9 +8,9 @@ part of 'rm_model.dart';
 
 _$RMModelImpl _$$RMModelImplFromJson(Map<String, dynamic> json) =>
     _$RMModelImpl(
+      age: (json['age'] as num).toInt(),
       gender: json['gender'] as String,
       grade: json['grade'] as String,
-      age: (json['age'] as num).toInt(),
       room: json['room'] as String?,
       semester: json['semester'] as String,
       refrigerator: json['refrigerator'] as bool,
@@ -25,24 +25,26 @@ _$RMModelImpl _$$RMModelImplFromJson(Map<String, dynamic> json) =>
           ? null
           : DateTime.parse(json['wakeUpTime'] as String),
       mbti: json['mbti'] as String?,
-      rmGrade: json['rmGrade'] as String,
       rmAge: (json['rmAge'] as num).toInt(),
+      rmGrade: json['rmGrade'] as String,
       rmSleepTime: json['rmSleepTime'] == null
           ? null
           : DateTime.parse(json['rmSleepTime'] as String),
       rmWakeUpTime: json['rmWakeUpTime'] == null
           ? null
           : DateTime.parse(json['rmWakeUpTime'] as String),
+      rmRefrigerator: json['rmRefrigerator'] as bool?,
+      rmWifi: json['rmWifi'] as bool?,
       rmSnoring: json['rmSnoring'] as bool,
-      rmGrindingTeeth: json['rmGrindingTeeth'] as bool,
       rmSmoking: json['rmSmoking'] as bool,
+      rmGrindingTeeth: json['rmGrindingTeeth'] as bool,
     );
 
 Map<String, dynamic> _$$RMModelImplToJson(_$RMModelImpl instance) =>
     <String, dynamic>{
+      'age': instance.age,
       'gender': instance.gender,
       'grade': instance.grade,
-      'age': instance.age,
       'room': instance.room,
       'semester': instance.semester,
       'refrigerator': instance.refrigerator,
@@ -53,11 +55,13 @@ Map<String, dynamic> _$$RMModelImplToJson(_$RMModelImpl instance) =>
       'sleepTime': instance.sleepTime?.toIso8601String(),
       'wakeUpTime': instance.wakeUpTime?.toIso8601String(),
       'mbti': instance.mbti,
-      'rmGrade': instance.rmGrade,
       'rmAge': instance.rmAge,
+      'rmGrade': instance.rmGrade,
       'rmSleepTime': instance.rmSleepTime?.toIso8601String(),
       'rmWakeUpTime': instance.rmWakeUpTime?.toIso8601String(),
+      'rmRefrigerator': instance.rmRefrigerator,
+      'rmWifi': instance.rmWifi,
       'rmSnoring': instance.rmSnoring,
-      'rmGrindingTeeth': instance.rmGrindingTeeth,
       'rmSmoking': instance.rmSmoking,
+      'rmGrindingTeeth': instance.rmGrindingTeeth,
     };

@@ -651,6 +651,7 @@ mixin _$MakeRMPageState {
   RMSubmitModel get submit => throw _privateConstructorUsedError;
   SubmitStatus get submissionStatus => throw _privateConstructorUsedError;
   String? get errorMessage => throw _privateConstructorUsedError;
+  PostEntity? get results => throw _privateConstructorUsedError;
 
   /// Create a copy of MakeRMPageState
   /// with the given fields replaced by the non-null parameter values.
@@ -671,10 +672,12 @@ abstract class $MakeRMPageStateCopyWith<$Res> {
       RMEntity formData,
       RMSubmitModel submit,
       SubmitStatus submissionStatus,
-      String? errorMessage});
+      String? errorMessage,
+      PostEntity? results});
 
   $RMEntityCopyWith<$Res> get formData;
   $RMSubmitModelCopyWith<$Res> get submit;
+  $PostEntityCopyWith<$Res>? get results;
 }
 
 /// @nodoc
@@ -698,6 +701,7 @@ class _$MakeRMPageStateCopyWithImpl<$Res, $Val extends MakeRMPageState>
     Object? submit = null,
     Object? submissionStatus = null,
     Object? errorMessage = freezed,
+    Object? results = freezed,
   }) {
     return _then(_value.copyWith(
       currentStep: null == currentStep
@@ -724,6 +728,10 @@ class _$MakeRMPageStateCopyWithImpl<$Res, $Val extends MakeRMPageState>
           ? _value.errorMessage
           : errorMessage // ignore: cast_nullable_to_non_nullable
               as String?,
+      results: freezed == results
+          ? _value.results
+          : results // ignore: cast_nullable_to_non_nullable
+              as PostEntity?,
     ) as $Val);
   }
 
@@ -746,6 +754,20 @@ class _$MakeRMPageStateCopyWithImpl<$Res, $Val extends MakeRMPageState>
       return _then(_value.copyWith(submit: value) as $Val);
     });
   }
+
+  /// Create a copy of MakeRMPageState
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $PostEntityCopyWith<$Res>? get results {
+    if (_value.results == null) {
+      return null;
+    }
+
+    return $PostEntityCopyWith<$Res>(_value.results!, (value) {
+      return _then(_value.copyWith(results: value) as $Val);
+    });
+  }
 }
 
 /// @nodoc
@@ -762,12 +784,15 @@ abstract class _$$MakeRMPageStateImplCopyWith<$Res>
       RMEntity formData,
       RMSubmitModel submit,
       SubmitStatus submissionStatus,
-      String? errorMessage});
+      String? errorMessage,
+      PostEntity? results});
 
   @override
   $RMEntityCopyWith<$Res> get formData;
   @override
   $RMSubmitModelCopyWith<$Res> get submit;
+  @override
+  $PostEntityCopyWith<$Res>? get results;
 }
 
 /// @nodoc
@@ -789,6 +814,7 @@ class __$$MakeRMPageStateImplCopyWithImpl<$Res>
     Object? submit = null,
     Object? submissionStatus = null,
     Object? errorMessage = freezed,
+    Object? results = freezed,
   }) {
     return _then(_$MakeRMPageStateImpl(
       currentStep: null == currentStep
@@ -815,6 +841,10 @@ class __$$MakeRMPageStateImplCopyWithImpl<$Res>
           ? _value.errorMessage
           : errorMessage // ignore: cast_nullable_to_non_nullable
               as String?,
+      results: freezed == results
+          ? _value.results
+          : results // ignore: cast_nullable_to_non_nullable
+              as PostEntity?,
     ));
   }
 }
@@ -828,7 +858,8 @@ class _$MakeRMPageStateImpl implements _MakeRMPageState {
       required this.formData,
       required this.submit,
       this.submissionStatus = SubmitStatus.initial,
-      this.errorMessage});
+      this.errorMessage,
+      this.results});
 
   @override
   @JsonKey()
@@ -845,10 +876,12 @@ class _$MakeRMPageStateImpl implements _MakeRMPageState {
   final SubmitStatus submissionStatus;
   @override
   final String? errorMessage;
+  @override
+  final PostEntity? results;
 
   @override
   String toString() {
-    return 'MakeRMPageState(currentStep: $currentStep, totalSteps: $totalSteps, formData: $formData, submit: $submit, submissionStatus: $submissionStatus, errorMessage: $errorMessage)';
+    return 'MakeRMPageState(currentStep: $currentStep, totalSteps: $totalSteps, formData: $formData, submit: $submit, submissionStatus: $submissionStatus, errorMessage: $errorMessage, results: $results)';
   }
 
   @override
@@ -866,12 +899,13 @@ class _$MakeRMPageStateImpl implements _MakeRMPageState {
             (identical(other.submissionStatus, submissionStatus) ||
                 other.submissionStatus == submissionStatus) &&
             (identical(other.errorMessage, errorMessage) ||
-                other.errorMessage == errorMessage));
+                other.errorMessage == errorMessage) &&
+            (identical(other.results, results) || other.results == results));
   }
 
   @override
   int get hashCode => Object.hash(runtimeType, currentStep, totalSteps,
-      formData, submit, submissionStatus, errorMessage);
+      formData, submit, submissionStatus, errorMessage, results);
 
   /// Create a copy of MakeRMPageState
   /// with the given fields replaced by the non-null parameter values.
@@ -890,7 +924,8 @@ abstract class _MakeRMPageState implements MakeRMPageState {
       required final RMEntity formData,
       required final RMSubmitModel submit,
       final SubmitStatus submissionStatus,
-      final String? errorMessage}) = _$MakeRMPageStateImpl;
+      final String? errorMessage,
+      final PostEntity? results}) = _$MakeRMPageStateImpl;
 
   @override
   int get currentStep;
@@ -904,6 +939,8 @@ abstract class _MakeRMPageState implements MakeRMPageState {
   SubmitStatus get submissionStatus;
   @override
   String? get errorMessage;
+  @override
+  PostEntity? get results;
 
   /// Create a copy of MakeRMPageState
   /// with the given fields replaced by the non-null parameter values.

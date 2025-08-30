@@ -36,6 +36,8 @@ _$RMEntityImpl _$$RMEntityImplFromJson(Map<String, dynamic> json) =>
       rmSnoring: json['rmSnoring'] as bool,
       rmGrindingTeeth: json['rmGrindingTeeth'] as bool,
       rmSmoking: json['rmSmoking'] as bool,
+      rmRefrigerator: json['rmRefrigerator'] as bool,
+      rmWifi: json['rmWifi'] as bool,
       title: json['title'] as String,
       content: json['content'] as String?,
     );
@@ -62,6 +64,8 @@ Map<String, dynamic> _$$RMEntityImplToJson(_$RMEntityImpl instance) =>
       'rmSnoring': instance.rmSnoring,
       'rmGrindingTeeth': instance.rmGrindingTeeth,
       'rmSmoking': instance.rmSmoking,
+      'rmRefrigerator': instance.rmRefrigerator,
+      'rmWifi': instance.rmWifi,
       'title': instance.title,
       'content': instance.content,
     };

@@ -4,98 +4,77 @@ import 'package:boggle_flutter/app/modules/post/presentation/bloc/post_page_bloc
 import 'package:boggle_flutter/app/modules/post/presentation/widgets/recruitment.dart';
 import 'package:boggle_flutter/routes/app_router.gr.dart';
 import 'package:flutter/material.dart';
-//import 'package:boggle_flutter/app/modules/presentation/widgets/tag.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:boggle_flutter/app/modules/common/presentation/widgets/boggle_app_bar.dart';
 
 @RoutePage()
-class PostPage extends StatefulWidget {
+class PostPage extends StatelessWidget {
   const PostPage({
     super.key,
   });
 
   @override
-  State<PostPage> createState() => _PostPageState();
-}
-
-class _PostPageState extends State<PostPage> {
-  @override
-  void initState() {
-    super.initState();
-  }
-
-  @override
   Widget build(BuildContext context) {
-    final router = context.router;
-    //String Date = DateFormat('yyyy.mm.dd').format(postModel[index].createdAt);
-    /*Uint8List image = Uint8List(0);
-    if (postModel[index].images != null &&
-        postModel[index].images!.isNotEmpty) {
-      image = base64Decode(postModel[index].images![imageIndex].image);
-    }*/
-
     return BlocProvider(
-      create: (context) => sl<PostPageBloc>()..add(const PostPageEvent.load()),
+      create: (context) => sl<PostPageBloc>()..add(PostPageEvent.load()),
       child: Scaffold(
         backgroundColor: const Color.fromARGB(255, 255, 255, 255),
         appBar: BoggleAppBar.main(
           onSearchTap: () {
-            // Search 아이콘 클릭 시 동작
-            // 일단 검색 기능이 없기 때문에 로그 출력
             print('Search icon tapped');
           },
           onEditTap: () {
-            router.push(const CategoryRoute());
+            context.router.push(const CategoryRoute());
           },
         ),
-        body:
-            BlocBuilder<PostPageBloc, PostPageState>(builder: (context, state) {
-          return state.when(
-              init: () => const Center(child: Text('게시글을 불러오는 중입니다...')),
+        body: BlocBuilder<PostPageBloc, PostPageState>(
+          builder: (context, state) {
+            return state.when(
+              init: () => Text('게시글 불러 오는 중..'),
               loading: () => const Center(child: CircularProgressIndicator()),
               loaded: (items) => RefreshIndicator(
-                    onRefresh: () async {
-                      context
-                          .read<PostPageBloc>()
-                          .add(const PostPageEvent.load());
-                    },
-                    child: ListView.builder(
-                        itemCount: items.total,
-                        itemBuilder: (context, index) {
-                          return Recruitment(postModel: items.posts[index]);
-                        }),
-                  ),
+                onRefresh: () async {
+                  context.read<PostPageBloc>().add(PostPageEvent.load());
+                },
+                child: ListView.builder(
+                    itemCount: items.total,
+                    itemBuilder: (context, index) {
+                      return Recruitment(postModel: items.posts[index]);
+                    }),
+              ),
               error: (message) => Center(
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Text(message,
-                            style: const TextStyle(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text(message,
+                        style: const TextStyle(
+                            fontSize: 16,
+                            fontFamily: 'Pretendard',
+                            fontWeight: FontWeight.w600)),
+                    const SizedBox(height: 24),
+                    ElevatedButton(
+                        onPressed: () {
+                          context
+                              .read<PostPageBloc>()
+                              .add(PostPageEvent.load());
+                        },
+                        style: ElevatedButton.styleFrom(
+                            backgroundColor:
+                                const Color.fromARGB(255, 75, 126, 255),
+                            shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(10))),
+                        child: const Text('다시 시도',
+                            style: TextStyle(
                                 fontSize: 16,
                                 fontFamily: 'Pretendard',
-                                fontWeight: FontWeight.w600)),
-                        const SizedBox(height: 24),
-                        ElevatedButton(
-                            onPressed: () {
-                              context
-                                  .read<PostPageBloc>()
-                                  .add(const PostPageEvent.load());
-                            },
-                            style: ElevatedButton.styleFrom(
-                                backgroundColor:
-                                    const Color.fromARGB(255, 75, 126, 255),
-                                shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(10))),
-                            child: const Text('다시 시도',
-                                style: TextStyle(
-                                    fontSize: 16,
-                                    fontFamily: 'Pretendard',
-                                    fontWeight: FontWeight.w600)))
-                      ],
-                    ),
-                  ));
-        }),
+                                fontWeight: FontWeight.w600)))
+                  ],
+                ),
+              ),
+            );
+          },
+        ),
       ),
     );
   }
