@@ -1,3 +1,4 @@
+import 'package:boggle_flutter/app/modules/roommate/domain/entities/rm_entity.dart';
 import 'package:boggle_flutter/app/modules/user/domain/entities/user_entity.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
@@ -17,6 +18,7 @@ class PostEntity with _$PostEntity {
     required DateTime createdAt,
     required DateTime deadline,
     //List<PostListImageEntity>? images,
+    RMEntity? roommateDetails,
   }) = _PostEntity;
 
   factory PostEntity.fromJson(Map<String, dynamic> json) =>

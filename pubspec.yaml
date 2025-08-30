@@ -32,6 +32,7 @@ dependencies:
   nonce: ^1.2.0
   crypto: ^3.0.6
   url_launcher: ^6.3.0
+  intl: ^0.20.0
 
 dev_dependencies:
   flutter_test:

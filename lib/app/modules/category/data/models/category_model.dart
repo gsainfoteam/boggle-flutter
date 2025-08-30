@@ -1,3 +1,4 @@
+import 'package:boggle_flutter/gen/assets.gen.dart';
 import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
@@ -8,7 +9,7 @@ part 'category_model.freezed.dart';
 class CategoryModel with _$CategoryModel {
   const factory CategoryModel({
     required String title,
-    required Widget icon,
+    required SvgGenImage icon,
     required String value, // 'rm', 'study' 등 실제 값
   }) = _CategoryModel;
 

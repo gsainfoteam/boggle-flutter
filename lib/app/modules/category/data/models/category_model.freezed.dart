@@ -17,7 +17,7 @@ final _privateConstructorUsedError = UnsupportedError(
 /// @nodoc
 mixin _$CategoryModel {
   String get title => throw _privateConstructorUsedError;
-  Widget get icon => throw _privateConstructorUsedError;
+  SvgGenImage get icon => throw _privateConstructorUsedError;
   String get value => throw _privateConstructorUsedError;
 
   /// Create a copy of CategoryModel
@@ -33,7 +33,7 @@ abstract class $CategoryModelCopyWith<$Res> {
           CategoryModel value, $Res Function(CategoryModel) then) =
       _$CategoryModelCopyWithImpl<$Res, CategoryModel>;
   @useResult
-  $Res call({String title, Widget icon, String value});
+  $Res call({String title, SvgGenImage icon, String value});
 }
 
 /// @nodoc
@@ -52,7 +52,7 @@ class _$CategoryModelCopyWithImpl<$Res, $Val extends CategoryModel>
   @override
   $Res call({
     Object? title = null,
-    Object? icon = null,
+    Object? icon = freezed,
     Object? value = null,
   }) {
     return _then(_value.copyWith(
@@ -60,10 +60,10 @@ class _$CategoryModelCopyWithImpl<$Res, $Val extends CategoryModel>
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
               as String,
-      icon: null == icon
+      icon: freezed == icon
           ? _value.icon
           : icon // ignore: cast_nullable_to_non_nullable
-              as Widget,
+              as SvgGenImage,
       value: null == value
           ? _value.value
           : value // ignore: cast_nullable_to_non_nullable
@@ -80,7 +80,7 @@ abstract class _$$CategoryModelImplCopyWith<$Res>
       __$$CategoryModelImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String title, Widget icon, String value});
+  $Res call({String title, SvgGenImage icon, String value});
 }
 
 /// @nodoc
@@ -97,7 +97,7 @@ class __$$CategoryModelImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? title = null,
-    Object? icon = null,
+    Object? icon = freezed,
     Object? value = null,
   }) {
     return _then(_$CategoryModelImpl(
@@ -105,10 +105,10 @@ class __$$CategoryModelImplCopyWithImpl<$Res>
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
               as String,
-      icon: null == icon
+      icon: freezed == icon
           ? _value.icon
           : icon // ignore: cast_nullable_to_non_nullable
-              as Widget,
+              as SvgGenImage,
       value: null == value
           ? _value.value
           : value // ignore: cast_nullable_to_non_nullable
@@ -126,7 +126,7 @@ class _$CategoryModelImpl implements _CategoryModel {
   @override
   final String title;
   @override
-  final Widget icon;
+  final SvgGenImage icon;
   @override
   final String value;
 
@@ -141,12 +141,13 @@ class _$CategoryModelImpl implements _CategoryModel {
         (other.runtimeType == runtimeType &&
             other is _$CategoryModelImpl &&
             (identical(other.title, title) || other.title == title) &&
-            (identical(other.icon, icon) || other.icon == icon) &&
+            const DeepCollectionEquality().equals(other.icon, icon) &&
             (identical(other.value, value) || other.value == value));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, title, icon, value);
+  int get hashCode => Object.hash(
+      runtimeType, title, const DeepCollectionEquality().hash(icon), value);
 
   /// Create a copy of CategoryModel
   /// with the given fields replaced by the non-null parameter values.
@@ -160,13 +161,13 @@ class _$CategoryModelImpl implements _CategoryModel {
 abstract class _CategoryModel implements CategoryModel {
   const factory _CategoryModel(
       {required final String title,
-      required final Widget icon,
+      required final SvgGenImage icon,
       required final String value}) = _$CategoryModelImpl;
 
   @override
   String get title;
   @override
-  Widget get icon;
+  SvgGenImage get icon;
   @override
   String get value;
 

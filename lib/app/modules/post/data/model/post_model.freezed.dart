@@ -29,7 +29,9 @@ mixin _$PostModel {
   List<UserModel>? get participants => throw _privateConstructorUsedError;
   int get maxParticipants => throw _privateConstructorUsedError;
   DateTime get createdAt => throw _privateConstructorUsedError;
-  DateTime get deadline => throw _privateConstructorUsedError;
+  DateTime get deadline =>
+      throw _privateConstructorUsedError; //List<PostListImageModel>? images,
+  RMModel? get roommateDetails => throw _privateConstructorUsedError;
 
   /// Serializes this PostModel to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -56,9 +58,11 @@ abstract class $PostModelCopyWith<$Res> {
       List<UserModel>? participants,
       int maxParticipants,
       DateTime createdAt,
-      DateTime deadline});
+      DateTime deadline,
+      RMModel? roommateDetails});
 
   $UserModelCopyWith<$Res> get author;
+  $RMModelCopyWith<$Res>? get roommateDetails;
 }
 
 /// @nodoc
@@ -86,6 +90,7 @@ class _$PostModelCopyWithImpl<$Res, $Val extends PostModel>
     Object? maxParticipants = null,
     Object? createdAt = null,
     Object? deadline = null,
+    Object? roommateDetails = freezed,
   }) {
     return _then(_value.copyWith(
       id: null == id
@@ -128,6 +133,10 @@ class _$PostModelCopyWithImpl<$Res, $Val extends PostModel>
           ? _value.deadline
           : deadline // ignore: cast_nullable_to_non_nullable
               as DateTime,
+      roommateDetails: freezed == roommateDetails
+          ? _value.roommateDetails
+          : roommateDetails // ignore: cast_nullable_to_non_nullable
+              as RMModel?,
     ) as $Val);
   }
 
@@ -138,6 +147,20 @@ class _$PostModelCopyWithImpl<$Res, $Val extends PostModel>
   $UserModelCopyWith<$Res> get author {
     return $UserModelCopyWith<$Res>(_value.author, (value) {
       return _then(_value.copyWith(author: value) as $Val);
+    });
+  }
+
+  /// Create a copy of PostModel
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $RMModelCopyWith<$Res>? get roommateDetails {
+    if (_value.roommateDetails == null) {
+      return null;
+    }
+
+    return $RMModelCopyWith<$Res>(_value.roommateDetails!, (value) {
+      return _then(_value.copyWith(roommateDetails: value) as $Val);
     });
   }
 }
@@ -160,10 +183,13 @@ abstract class _$$PostModelImplCopyWith<$Res>
       List<UserModel>? participants,
       int maxParticipants,
       DateTime createdAt,
-      DateTime deadline});
+      DateTime deadline,
+      RMModel? roommateDetails});
 
   @override
   $UserModelCopyWith<$Res> get author;
+  @override
+  $RMModelCopyWith<$Res>? get roommateDetails;
 }
 
 /// @nodoc
@@ -189,6 +215,7 @@ class __$$PostModelImplCopyWithImpl<$Res>
     Object? maxParticipants = null,
     Object? createdAt = null,
     Object? deadline = null,
+    Object? roommateDetails = freezed,
   }) {
     return _then(_$PostModelImpl(
       id: null == id
@@ -231,6 +258,10 @@ class __$$PostModelImplCopyWithImpl<$Res>
           ? _value.deadline
           : deadline // ignore: cast_nullable_to_non_nullable
               as DateTime,
+      roommateDetails: freezed == roommateDetails
+          ? _value.roommateDetails
+          : roommateDetails // ignore: cast_nullable_to_non_nullable
+              as RMModel?,
     ));
   }
 }
@@ -248,7 +279,8 @@ class _$PostModelImpl implements _PostModel {
       final List<UserModel>? participants,
       required this.maxParticipants,
       required this.createdAt,
-      required this.deadline})
+      required this.deadline,
+      this.roommateDetails})
       : _tags = tags,
         _participants = participants;
 
@@ -291,10 +323,13 @@ class _$PostModelImpl implements _PostModel {
   final DateTime createdAt;
   @override
   final DateTime deadline;
+//List<PostListImageModel>? images,
+  @override
+  final RMModel? roommateDetails;
 
   @override
   String toString() {
-    return 'PostModel(id: $id, title: $title, content: $content, type: $type, tags: $tags, author: $author, participants: $participants, maxParticipants: $maxParticipants, createdAt: $createdAt, deadline: $deadline)';
+    return 'PostModel(id: $id, title: $title, content: $content, type: $type, tags: $tags, author: $author, participants: $participants, maxParticipants: $maxParticipants, createdAt: $createdAt, deadline: $deadline, roommateDetails: $roommateDetails)';
   }
 
   @override
@@ -315,7 +350,9 @@ class _$PostModelImpl implements _PostModel {
             (identical(other.createdAt, createdAt) ||
                 other.createdAt == createdAt) &&
             (identical(other.deadline, deadline) ||
-                other.deadline == deadline));
+                other.deadline == deadline) &&
+            (identical(other.roommateDetails, roommateDetails) ||
+                other.roommateDetails == roommateDetails));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
@@ -331,7 +368,8 @@ class _$PostModelImpl implements _PostModel {
       const DeepCollectionEquality().hash(_participants),
       maxParticipants,
       createdAt,
-      deadline);
+      deadline,
+      roommateDetails);
 
   /// Create a copy of PostModel
   /// with the given fields replaced by the non-null parameter values.
@@ -360,7 +398,8 @@ abstract class _PostModel implements PostModel {
       final List<UserModel>? participants,
       required final int maxParticipants,
       required final DateTime createdAt,
-      required final DateTime deadline}) = _$PostModelImpl;
+      required final DateTime deadline,
+      final RMModel? roommateDetails}) = _$PostModelImpl;
 
   factory _PostModel.fromJson(Map<String, dynamic> json) =
       _$PostModelImpl.fromJson;
@@ -384,7 +423,9 @@ abstract class _PostModel implements PostModel {
   @override
   DateTime get createdAt;
   @override
-  DateTime get deadline;
+  DateTime get deadline; //List<PostListImageModel>? images,
+  @override
+  RMModel? get roommateDetails;
 
   /// Create a copy of PostModel
   /// with the given fields replaced by the non-null parameter values.

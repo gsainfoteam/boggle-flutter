@@ -2,6 +2,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:boggle_flutter/app/di/locator.dart';
 import 'package:boggle_flutter/app/modules/post/presentation/bloc/post_page_bloc.dart';
 import 'package:boggle_flutter/app/modules/post/presentation/widgets/recruitment.dart';
+import 'package:boggle_flutter/routes/app_router.gr.dart';
 import 'package:flutter/material.dart';
 //import 'package:boggle_flutter/app/modules/presentation/widgets/tag.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -37,7 +38,16 @@ class _PostPageState extends State<PostPage> {
       create: (context) => sl<PostPageBloc>()..add(const PostPageEvent.load()),
       child: Scaffold(
         backgroundColor: const Color.fromARGB(255, 255, 255, 255),
-        appBar: BoggleAppBar(),
+        appBar: BoggleAppBar.main(
+          onSearchTap: () {
+            // Search 아이콘 클릭 시 동작
+            // 일단 검색 기능이 없기 때문에 로그 출력
+            print('Search icon tapped');
+          },
+          onEditTap: () {
+            router.push(const CategoryRoute());
+          },
+        ),
         body:
             BlocBuilder<PostPageBloc, PostPageState>(builder: (context, state) {
           return state.when(
@@ -52,8 +62,7 @@ class _PostPageState extends State<PostPage> {
                     child: ListView.builder(
                         itemCount: items.total,
                         itemBuilder: (context, index) {
-                          return Recruitment(
-                              index: index, postModel: items.posts[index]);
+                          return Recruitment(postModel: items.posts[index]);
                         }),
                   ),
               error: (message) => Center(

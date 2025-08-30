@@ -36,7 +36,7 @@ class CategoryPageBloc extends Bloc<CategoryPageEvent, CategoryPageState> {
   ) async {
     try {
       emit(const CategoryPageState.loading());
-      await Future.delayed(const Duration(milliseconds: 200)); // 인위적인 딜레이
+      await Future.delayed(const Duration(milliseconds: 2000)); // 인위적인 딜레이
 
       // 이벤트로부터 받은 categoryValue를 상태에 담아 전달
       emit(CategoryPageState.navigateToPosts(

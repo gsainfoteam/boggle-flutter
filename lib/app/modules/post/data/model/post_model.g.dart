@@ -20,6 +20,9 @@ _$PostModelImpl _$$PostModelImplFromJson(Map<String, dynamic> json) =>
       maxParticipants: (json['maxParticipants'] as num).toInt(),
       createdAt: DateTime.parse(json['createdAt'] as String),
       deadline: DateTime.parse(json['deadline'] as String),
+      roommateDetails: json['roommateDetails'] == null
+          ? null
+          : RMModel.fromJson(json['roommateDetails'] as Map<String, dynamic>),
     );
 
 Map<String, dynamic> _$$PostModelImplToJson(_$PostModelImpl instance) =>
@@ -34,4 +37,5 @@ Map<String, dynamic> _$$PostModelImplToJson(_$PostModelImpl instance) =>
       'maxParticipants': instance.maxParticipants,
       'createdAt': instance.createdAt.toIso8601String(),
       'deadline': instance.deadline.toIso8601String(),
+      'roommateDetails': instance.roommateDetails,
     };

@@ -1,3 +1,4 @@
+import 'package:boggle_flutter/app/modules/roommate/data/models/rm_model.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:boggle_flutter/app/modules/user/data/model/user_model.dart';
 //import 'package:boggle_flutter/app/modules/data/model/post_list_image_model.dart';
@@ -19,6 +20,7 @@ class PostModel with _$PostModel {
     required DateTime createdAt,
     required DateTime deadline,
     //List<PostListImageModel>? images,
+    RMModel? roommateDetails,
   }) = _PostModel;
 
   factory PostModel.fromJson(Map<String, dynamic> json) =>

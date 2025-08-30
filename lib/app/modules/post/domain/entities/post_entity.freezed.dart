@@ -28,7 +28,9 @@ mixin _$PostEntity {
   UserEntity get author => throw _privateConstructorUsedError;
   int get maxParticipants => throw _privateConstructorUsedError;
   DateTime get createdAt => throw _privateConstructorUsedError;
-  DateTime get deadline => throw _privateConstructorUsedError;
+  DateTime get deadline =>
+      throw _privateConstructorUsedError; //List<PostListImageEntity>? images,
+  RMEntity? get roommateDetails => throw _privateConstructorUsedError;
 
   /// Serializes this PostEntity to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -55,9 +57,11 @@ abstract class $PostEntityCopyWith<$Res> {
       UserEntity author,
       int maxParticipants,
       DateTime createdAt,
-      DateTime deadline});
+      DateTime deadline,
+      RMEntity? roommateDetails});
 
   $UserEntityCopyWith<$Res> get author;
+  $RMEntityCopyWith<$Res>? get roommateDetails;
 }
 
 /// @nodoc
@@ -84,6 +88,7 @@ class _$PostEntityCopyWithImpl<$Res, $Val extends PostEntity>
     Object? maxParticipants = null,
     Object? createdAt = null,
     Object? deadline = null,
+    Object? roommateDetails = freezed,
   }) {
     return _then(_value.copyWith(
       id: null == id
@@ -122,6 +127,10 @@ class _$PostEntityCopyWithImpl<$Res, $Val extends PostEntity>
           ? _value.deadline
           : deadline // ignore: cast_nullable_to_non_nullable
               as DateTime,
+      roommateDetails: freezed == roommateDetails
+          ? _value.roommateDetails
+          : roommateDetails // ignore: cast_nullable_to_non_nullable
+              as RMEntity?,
     ) as $Val);
   }
 
@@ -132,6 +141,20 @@ class _$PostEntityCopyWithImpl<$Res, $Val extends PostEntity>
   $UserEntityCopyWith<$Res> get author {
     return $UserEntityCopyWith<$Res>(_value.author, (value) {
       return _then(_value.copyWith(author: value) as $Val);
+    });
+  }
+
+  /// Create a copy of PostEntity
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $RMEntityCopyWith<$Res>? get roommateDetails {
+    if (_value.roommateDetails == null) {
+      return null;
+    }
+
+    return $RMEntityCopyWith<$Res>(_value.roommateDetails!, (value) {
+      return _then(_value.copyWith(roommateDetails: value) as $Val);
     });
   }
 }
@@ -153,10 +176,13 @@ abstract class _$$PostEntityImplCopyWith<$Res>
       UserEntity author,
       int maxParticipants,
       DateTime createdAt,
-      DateTime deadline});
+      DateTime deadline,
+      RMEntity? roommateDetails});
 
   @override
   $UserEntityCopyWith<$Res> get author;
+  @override
+  $RMEntityCopyWith<$Res>? get roommateDetails;
 }
 
 /// @nodoc
@@ -181,6 +207,7 @@ class __$$PostEntityImplCopyWithImpl<$Res>
     Object? maxParticipants = null,
     Object? createdAt = null,
     Object? deadline = null,
+    Object? roommateDetails = freezed,
   }) {
     return _then(_$PostEntityImpl(
       id: null == id
@@ -219,6 +246,10 @@ class __$$PostEntityImplCopyWithImpl<$Res>
           ? _value.deadline
           : deadline // ignore: cast_nullable_to_non_nullable
               as DateTime,
+      roommateDetails: freezed == roommateDetails
+          ? _value.roommateDetails
+          : roommateDetails // ignore: cast_nullable_to_non_nullable
+              as RMEntity?,
     ));
   }
 }
@@ -235,7 +266,8 @@ class _$PostEntityImpl implements _PostEntity {
       required this.author,
       required this.maxParticipants,
       required this.createdAt,
-      required this.deadline})
+      required this.deadline,
+      this.roommateDetails})
       : _tags = tags;
 
   factory _$PostEntityImpl.fromJson(Map<String, dynamic> json) =>
@@ -267,10 +299,13 @@ class _$PostEntityImpl implements _PostEntity {
   final DateTime createdAt;
   @override
   final DateTime deadline;
+//List<PostListImageEntity>? images,
+  @override
+  final RMEntity? roommateDetails;
 
   @override
   String toString() {
-    return 'PostEntity(id: $id, title: $title, content: $content, type: $type, tags: $tags, author: $author, maxParticipants: $maxParticipants, createdAt: $createdAt, deadline: $deadline)';
+    return 'PostEntity(id: $id, title: $title, content: $content, type: $type, tags: $tags, author: $author, maxParticipants: $maxParticipants, createdAt: $createdAt, deadline: $deadline, roommateDetails: $roommateDetails)';
   }
 
   @override
@@ -289,7 +324,9 @@ class _$PostEntityImpl implements _PostEntity {
             (identical(other.createdAt, createdAt) ||
                 other.createdAt == createdAt) &&
             (identical(other.deadline, deadline) ||
-                other.deadline == deadline));
+                other.deadline == deadline) &&
+            (identical(other.roommateDetails, roommateDetails) ||
+                other.roommateDetails == roommateDetails));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
@@ -304,7 +341,8 @@ class _$PostEntityImpl implements _PostEntity {
       author,
       maxParticipants,
       createdAt,
-      deadline);
+      deadline,
+      roommateDetails);
 
   /// Create a copy of PostEntity
   /// with the given fields replaced by the non-null parameter values.
@@ -332,7 +370,8 @@ abstract class _PostEntity implements PostEntity {
       required final UserEntity author,
       required final int maxParticipants,
       required final DateTime createdAt,
-      required final DateTime deadline}) = _$PostEntityImpl;
+      required final DateTime deadline,
+      final RMEntity? roommateDetails}) = _$PostEntityImpl;
 
   factory _PostEntity.fromJson(Map<String, dynamic> json) =
       _$PostEntityImpl.fromJson;
@@ -354,7 +393,9 @@ abstract class _PostEntity implements PostEntity {
   @override
   DateTime get createdAt;
   @override
-  DateTime get deadline;
+  DateTime get deadline; //List<PostListImageEntity>? images,
+  @override
+  RMEntity? get roommateDetails;
 
   /// Create a copy of PostEntity
   /// with the given fields replaced by the non-null parameter values.

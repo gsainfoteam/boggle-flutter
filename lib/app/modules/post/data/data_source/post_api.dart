@@ -16,13 +16,4 @@ abstract class PostApi {
     @Query('skip') int skip,
     @Query('take') int take,
   );
-  //post, put, delete는 아직 구현되지 않았습니다.
-  @POST('')
-  Future<PostListModel> postPosts();
-
-  @PUT('')
-  Future<PostListModel> putPosts();
-
-  @DELETE('')
-  Future<PostListModel> deletePosts();
 }

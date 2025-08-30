@@ -1,18 +1,35 @@
-/*import 'package:flutter/material.dart';
-import 'package:boggle_flutter/app/modules/data/model/post_model.dart';
+import 'package:flutter/material.dart';
 
 //import 'package:infoteam_app/routes/app_router.gr.dart';
 
 class Tag extends StatelessWidget {
-  const Tag({super.key, required this.index, required this.postModel});
+  const Tag({
+    super.key,
+    required this.text,
+  });
 
-  final int index;
   //final int imageIndex;
-  final List<PostModel> postModel;
+  final String text;
   @override
   Widget build(BuildContext context) {
-    if (today.isBefore(hurry)) {
-      return Container(),
+    return Container(
+      width: 50,
+      height: 22,
+      decoration: BoxDecoration(
+        color: const Color.fromARGB(255, 201, 216, 255),
+        borderRadius: BorderRadius.circular(30),
+      ),
+      child: Center(
+        child: Text(
+          text,
+          style: const TextStyle(
+            fontSize: 10,
+            fontWeight: FontWeight.w600,
+            fontFamily: 'Pretendard',
+            color: Color.fromARGB(255, 0, 0, 0),
+          ),
+        ),
+      ),
+    );
   }
 }
-*/

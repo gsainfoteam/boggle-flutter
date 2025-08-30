@@ -23,6 +23,7 @@ import 'package:boggle_flutter/app/modules/roommate/presentation/view/make_rm_pa
     as _i4;
 import 'package:boggle_flutter/app/modules/study/presentation/view/study_page.dart'
     as _i7;
+import 'package:flutter/material.dart' as _i9;
 
 /// generated route for
 /// [_i1.CategoryPage]
@@ -83,10 +84,13 @@ class LoginRoute extends _i8.PageRouteInfo<void> {
 
 /// generated route for
 /// [_i4.MakeRMPage]
-class MakeRMRoute extends _i8.PageRouteInfo<void> {
-  const MakeRMRoute({List<_i8.PageRouteInfo>? children})
-      : super(
+class MakeRMRoute extends _i8.PageRouteInfo<MakeRMRouteArgs> {
+  MakeRMRoute({
+    _i9.Key? key,
+    List<_i8.PageRouteInfo>? children,
+  }) : super(
           MakeRMRoute.name,
+          args: MakeRMRouteArgs(key: key),
           initialChildren: children,
         );
 
@@ -95,9 +99,22 @@ class MakeRMRoute extends _i8.PageRouteInfo<void> {
   static _i8.PageInfo page = _i8.PageInfo(
     name,
     builder: (data) {
-      return const _i4.MakeRMPage();
+      final args =
+          data.argsAs<MakeRMRouteArgs>(orElse: () => const MakeRMRouteArgs());
+      return _i4.MakeRMPage(key: args.key);
     },
   );
+}
+
+class MakeRMRouteArgs {
+  const MakeRMRouteArgs({this.key});
+
+  final _i9.Key? key;
+
+  @override
+  String toString() {
+    return 'MakeRMRouteArgs{key: $key}';
+  }
 }
 
 /// generated route for

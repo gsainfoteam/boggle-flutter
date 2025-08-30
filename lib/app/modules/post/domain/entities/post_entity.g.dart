@@ -17,6 +17,9 @@ _$PostEntityImpl _$$PostEntityImplFromJson(Map<String, dynamic> json) =>
       maxParticipants: (json['maxParticipants'] as num).toInt(),
       createdAt: DateTime.parse(json['createdAt'] as String),
       deadline: DateTime.parse(json['deadline'] as String),
+      roommateDetails: json['roommateDetails'] == null
+          ? null
+          : RMEntity.fromJson(json['roommateDetails'] as Map<String, dynamic>),
     );
 
 Map<String, dynamic> _$$PostEntityImplToJson(_$PostEntityImpl instance) =>
@@ -30,4 +33,5 @@ Map<String, dynamic> _$$PostEntityImplToJson(_$PostEntityImpl instance) =>
       'maxParticipants': instance.maxParticipants,
       'createdAt': instance.createdAt.toIso8601String(),
       'deadline': instance.deadline.toIso8601String(),
+      'roommateDetails': instance.roommateDetails,
     };

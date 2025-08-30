@@ -2,7 +2,7 @@ import 'package:boggle_flutter/app/modules/category/data/models/category_model.d
 import 'package:boggle_flutter/app/modules/category/presentation/widgets/category_button.dart';
 import 'package:flutter/material.dart';
 
-typedef OnCategoryTap = void Function(String category);
+typedef OnCategoryTap = void Function(CategoryModel category);
 
 class CategorySelection extends StatelessWidget {
   final List<CategoryModel> items;
@@ -29,7 +29,7 @@ class CategorySelection extends StatelessWidget {
           return CategoryButton(
             title: item.title,
             icon: item.icon,
-            onPressed: () => onCategoryTap(item.value),
+            onPressed: () => onCategoryTap(item),
           );
         },
       ),

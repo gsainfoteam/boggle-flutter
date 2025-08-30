@@ -31,8 +31,14 @@ import 'package:boggle_flutter/app/modules/post/domain/repositories/post_reposit
     as _i455;
 import 'package:boggle_flutter/app/modules/post/presentation/bloc/post_page_bloc.dart'
     as _i167;
-import 'package:boggle_flutter/app/modules/roommate/presentation/bloc/rm_page_bloc.dart'
-    as _i431;
+import 'package:boggle_flutter/app/modules/roommate/data/data_source/rm_api.dart'
+    as _i759;
+import 'package:boggle_flutter/app/modules/roommate/data/repositories/rest_rm_repository.dart'
+    as _i864;
+import 'package:boggle_flutter/app/modules/roommate/domain/repositories/rm_repository.dart'
+    as _i631;
+import 'package:boggle_flutter/app/modules/roommate/presentation/bloc/make_rm_page_bloc.dart'
+    as _i813;
 import 'package:boggle_flutter/app/modules/user/data/data_source/user_api.dart'
     as _i249;
 import 'package:boggle_flutter/app/modules/user/presentation/bloc/auth_bloc.dart'
@@ -75,6 +81,8 @@ extension GetItInjectableX on _i174.GetIt {
         () => _i1037.TokenStorage(gh<_i558.FlutterSecureStorage>()));
     gh.factory<_i199.PostApi>(
         () => _i199.PostApi(gh<_i361.Dio>(instanceName: 'default')));
+    gh.factory<_i759.RMApi>(
+        () => _i759.RMApi(gh<_i361.Dio>(instanceName: 'default')));
     gh.factory<_i754.OAuthRepository>(() => _i746.RestOAuthRepository(
           api: gh<_i1070.AuthApi>(),
           tokenStorage: gh<_i1037.TokenStorage>(),
@@ -83,6 +91,8 @@ extension GetItInjectableX on _i174.GetIt {
           gh<_i1037.TokenStorage>(),
           gh<_i754.OAuthRepository>(),
         ));
+    gh.factory<_i631.RMRepository>(
+        () => _i864.RestRMRepository(api: gh<_i759.RMApi>()));
     gh.factory<_i78.AuthInterceptors>(
         () => _i78.AuthInterceptors(gh<_i1037.TokenStorage>()));
     gh.factory<_i455.PostRepository>(
@@ -91,8 +101,8 @@ extension GetItInjectableX on _i174.GetIt {
         () => _i829.LoginPageBloc(gh<_i754.OAuthRepository>()));
     gh.factory<_i167.PostPageBloc>(
         () => _i167.PostPageBloc(gh<_i455.PostRepository>()));
-    gh.factory<_i431.RMPageBloc>(
-        () => _i431.RMPageBloc(gh<_i455.PostRepository>()));
+    gh.factory<_i813.MakeRMPageBloc>(
+        () => _i813.MakeRMPageBloc(gh<_i631.RMRepository>()));
     return this;
   }
 }
