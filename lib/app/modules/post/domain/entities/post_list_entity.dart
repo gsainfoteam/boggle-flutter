@@ -8,7 +8,7 @@ part 'post_list_entity.g.dart';
 class PostListEntity with _$PostListEntity {
   const factory PostListEntity({
     required int total,
-    required List<PostEntity> posts,
+    required List<PostEntity> list,
   }) = _PostListEntity;
 
   factory PostListEntity.fromJson(Map<String, dynamic> json) =>

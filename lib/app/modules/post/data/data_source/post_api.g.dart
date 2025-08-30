@@ -14,7 +14,7 @@ class _PostApi implements PostApi {
     this.baseUrl,
     this.errorLogger,
   }) {
-    baseUrl ??= 'post/';
+    baseUrl ??= 'post';
   }
 
   final Dio _dio;
@@ -57,39 +57,6 @@ class _PostApi implements PostApi {
     late PostListModel _value;
     try {
       _value = PostListModel.fromJson(_result.data!);
-    } on Object catch (e, s) {
-      errorLogger?.logError(e, s, _options);
-      rethrow;
-    }
-    return _value;
-  }
-
-  @override
-  Future<PostModel> getSinglePost(String id) async {
-    final _extra = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{};
-    final _headers = <String, dynamic>{};
-    const Map<String, dynamic>? _data = null;
-    final _options = _setStreamType<PostModel>(Options(
-      method: 'GET',
-      headers: _headers,
-      extra: _extra,
-    )
-        .compose(
-          _dio.options,
-          '${id}',
-          queryParameters: queryParameters,
-          data: _data,
-        )
-        .copyWith(
-            baseUrl: _combineBaseUrls(
-          _dio.options.baseUrl,
-          baseUrl,
-        )));
-    final _result = await _dio.fetch<Map<String, dynamic>>(_options);
-    late PostModel _value;
-    try {
-      _value = PostModel.fromJson(_result.data!);
     } on Object catch (e, s) {
       errorLogger?.logError(e, s, _options);
       rethrow;

@@ -9,7 +9,7 @@ part 'user_api.g.dart';
 @RestApi(baseUrl: 'user')
 abstract class UserApi {
   @factoryMethod
-  factory UserApi(@Named('default') Dio dio, {String? baseUrl}) = _UserApi;
+  factory UserApi(Dio dio, {String? baseUrl}) = _UserApi;
 
   @GET('')
   Future<UserModel> getPosts();

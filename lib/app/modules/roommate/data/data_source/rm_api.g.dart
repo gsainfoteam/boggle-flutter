@@ -37,7 +37,7 @@ class _RMApi implements RMApi {
     )
         .compose(
           _dio.options,
-          '',
+          'post',
           queryParameters: queryParameters,
           data: _data,
         )

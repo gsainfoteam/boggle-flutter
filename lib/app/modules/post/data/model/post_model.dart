@@ -9,17 +9,17 @@ part 'post_model.g.dart';
 @freezed
 class PostModel with _$PostModel {
   const factory PostModel({
-    String? id,
+    required String id,
     required String title,
-    String? content,
+    required String content,
     required String type,
     List<String>? tags,
-    UserModel? author,
+    required UserModel author,
     List<UserModel>? participants,
-    int? maxParticipants,
+    required int maxParticipants,
     required DateTime createdAt,
-    DateTime? deadline,
-    List<String>? imageUrls,
+    required DateTime deadline,
+    //List<PostListImageModel>? images,
     RMModel? roommateDetails,
   }) = _PostModel;
 

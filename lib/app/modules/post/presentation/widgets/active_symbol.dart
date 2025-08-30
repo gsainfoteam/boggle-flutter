@@ -1,5 +1,4 @@
-// 디자인 변경으로 인한 삭제. 추후 재논의 예정
-/*import 'package:boggle_flutter/app/modules/post/data/model/post_model.dart';
+import 'package:boggle_flutter/app/modules/post/data/model/post_model.dart';
 import 'package:flutter/material.dart';
 
 class ActiveSymbol extends StatelessWidget {
@@ -34,4 +33,3 @@ class ActiveSymbol extends StatelessWidget {
     );
   }
 }
-*/

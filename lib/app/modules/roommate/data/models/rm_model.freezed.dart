@@ -20,9 +20,9 @@ RMModel _$RMModelFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$RMModel {
-  int get age => throw _privateConstructorUsedError;
   String get gender => throw _privateConstructorUsedError;
   String get grade => throw _privateConstructorUsedError;
+  int get age => throw _privateConstructorUsedError;
   String? get room => throw _privateConstructorUsedError;
   String get semester => throw _privateConstructorUsedError;
   bool get refrigerator => throw _privateConstructorUsedError;
@@ -33,15 +33,13 @@ mixin _$RMModel {
   DateTime? get sleepTime => throw _privateConstructorUsedError;
   DateTime? get wakeUpTime => throw _privateConstructorUsedError;
   String? get mbti => throw _privateConstructorUsedError;
-  int get rmAge => throw _privateConstructorUsedError;
   String get rmGrade => throw _privateConstructorUsedError;
+  int get rmAge => throw _privateConstructorUsedError;
   DateTime? get rmSleepTime => throw _privateConstructorUsedError;
   DateTime? get rmWakeUpTime => throw _privateConstructorUsedError;
-  bool? get rmRefrigerator => throw _privateConstructorUsedError;
-  bool? get rmWifi => throw _privateConstructorUsedError;
   bool get rmSnoring => throw _privateConstructorUsedError;
-  bool get rmSmoking => throw _privateConstructorUsedError;
   bool get rmGrindingTeeth => throw _privateConstructorUsedError;
+  bool get rmSmoking => throw _privateConstructorUsedError;
 
   /// Serializes this RMModel to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -58,9 +56,9 @@ abstract class $RMModelCopyWith<$Res> {
       _$RMModelCopyWithImpl<$Res, RMModel>;
   @useResult
   $Res call(
-      {int age,
-      String gender,
+      {String gender,
       String grade,
+      int age,
       String? room,
       String semester,
       bool refrigerator,
@@ -71,15 +69,13 @@ abstract class $RMModelCopyWith<$Res> {
       DateTime? sleepTime,
       DateTime? wakeUpTime,
       String? mbti,
-      int rmAge,
       String rmGrade,
+      int rmAge,
       DateTime? rmSleepTime,
       DateTime? rmWakeUpTime,
-      bool? rmRefrigerator,
-      bool? rmWifi,
       bool rmSnoring,
-      bool rmSmoking,
-      bool rmGrindingTeeth});
+      bool rmGrindingTeeth,
+      bool rmSmoking});
 }
 
 /// @nodoc
@@ -97,9 +93,9 @@ class _$RMModelCopyWithImpl<$Res, $Val extends RMModel>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? age = null,
     Object? gender = null,
     Object? grade = null,
+    Object? age = null,
     Object? room = freezed,
     Object? semester = null,
     Object? refrigerator = null,
@@ -110,21 +106,15 @@ class _$RMModelCopyWithImpl<$Res, $Val extends RMModel>
     Object? sleepTime = freezed,
     Object? wakeUpTime = freezed,
     Object? mbti = freezed,
-    Object? rmAge = null,
     Object? rmGrade = null,
+    Object? rmAge = null,
     Object? rmSleepTime = freezed,
     Object? rmWakeUpTime = freezed,
-    Object? rmRefrigerator = freezed,
-    Object? rmWifi = freezed,
     Object? rmSnoring = null,
-    Object? rmSmoking = null,
     Object? rmGrindingTeeth = null,
+    Object? rmSmoking = null,
   }) {
     return _then(_value.copyWith(
-      age: null == age
-          ? _value.age
-          : age // ignore: cast_nullable_to_non_nullable
-              as int,
       gender: null == gender
           ? _value.gender
           : gender // ignore: cast_nullable_to_non_nullable
@@ -133,6 +123,10 @@ class _$RMModelCopyWithImpl<$Res, $Val extends RMModel>
           ? _value.grade
           : grade // ignore: cast_nullable_to_non_nullable
               as String,
+      age: null == age
+          ? _value.age
+          : age // ignore: cast_nullable_to_non_nullable
+              as int,
       room: freezed == room
           ? _value.room
           : room // ignore: cast_nullable_to_non_nullable
@@ -173,14 +167,14 @@ class _$RMModelCopyWithImpl<$Res, $Val extends RMModel>
           ? _value.mbti
           : mbti // ignore: cast_nullable_to_non_nullable
               as String?,
-      rmAge: null == rmAge
-          ? _value.rmAge
-          : rmAge // ignore: cast_nullable_to_non_nullable
-              as int,
       rmGrade: null == rmGrade
           ? _value.rmGrade
           : rmGrade // ignore: cast_nullable_to_non_nullable
               as String,
+      rmAge: null == rmAge
+          ? _value.rmAge
+          : rmAge // ignore: cast_nullable_to_non_nullable
+              as int,
       rmSleepTime: freezed == rmSleepTime
           ? _value.rmSleepTime
           : rmSleepTime // ignore: cast_nullable_to_non_nullable
@@ -189,25 +183,17 @@ class _$RMModelCopyWithImpl<$Res, $Val extends RMModel>
           ? _value.rmWakeUpTime
           : rmWakeUpTime // ignore: cast_nullable_to_non_nullable
               as DateTime?,
-      rmRefrigerator: freezed == rmRefrigerator
-          ? _value.rmRefrigerator
-          : rmRefrigerator // ignore: cast_nullable_to_non_nullable
-              as bool?,
-      rmWifi: freezed == rmWifi
-          ? _value.rmWifi
-          : rmWifi // ignore: cast_nullable_to_non_nullable
-              as bool?,
       rmSnoring: null == rmSnoring
           ? _value.rmSnoring
           : rmSnoring // ignore: cast_nullable_to_non_nullable
               as bool,
-      rmSmoking: null == rmSmoking
-          ? _value.rmSmoking
-          : rmSmoking // ignore: cast_nullable_to_non_nullable
-              as bool,
       rmGrindingTeeth: null == rmGrindingTeeth
           ? _value.rmGrindingTeeth
           : rmGrindingTeeth // ignore: cast_nullable_to_non_nullable
+              as bool,
+      rmSmoking: null == rmSmoking
+          ? _value.rmSmoking
+          : rmSmoking // ignore: cast_nullable_to_non_nullable
               as bool,
     ) as $Val);
   }
@@ -221,9 +207,9 @@ abstract class _$$RMModelImplCopyWith<$Res> implements $RMModelCopyWith<$Res> {
   @override
   @useResult
   $Res call(
-      {int age,
-      String gender,
+      {String gender,
       String grade,
+      int age,
       String? room,
       String semester,
       bool refrigerator,
@@ -234,15 +220,13 @@ abstract class _$$RMModelImplCopyWith<$Res> implements $RMModelCopyWith<$Res> {
       DateTime? sleepTime,
       DateTime? wakeUpTime,
       String? mbti,
-      int rmAge,
       String rmGrade,
+      int rmAge,
       DateTime? rmSleepTime,
       DateTime? rmWakeUpTime,
-      bool? rmRefrigerator,
-      bool? rmWifi,
       bool rmSnoring,
-      bool rmSmoking,
-      bool rmGrindingTeeth});
+      bool rmGrindingTeeth,
+      bool rmSmoking});
 }
 
 /// @nodoc
@@ -258,9 +242,9 @@ class __$$RMModelImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? age = null,
     Object? gender = null,
     Object? grade = null,
+    Object? age = null,
     Object? room = freezed,
     Object? semester = null,
     Object? refrigerator = null,
@@ -271,21 +255,15 @@ class __$$RMModelImplCopyWithImpl<$Res>
     Object? sleepTime = freezed,
     Object? wakeUpTime = freezed,
     Object? mbti = freezed,
-    Object? rmAge = null,
     Object? rmGrade = null,
+    Object? rmAge = null,
     Object? rmSleepTime = freezed,
     Object? rmWakeUpTime = freezed,
-    Object? rmRefrigerator = freezed,
-    Object? rmWifi = freezed,
     Object? rmSnoring = null,
-    Object? rmSmoking = null,
     Object? rmGrindingTeeth = null,
+    Object? rmSmoking = null,
   }) {
     return _then(_$RMModelImpl(
-      age: null == age
-          ? _value.age
-          : age // ignore: cast_nullable_to_non_nullable
-              as int,
       gender: null == gender
           ? _value.gender
           : gender // ignore: cast_nullable_to_non_nullable
@@ -294,6 +272,10 @@ class __$$RMModelImplCopyWithImpl<$Res>
           ? _value.grade
           : grade // ignore: cast_nullable_to_non_nullable
               as String,
+      age: null == age
+          ? _value.age
+          : age // ignore: cast_nullable_to_non_nullable
+              as int,
       room: freezed == room
           ? _value.room
           : room // ignore: cast_nullable_to_non_nullable
@@ -334,14 +316,14 @@ class __$$RMModelImplCopyWithImpl<$Res>
           ? _value.mbti
           : mbti // ignore: cast_nullable_to_non_nullable
               as String?,
-      rmAge: null == rmAge
-          ? _value.rmAge
-          : rmAge // ignore: cast_nullable_to_non_nullable
-              as int,
       rmGrade: null == rmGrade
           ? _value.rmGrade
           : rmGrade // ignore: cast_nullable_to_non_nullable
               as String,
+      rmAge: null == rmAge
+          ? _value.rmAge
+          : rmAge // ignore: cast_nullable_to_non_nullable
+              as int,
       rmSleepTime: freezed == rmSleepTime
           ? _value.rmSleepTime
           : rmSleepTime // ignore: cast_nullable_to_non_nullable
@@ -350,25 +332,17 @@ class __$$RMModelImplCopyWithImpl<$Res>
           ? _value.rmWakeUpTime
           : rmWakeUpTime // ignore: cast_nullable_to_non_nullable
               as DateTime?,
-      rmRefrigerator: freezed == rmRefrigerator
-          ? _value.rmRefrigerator
-          : rmRefrigerator // ignore: cast_nullable_to_non_nullable
-              as bool?,
-      rmWifi: freezed == rmWifi
-          ? _value.rmWifi
-          : rmWifi // ignore: cast_nullable_to_non_nullable
-              as bool?,
       rmSnoring: null == rmSnoring
           ? _value.rmSnoring
           : rmSnoring // ignore: cast_nullable_to_non_nullable
               as bool,
-      rmSmoking: null == rmSmoking
-          ? _value.rmSmoking
-          : rmSmoking // ignore: cast_nullable_to_non_nullable
-              as bool,
       rmGrindingTeeth: null == rmGrindingTeeth
           ? _value.rmGrindingTeeth
           : rmGrindingTeeth // ignore: cast_nullable_to_non_nullable
+              as bool,
+      rmSmoking: null == rmSmoking
+          ? _value.rmSmoking
+          : rmSmoking // ignore: cast_nullable_to_non_nullable
               as bool,
     ));
   }
@@ -378,9 +352,9 @@ class __$$RMModelImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$RMModelImpl implements _RMModel {
   const _$RMModelImpl(
-      {required this.age,
-      required this.gender,
+      {required this.gender,
       required this.grade,
+      required this.age,
       this.room,
       required this.semester,
       required this.refrigerator,
@@ -391,25 +365,23 @@ class _$RMModelImpl implements _RMModel {
       this.sleepTime,
       this.wakeUpTime,
       this.mbti,
-      required this.rmAge,
       required this.rmGrade,
+      required this.rmAge,
       this.rmSleepTime,
       this.rmWakeUpTime,
-      this.rmRefrigerator,
-      this.rmWifi,
       required this.rmSnoring,
-      required this.rmSmoking,
-      required this.rmGrindingTeeth});
+      required this.rmGrindingTeeth,
+      required this.rmSmoking});
 
   factory _$RMModelImpl.fromJson(Map<String, dynamic> json) =>
       _$$RMModelImplFromJson(json);
 
   @override
-  final int age;
-  @override
   final String gender;
   @override
   final String grade;
+  @override
+  final int age;
   @override
   final String? room;
   @override
@@ -431,27 +403,23 @@ class _$RMModelImpl implements _RMModel {
   @override
   final String? mbti;
   @override
-  final int rmAge;
-  @override
   final String rmGrade;
+  @override
+  final int rmAge;
   @override
   final DateTime? rmSleepTime;
   @override
   final DateTime? rmWakeUpTime;
   @override
-  final bool? rmRefrigerator;
-  @override
-  final bool? rmWifi;
-  @override
   final bool rmSnoring;
   @override
-  final bool rmSmoking;
-  @override
   final bool rmGrindingTeeth;
+  @override
+  final bool rmSmoking;
 
   @override
   String toString() {
-    return 'RMModel(age: $age, gender: $gender, grade: $grade, room: $room, semester: $semester, refrigerator: $refrigerator, wifi: $wifi, snoring: $snoring, grindingTeeth: $grindingTeeth, smoking: $smoking, sleepTime: $sleepTime, wakeUpTime: $wakeUpTime, mbti: $mbti, rmAge: $rmAge, rmGrade: $rmGrade, rmSleepTime: $rmSleepTime, rmWakeUpTime: $rmWakeUpTime, rmRefrigerator: $rmRefrigerator, rmWifi: $rmWifi, rmSnoring: $rmSnoring, rmSmoking: $rmSmoking, rmGrindingTeeth: $rmGrindingTeeth)';
+    return 'RMModel(gender: $gender, grade: $grade, age: $age, room: $room, semester: $semester, refrigerator: $refrigerator, wifi: $wifi, snoring: $snoring, grindingTeeth: $grindingTeeth, smoking: $smoking, sleepTime: $sleepTime, wakeUpTime: $wakeUpTime, mbti: $mbti, rmGrade: $rmGrade, rmAge: $rmAge, rmSleepTime: $rmSleepTime, rmWakeUpTime: $rmWakeUpTime, rmSnoring: $rmSnoring, rmGrindingTeeth: $rmGrindingTeeth, rmSmoking: $rmSmoking)';
   }
 
   @override
@@ -459,9 +427,9 @@ class _$RMModelImpl implements _RMModel {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$RMModelImpl &&
-            (identical(other.age, age) || other.age == age) &&
             (identical(other.gender, gender) || other.gender == gender) &&
             (identical(other.grade, grade) || other.grade == grade) &&
+            (identical(other.age, age) || other.age == age) &&
             (identical(other.room, room) || other.room == room) &&
             (identical(other.semester, semester) ||
                 other.semester == semester) &&
@@ -477,30 +445,27 @@ class _$RMModelImpl implements _RMModel {
             (identical(other.wakeUpTime, wakeUpTime) ||
                 other.wakeUpTime == wakeUpTime) &&
             (identical(other.mbti, mbti) || other.mbti == mbti) &&
-            (identical(other.rmAge, rmAge) || other.rmAge == rmAge) &&
             (identical(other.rmGrade, rmGrade) || other.rmGrade == rmGrade) &&
+            (identical(other.rmAge, rmAge) || other.rmAge == rmAge) &&
             (identical(other.rmSleepTime, rmSleepTime) ||
                 other.rmSleepTime == rmSleepTime) &&
             (identical(other.rmWakeUpTime, rmWakeUpTime) ||
                 other.rmWakeUpTime == rmWakeUpTime) &&
-            (identical(other.rmRefrigerator, rmRefrigerator) ||
-                other.rmRefrigerator == rmRefrigerator) &&
-            (identical(other.rmWifi, rmWifi) || other.rmWifi == rmWifi) &&
             (identical(other.rmSnoring, rmSnoring) ||
                 other.rmSnoring == rmSnoring) &&
-            (identical(other.rmSmoking, rmSmoking) ||
-                other.rmSmoking == rmSmoking) &&
             (identical(other.rmGrindingTeeth, rmGrindingTeeth) ||
-                other.rmGrindingTeeth == rmGrindingTeeth));
+                other.rmGrindingTeeth == rmGrindingTeeth) &&
+            (identical(other.rmSmoking, rmSmoking) ||
+                other.rmSmoking == rmSmoking));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hashAll([
         runtimeType,
-        age,
         gender,
         grade,
+        age,
         room,
         semester,
         refrigerator,
@@ -511,15 +476,13 @@ class _$RMModelImpl implements _RMModel {
         sleepTime,
         wakeUpTime,
         mbti,
-        rmAge,
         rmGrade,
+        rmAge,
         rmSleepTime,
         rmWakeUpTime,
-        rmRefrigerator,
-        rmWifi,
         rmSnoring,
-        rmSmoking,
-        rmGrindingTeeth
+        rmGrindingTeeth,
+        rmSmoking
       ]);
 
   /// Create a copy of RMModel
@@ -540,9 +503,9 @@ class _$RMModelImpl implements _RMModel {
 
 abstract class _RMModel implements RMModel {
   const factory _RMModel(
-      {required final int age,
-      required final String gender,
+      {required final String gender,
       required final String grade,
+      required final int age,
       final String? room,
       required final String semester,
       required final bool refrigerator,
@@ -553,24 +516,22 @@ abstract class _RMModel implements RMModel {
       final DateTime? sleepTime,
       final DateTime? wakeUpTime,
       final String? mbti,
-      required final int rmAge,
       required final String rmGrade,
+      required final int rmAge,
       final DateTime? rmSleepTime,
       final DateTime? rmWakeUpTime,
-      final bool? rmRefrigerator,
-      final bool? rmWifi,
       required final bool rmSnoring,
-      required final bool rmSmoking,
-      required final bool rmGrindingTeeth}) = _$RMModelImpl;
+      required final bool rmGrindingTeeth,
+      required final bool rmSmoking}) = _$RMModelImpl;
 
   factory _RMModel.fromJson(Map<String, dynamic> json) = _$RMModelImpl.fromJson;
 
   @override
-  int get age;
-  @override
   String get gender;
   @override
   String get grade;
+  @override
+  int get age;
   @override
   String? get room;
   @override
@@ -592,23 +553,19 @@ abstract class _RMModel implements RMModel {
   @override
   String? get mbti;
   @override
-  int get rmAge;
-  @override
   String get rmGrade;
+  @override
+  int get rmAge;
   @override
   DateTime? get rmSleepTime;
   @override
   DateTime? get rmWakeUpTime;
   @override
-  bool? get rmRefrigerator;
-  @override
-  bool? get rmWifi;
-  @override
   bool get rmSnoring;
   @override
-  bool get rmSmoking;
-  @override
   bool get rmGrindingTeeth;
+  @override
+  bool get rmSmoking;
 
   /// Create a copy of RMModel
   /// with the given fields replaced by the non-null parameter values.

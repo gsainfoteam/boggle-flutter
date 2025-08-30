@@ -21,7 +21,7 @@ PostListEntity _$PostListEntityFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$PostListEntity {
   int get total => throw _privateConstructorUsedError;
-  List<PostEntity> get posts => throw _privateConstructorUsedError;
+  List<PostEntity> get list => throw _privateConstructorUsedError;
 
   /// Serializes this PostListEntity to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -39,7 +39,7 @@ abstract class $PostListEntityCopyWith<$Res> {
           PostListEntity value, $Res Function(PostListEntity) then) =
       _$PostListEntityCopyWithImpl<$Res, PostListEntity>;
   @useResult
-  $Res call({int total, List<PostEntity> posts});
+  $Res call({int total, List<PostEntity> list});
 }
 
 /// @nodoc
@@ -58,16 +58,16 @@ class _$PostListEntityCopyWithImpl<$Res, $Val extends PostListEntity>
   @override
   $Res call({
     Object? total = null,
-    Object? posts = null,
+    Object? list = null,
   }) {
     return _then(_value.copyWith(
       total: null == total
           ? _value.total
           : total // ignore: cast_nullable_to_non_nullable
               as int,
-      posts: null == posts
-          ? _value.posts
-          : posts // ignore: cast_nullable_to_non_nullable
+      list: null == list
+          ? _value.list
+          : list // ignore: cast_nullable_to_non_nullable
               as List<PostEntity>,
     ) as $Val);
   }
@@ -81,7 +81,7 @@ abstract class _$$PostListEntityImplCopyWith<$Res>
       __$$PostListEntityImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({int total, List<PostEntity> posts});
+  $Res call({int total, List<PostEntity> list});
 }
 
 /// @nodoc
@@ -98,16 +98,16 @@ class __$$PostListEntityImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? total = null,
-    Object? posts = null,
+    Object? list = null,
   }) {
     return _then(_$PostListEntityImpl(
       total: null == total
           ? _value.total
           : total // ignore: cast_nullable_to_non_nullable
               as int,
-      posts: null == posts
-          ? _value._posts
-          : posts // ignore: cast_nullable_to_non_nullable
+      list: null == list
+          ? _value._list
+          : list // ignore: cast_nullable_to_non_nullable
               as List<PostEntity>,
     ));
   }
@@ -117,25 +117,25 @@ class __$$PostListEntityImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$PostListEntityImpl implements _PostListEntity {
   const _$PostListEntityImpl(
-      {required this.total, required final List<PostEntity> posts})
-      : _posts = posts;
+      {required this.total, required final List<PostEntity> list})
+      : _list = list;
 
   factory _$PostListEntityImpl.fromJson(Map<String, dynamic> json) =>
       _$$PostListEntityImplFromJson(json);
 
   @override
   final int total;
-  final List<PostEntity> _posts;
+  final List<PostEntity> _list;
   @override
-  List<PostEntity> get posts {
-    if (_posts is EqualUnmodifiableListView) return _posts;
+  List<PostEntity> get list {
+    if (_list is EqualUnmodifiableListView) return _list;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_posts);
+    return EqualUnmodifiableListView(_list);
   }
 
   @override
   String toString() {
-    return 'PostListEntity(total: $total, posts: $posts)';
+    return 'PostListEntity(total: $total, list: $list)';
   }
 
   @override
@@ -144,13 +144,13 @@ class _$PostListEntityImpl implements _PostListEntity {
         (other.runtimeType == runtimeType &&
             other is _$PostListEntityImpl &&
             (identical(other.total, total) || other.total == total) &&
-            const DeepCollectionEquality().equals(other._posts, _posts));
+            const DeepCollectionEquality().equals(other._list, _list));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
-      runtimeType, total, const DeepCollectionEquality().hash(_posts));
+      runtimeType, total, const DeepCollectionEquality().hash(_list));
 
   /// Create a copy of PostListEntity
   /// with the given fields replaced by the non-null parameter values.
@@ -172,7 +172,7 @@ class _$PostListEntityImpl implements _PostListEntity {
 abstract class _PostListEntity implements PostListEntity {
   const factory _PostListEntity(
       {required final int total,
-      required final List<PostEntity> posts}) = _$PostListEntityImpl;
+      required final List<PostEntity> list}) = _$PostListEntityImpl;
 
   factory _PostListEntity.fromJson(Map<String, dynamic> json) =
       _$PostListEntityImpl.fromJson;
@@ -180,7 +180,7 @@ abstract class _PostListEntity implements PostListEntity {
   @override
   int get total;
   @override
-  List<PostEntity> get posts;
+  List<PostEntity> get list;
 
   /// Create a copy of PostListEntity
   /// with the given fields replaced by the non-null parameter values.

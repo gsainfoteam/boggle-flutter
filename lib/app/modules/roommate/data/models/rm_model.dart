@@ -8,9 +8,9 @@ part 'rm_model.g.dart';
 @freezed
 class RMModel with _$RMModel {
   const factory RMModel({
-    required int age,
     required String gender,
     required String grade,
+    required int age,
     String? room,
     required String semester,
     required bool refrigerator,
@@ -21,15 +21,15 @@ class RMModel with _$RMModel {
     DateTime? sleepTime,
     DateTime? wakeUpTime,
     String? mbti,
-    required int rmAge,
     required String rmGrade,
+    required int rmAge,
     DateTime? rmSleepTime,
     DateTime? rmWakeUpTime,
-    bool? rmRefrigerator,
-    bool? rmWifi,
     required bool rmSnoring,
-    required bool rmSmoking,
     required bool rmGrindingTeeth,
+    required bool rmSmoking,
+    //required bool rmRefrigerator,
+    //required bool rmWifi,
     //required String rmMbti,
   }) = _RMModel;
 

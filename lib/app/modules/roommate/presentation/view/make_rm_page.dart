@@ -16,7 +16,6 @@ import 'package:boggle_flutter/app/modules/roommate/presentation/view/make_rm_st
 import 'package:boggle_flutter/app/modules/roommate/presentation/view/make_rm_step_9.dart';
 import 'package:boggle_flutter/app/modules/roommate/presentation/widgets/common/progress_bar.dart';
 import 'package:boggle_flutter/app/modules/roommate/presentation/widgets/common/progress_button.dart';
-import 'package:boggle_flutter/routes/app_router.gr.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -144,6 +143,8 @@ class MakeRMPage extends StatelessWidget {
           // 완료 화면에서는 버튼 숨김
           if (state.currentStep > state.totalSteps)
             return const SizedBox.shrink();
+
+          final bool isEnabled = _isNextButtonEnabled(state);
           final String buttonText;
           if (state.currentStep == 4 || state.currentStep == 7) {
             buttonText = '프로필 확인';
@@ -160,8 +161,8 @@ class MakeRMPage extends StatelessWidget {
           } else {
             buttonText = '다음';
           }
-          final isSubmitStep = state.currentStep == 9;
-          final isRoutePushStep = state.currentStep == 10;
+          final isLastStep = state.currentStep == state.totalSteps;
+
           return ProgressButtons(
             nextButtonText: buttonText,
             isNextEnabled: _isNextButtonEnabled(state),
@@ -173,12 +174,10 @@ class MakeRMPage extends StatelessWidget {
               final formKey = _formKeys[state.currentStep - 1];
               if (formKey.currentState!.validate()) {
                 formKey.currentState!.save();
-                if (isSubmitStep) {
+                if (isLastStep) {
                   context
                       .read<MakeRMPageBloc>()
                       .add(const MakeRMPageEvent.submit());
-                } else if (isRoutePushStep) {
-                  context.router.push(PostRMRoute(postId: state.results!.id));
                 } else {
                   context
                       .read<MakeRMPageBloc>()

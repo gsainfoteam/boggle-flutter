@@ -1,12 +1,8 @@
 // make_rm_page_bloc.dart
 
-import 'package:boggle_flutter/app/modules/post/data/model/post_model.dart';
-import 'package:boggle_flutter/app/modules/post/domain/entities/post_entity.dart';
-import 'package:boggle_flutter/app/modules/roommate/data/models/rm_model.dart';
 import 'package:boggle_flutter/app/modules/roommate/data/models/rm_submit_model.dart';
 import 'package:boggle_flutter/app/modules/roommate/domain/entities/rm_entity.dart';
 import 'package:boggle_flutter/app/modules/roommate/domain/repositories/rm_repository.dart';
-import 'package:boggle_flutter/app/modules/user/data/model/user_model.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
@@ -35,7 +31,6 @@ abstract class MakeRMPageState with _$MakeRMPageState {
     required RMSubmitModel submit,
     @Default(SubmitStatus.initial) SubmitStatus submissionStatus,
     String? errorMessage,
-    PostEntity? results,
   }) = _MakeRMPageState;
 }
 
@@ -48,10 +43,9 @@ class MakeRMPageBloc extends Bloc<MakeRMPageEvent, MakeRMPageState> {
       : super(MakeRMPageState(
           // state 안에서 관리하기 위함.
           formData: const RMEntity(
-            age: 0,
             gender: '',
             grade: '',
-            room: '',
+            age: 0,
             semester: '',
             refrigerator: false,
             wifi: false,
@@ -62,10 +56,11 @@ class MakeRMPageBloc extends Bloc<MakeRMPageEvent, MakeRMPageState> {
             rmAge: 0,
             rmGrindingTeeth: false,
             //rmMbti: '',
-            rmRefrigerator: false,
+            //rmRefrigerator: false,
             rmSmoking: false,
             rmSnoring: false,
-            rmWifi: false,
+            //rmWifi: false,
+            room: '',
             title: '',
           ),
           submit: const RMSubmitModel(),
@@ -102,46 +97,13 @@ class MakeRMPageBloc extends Bloc<MakeRMPageEvent, MakeRMPageState> {
       SubmitEvent event, Emitter<MakeRMPageState> emit) async {
     emit(state.copyWith(submissionStatus: SubmitStatus.inProgress));
     try {
-      final PostModel body = PostModel(
-        title: state.formData.title,
-        content: state.formData.content,
-        type: "ROOMMATE",
-        tags: ['abc', 'def'],
-        author: UserModel(),
-        maxParticipants: 2,
-        createdAt: DateTime.now(),
-        deadline: DateTime.now(),
-        roommateDetails: RMModel(
-          age: state.formData.age,
-          gender: state.formData.gender,
-          grade: state.formData.grade,
-          room: state.formData.room,
-          semester: state.formData.semester,
-          refrigerator: state.formData.refrigerator,
-          wifi: state.formData.wifi,
-          snoring: state.formData.snoring,
-          grindingTeeth: state.formData.grindingTeeth,
-          smoking: state.formData.smoking,
-          sleepTime: state.formData.sleepTime,
-          wakeUpTime: state.formData.wakeUpTime,
-          mbti: state.formData.mbti,
-          rmAge: state.formData.rmAge,
-          rmGrade: state.formData.rmGrade,
-          rmGrindingTeeth: state.formData.rmGrindingTeeth,
-          //rmRefrigerator: state.formData.rmRefrigerator,
-          rmWifi: state.formData.rmWifi,
-          rmSleepTime: state.formData.rmSleepTime,
-          rmWakeUpTime: state.formData.rmWakeUpTime,
-          rmSnoring: state.formData.rmSnoring,
-          rmSmoking: state.formData.rmSmoking,
-        ),
-      );
+      final body = state.formData.toJson();
 
-      final responses = await _rmRepository.postRM(body.toJson());
+      await _rmRepository.postRM(body);
 
       emit(state.copyWith(
         submissionStatus: SubmitStatus.success,
-        results: responses,
+        currentStep: state.totalSteps + 1,
       ));
     } catch (e) {
       emit(state.copyWith(
