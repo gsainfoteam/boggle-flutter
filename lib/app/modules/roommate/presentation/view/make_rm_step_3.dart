@@ -14,6 +14,7 @@ class MakeRMStep3 extends StatelessWidget {
       builder: (context, state) {
         return Padding(
           padding: const EdgeInsets.only(top: 20, right: 24),
+          // 1. 모든 _buildFormRow는 이 Column의 직접적인 자식이어야 한다.
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [

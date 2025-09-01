@@ -824,7 +824,7 @@ class __$$MakeRMPageStateImplCopyWithImpl<$Res>
 class _$MakeRMPageStateImpl implements _MakeRMPageState {
   const _$MakeRMPageStateImpl(
       {this.currentStep = 1,
-      this.totalSteps = 10,
+      this.totalSteps = 4,
       required this.formData,
       required this.submit,
       this.submissionStatus = SubmitStatus.initial,

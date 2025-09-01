@@ -28,14 +28,9 @@ mixin _$RMSubmitModel {
   bool get sleepTime => throw _privateConstructorUsedError;
   bool get wakeUpTime => throw _privateConstructorUsedError;
   bool get mbti => throw _privateConstructorUsedError;
-  bool get rmGrade => throw _privateConstructorUsedError;
-  bool get rmAge => throw _privateConstructorUsedError;
-  bool get rmSleepTime => throw _privateConstructorUsedError;
-  bool get rmWakeUpTime => throw _privateConstructorUsedError;
   bool get rmRefrigerator => throw _privateConstructorUsedError;
   bool get rmWifi => throw _privateConstructorUsedError;
   bool get rmSnoring => throw _privateConstructorUsedError;
-  bool get rmGrindingTeeth => throw _privateConstructorUsedError;
   bool get rmSmoking => throw _privateConstructorUsedError;
   bool get rmMbti => throw _privateConstructorUsedError;
   bool get room => throw _privateConstructorUsedError;
@@ -68,14 +63,9 @@ abstract class $RMSubmitModelCopyWith<$Res> {
       bool sleepTime,
       bool wakeUpTime,
       bool mbti,
-      bool rmGrade,
-      bool rmAge,
-      bool rmSleepTime,
-      bool rmWakeUpTime,
       bool rmRefrigerator,
       bool rmWifi,
       bool rmSnoring,
-      bool rmGrindingTeeth,
       bool rmSmoking,
       bool rmMbti,
       bool room,
@@ -110,14 +100,9 @@ class _$RMSubmitModelCopyWithImpl<$Res, $Val extends RMSubmitModel>
     Object? sleepTime = null,
     Object? wakeUpTime = null,
     Object? mbti = null,
-    Object? rmGrade = null,
-    Object? rmAge = null,
-    Object? rmSleepTime = null,
-    Object? rmWakeUpTime = null,
     Object? rmRefrigerator = null,
     Object? rmWifi = null,
     Object? rmSnoring = null,
-    Object? rmGrindingTeeth = null,
     Object? rmSmoking = null,
     Object? rmMbti = null,
     Object? room = null,
@@ -173,22 +158,6 @@ class _$RMSubmitModelCopyWithImpl<$Res, $Val extends RMSubmitModel>
           ? _value.mbti
           : mbti // ignore: cast_nullable_to_non_nullable
               as bool,
-      rmGrade: null == rmGrade
-          ? _value.rmGrade
-          : rmGrade // ignore: cast_nullable_to_non_nullable
-              as bool,
-      rmAge: null == rmAge
-          ? _value.rmAge
-          : rmAge // ignore: cast_nullable_to_non_nullable
-              as bool,
-      rmSleepTime: null == rmSleepTime
-          ? _value.rmSleepTime
-          : rmSleepTime // ignore: cast_nullable_to_non_nullable
-              as bool,
-      rmWakeUpTime: null == rmWakeUpTime
-          ? _value.rmWakeUpTime
-          : rmWakeUpTime // ignore: cast_nullable_to_non_nullable
-              as bool,
       rmRefrigerator: null == rmRefrigerator
           ? _value.rmRefrigerator
           : rmRefrigerator // ignore: cast_nullable_to_non_nullable
@@ -200,10 +169,6 @@ class _$RMSubmitModelCopyWithImpl<$Res, $Val extends RMSubmitModel>
       rmSnoring: null == rmSnoring
           ? _value.rmSnoring
           : rmSnoring // ignore: cast_nullable_to_non_nullable
-              as bool,
-      rmGrindingTeeth: null == rmGrindingTeeth
-          ? _value.rmGrindingTeeth
-          : rmGrindingTeeth // ignore: cast_nullable_to_non_nullable
               as bool,
       rmSmoking: null == rmSmoking
           ? _value.rmSmoking
@@ -250,14 +215,9 @@ abstract class _$$RMSubmitModelImplCopyWith<$Res>
       bool sleepTime,
       bool wakeUpTime,
       bool mbti,
-      bool rmGrade,
-      bool rmAge,
-      bool rmSleepTime,
-      bool rmWakeUpTime,
       bool rmRefrigerator,
       bool rmWifi,
       bool rmSnoring,
-      bool rmGrindingTeeth,
       bool rmSmoking,
       bool rmMbti,
       bool room,
@@ -290,14 +250,9 @@ class __$$RMSubmitModelImplCopyWithImpl<$Res>
     Object? sleepTime = null,
     Object? wakeUpTime = null,
     Object? mbti = null,
-    Object? rmGrade = null,
-    Object? rmAge = null,
-    Object? rmSleepTime = null,
-    Object? rmWakeUpTime = null,
     Object? rmRefrigerator = null,
     Object? rmWifi = null,
     Object? rmSnoring = null,
-    Object? rmGrindingTeeth = null,
     Object? rmSmoking = null,
     Object? rmMbti = null,
     Object? room = null,
@@ -353,22 +308,6 @@ class __$$RMSubmitModelImplCopyWithImpl<$Res>
           ? _value.mbti
           : mbti // ignore: cast_nullable_to_non_nullable
               as bool,
-      rmGrade: null == rmGrade
-          ? _value.rmGrade
-          : rmGrade // ignore: cast_nullable_to_non_nullable
-              as bool,
-      rmAge: null == rmAge
-          ? _value.rmAge
-          : rmAge // ignore: cast_nullable_to_non_nullable
-              as bool,
-      rmSleepTime: null == rmSleepTime
-          ? _value.rmSleepTime
-          : rmSleepTime // ignore: cast_nullable_to_non_nullable
-              as bool,
-      rmWakeUpTime: null == rmWakeUpTime
-          ? _value.rmWakeUpTime
-          : rmWakeUpTime // ignore: cast_nullable_to_non_nullable
-              as bool,
       rmRefrigerator: null == rmRefrigerator
           ? _value.rmRefrigerator
           : rmRefrigerator // ignore: cast_nullable_to_non_nullable
@@ -380,10 +319,6 @@ class __$$RMSubmitModelImplCopyWithImpl<$Res>
       rmSnoring: null == rmSnoring
           ? _value.rmSnoring
           : rmSnoring // ignore: cast_nullable_to_non_nullable
-              as bool,
-      rmGrindingTeeth: null == rmGrindingTeeth
-          ? _value.rmGrindingTeeth
-          : rmGrindingTeeth // ignore: cast_nullable_to_non_nullable
               as bool,
       rmSmoking: null == rmSmoking
           ? _value.rmSmoking
@@ -425,14 +360,9 @@ class _$RMSubmitModelImpl implements _RMSubmitModel {
       this.sleepTime = false,
       this.wakeUpTime = false,
       this.mbti = false,
-      this.rmGrade = false,
-      this.rmAge = false,
-      this.rmSleepTime = false,
-      this.rmWakeUpTime = false,
       this.rmRefrigerator = false,
       this.rmWifi = false,
       this.rmSnoring = false,
-      this.rmGrindingTeeth = false,
       this.rmSmoking = false,
       this.rmMbti = false,
       this.room = false,
@@ -477,18 +407,6 @@ class _$RMSubmitModelImpl implements _RMSubmitModel {
   final bool mbti;
   @override
   @JsonKey()
-  final bool rmGrade;
-  @override
-  @JsonKey()
-  final bool rmAge;
-  @override
-  @JsonKey()
-  final bool rmSleepTime;
-  @override
-  @JsonKey()
-  final bool rmWakeUpTime;
-  @override
-  @JsonKey()
   final bool rmRefrigerator;
   @override
   @JsonKey()
@@ -496,9 +414,6 @@ class _$RMSubmitModelImpl implements _RMSubmitModel {
   @override
   @JsonKey()
   final bool rmSnoring;
-  @override
-  @JsonKey()
-  final bool rmGrindingTeeth;
   @override
   @JsonKey()
   final bool rmSmoking;
@@ -517,7 +432,7 @@ class _$RMSubmitModelImpl implements _RMSubmitModel {
 
   @override
   String toString() {
-    return 'RMSubmitModel(gender: $gender, grade: $grade, age: $age, semester: $semester, refrigerator: $refrigerator, wifi: $wifi, snoring: $snoring, grindingTeeth: $grindingTeeth, smoking: $smoking, sleepTime: $sleepTime, wakeUpTime: $wakeUpTime, mbti: $mbti, rmGrade: $rmGrade, rmAge: $rmAge, rmSleepTime: $rmSleepTime, rmWakeUpTime: $rmWakeUpTime, rmRefrigerator: $rmRefrigerator, rmWifi: $rmWifi, rmSnoring: $rmSnoring, rmGrindingTeeth: $rmGrindingTeeth, rmSmoking: $rmSmoking, rmMbti: $rmMbti, room: $room, title: $title, content: $content)';
+    return 'RMSubmitModel(gender: $gender, grade: $grade, age: $age, semester: $semester, refrigerator: $refrigerator, wifi: $wifi, snoring: $snoring, grindingTeeth: $grindingTeeth, smoking: $smoking, sleepTime: $sleepTime, wakeUpTime: $wakeUpTime, mbti: $mbti, rmRefrigerator: $rmRefrigerator, rmWifi: $rmWifi, rmSnoring: $rmSnoring, rmSmoking: $rmSmoking, rmMbti: $rmMbti, room: $room, title: $title, content: $content)';
   }
 
   @override
@@ -542,19 +457,11 @@ class _$RMSubmitModelImpl implements _RMSubmitModel {
             (identical(other.wakeUpTime, wakeUpTime) ||
                 other.wakeUpTime == wakeUpTime) &&
             (identical(other.mbti, mbti) || other.mbti == mbti) &&
-            (identical(other.rmGrade, rmGrade) || other.rmGrade == rmGrade) &&
-            (identical(other.rmAge, rmAge) || other.rmAge == rmAge) &&
-            (identical(other.rmSleepTime, rmSleepTime) ||
-                other.rmSleepTime == rmSleepTime) &&
-            (identical(other.rmWakeUpTime, rmWakeUpTime) ||
-                other.rmWakeUpTime == rmWakeUpTime) &&
             (identical(other.rmRefrigerator, rmRefrigerator) ||
                 other.rmRefrigerator == rmRefrigerator) &&
             (identical(other.rmWifi, rmWifi) || other.rmWifi == rmWifi) &&
             (identical(other.rmSnoring, rmSnoring) ||
                 other.rmSnoring == rmSnoring) &&
-            (identical(other.rmGrindingTeeth, rmGrindingTeeth) ||
-                other.rmGrindingTeeth == rmGrindingTeeth) &&
             (identical(other.rmSmoking, rmSmoking) ||
                 other.rmSmoking == rmSmoking) &&
             (identical(other.rmMbti, rmMbti) || other.rmMbti == rmMbti) &&
@@ -578,14 +485,9 @@ class _$RMSubmitModelImpl implements _RMSubmitModel {
         sleepTime,
         wakeUpTime,
         mbti,
-        rmGrade,
-        rmAge,
-        rmSleepTime,
-        rmWakeUpTime,
         rmRefrigerator,
         rmWifi,
         rmSnoring,
-        rmGrindingTeeth,
         rmSmoking,
         rmMbti,
         room,
@@ -616,14 +518,9 @@ abstract class _RMSubmitModel implements RMSubmitModel {
       final bool sleepTime,
       final bool wakeUpTime,
       final bool mbti,
-      final bool rmGrade,
-      final bool rmAge,
-      final bool rmSleepTime,
-      final bool rmWakeUpTime,
       final bool rmRefrigerator,
       final bool rmWifi,
       final bool rmSnoring,
-      final bool rmGrindingTeeth,
       final bool rmSmoking,
       final bool rmMbti,
       final bool room,
@@ -655,21 +552,11 @@ abstract class _RMSubmitModel implements RMSubmitModel {
   @override
   bool get mbti;
   @override
-  bool get rmGrade;
-  @override
-  bool get rmAge;
-  @override
-  bool get rmSleepTime;
-  @override
-  bool get rmWakeUpTime;
-  @override
   bool get rmRefrigerator;
   @override
   bool get rmWifi;
   @override
   bool get rmSnoring;
-  @override
-  bool get rmGrindingTeeth;
   @override
   bool get rmSmoking;
   @override

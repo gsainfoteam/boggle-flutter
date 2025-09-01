@@ -21,16 +21,11 @@ class RMModel with _$RMModel {
     DateTime? sleepTime,
     DateTime? wakeUpTime,
     String? mbti,
-    required String rmGrade,
-    required int rmAge,
-    DateTime? rmSleepTime,
-    DateTime? rmWakeUpTime,
+    required bool rmRefrigerator,
+    required bool rmWifi,
     required bool rmSnoring,
-    required bool rmGrindingTeeth,
     required bool rmSmoking,
-    //required bool rmRefrigerator,
-    //required bool rmWifi,
-    //required String rmMbti,
+    required String rmMbti,
   }) = _RMModel;
 
   factory RMModel.fromJson(Map<String, dynamic> json) =>
